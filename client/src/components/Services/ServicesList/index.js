@@ -17,14 +17,10 @@ const ServicesList = (props) => {
     const [height, setHeight] = useState()
     const serRef = useRef()
 
+    // console.log(height)
+
     useEffect(() => {
         let isSubscribed = true
-
-        const heightHandler = () => {
-            setHeight(serRef.current.offsetHeight)
-        }
-
-        heightHandler()
 
         window.addEventListener('scroll', () => {
             if( serRef && window.scrollY > 800 && window.scrollY < (height + 760) ) {
@@ -38,6 +34,12 @@ const ServicesList = (props) => {
                 setOffset(false)
             }
         })
+
+        const heightHandler = () => {
+            setHeight(serRef.current.offsetHeight)
+        }
+
+        heightHandler()
 
         return () => (isSubscribed = false)
     }, [height])

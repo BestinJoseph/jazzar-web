@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { Box } from '@material-ui/core'
 
 import HomeSlider from './HomeSlider'
-// import Client from './Clients'
+import Client from './Clients'
 import HomeAbout from './HomeAbout'
 import HomeProjects from './HomeProjects'
 import HomeServices from './HomeServices'
@@ -22,6 +22,7 @@ export default () => {
                 <HomeProjects />
                 <HomeServices />
                 <HomeDownload />
+                <Client />
                 <History />
             </Box>
         </Fragment>
