@@ -3,8 +3,9 @@ import { Container, Box, Typography, Grid, Paper, List, ListItem } from '@materi
 import React from 'react'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
+import PhoneIcon from '@material-ui/icons/Phone'
 
-import useStyles from '../../styles/layouts/Footer'
+import useStyles from './FooterStyles'
 
 const Footer = () => {
     const classes = useStyles()
@@ -15,10 +16,10 @@ const Footer = () => {
                 <Paper className={ classNames('top') } elevation={3}>
                     <Grid container className={ classNames('hess')} justify="space-between">
                         <Grid item lg={8}>
-                            <Box className={ classNames(classes.hess, 'contain')}>
-                                <Grid container alignItems="center">
+                            <Box className={ classNames('footContact')}>
+                                <Grid container className={classNames('footContactContainer')}>
                                     <Grid item lg={1}>
-                                        Pho
+                                        <PhoneIcon className={classNames('phoneIcon')}/>
                                     </Grid>
                                     <Grid item lg={11}>
                                         <Typography variant="h6">Ready to speak with a marketing expert? Give us a ring</Typography>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { MuiThemeProvider, createMuiTheme} from '@material-ui/core'
+import { MuiThemeProvider } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { BrowserRouter as Router } from 'react-router-dom'
 import './i18n/index'
@@ -11,18 +11,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
 
 import {store, persistor} from './store'
-import { AlmaraiLight, AlmaraiRegular, AlmaraiBold, AlmaraiExtraBold } from './globalFonts'
-
-const theme = createMuiTheme({
-  language: {
-    ara: {
-      fontFamily: "'Almarai', sans-serif",
-      color: 'red',
-    }
-  },
-})
-
-console.log(theme)
+import theme from './indexStyles'
 
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>

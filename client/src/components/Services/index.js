@@ -1,14 +1,16 @@
 import React from 'react'
 import { Box } from '@material-ui/core'
 
-import IndexSection from './IndexSection'
+import ServicesBanner from './ServicesBanner'
 import ServicesList from './ServicesList'
+import History from '../History'
 
 const Services = () => {
   return (
     <Box>
-      <IndexSection />
+      <ServicesBanner />
       <ServicesList />
+      <History />
     </Box>
   )
 }

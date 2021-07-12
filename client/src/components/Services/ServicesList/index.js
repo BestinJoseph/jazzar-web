@@ -1,17 +1,46 @@
-import React from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import { useHistory } from 'react-router'
 import { Box, Button, Container, Grid, Typography } from '@material-ui/core'
 import classNames from 'classnames'
 
-import useStyles from '../../styles/ServicesStyles/ServicesListStyles'
-import geotechnical from '../../assets/images/services/ojce_geo.jpg'
-import material from '../../assets/images/services/ojce_mat.jpg'
+import useStyles from './ServicesListStyles'
+import geotechnical from '../../../assets/images/services/ojce_geo.jpg'
+import material from '../../../assets/images/services/ojce_mat.jpg'
 import { useTranslation } from 'react-i18next'
 
 const ServicesList = (props) => {
     const classes = useStyles()
     const history = useHistory()
     const { i18n } = useTranslation()
+    const [ offset, setOffset] = useState(false)
+    const [ onset, setOnset] = useState(false)
+    const [height, setHeight] = useState()
+    const serRef = useRef()
+
+    useEffect(() => {
+        let isSubscribed = true
+
+        const heightHandler = () => {
+            setHeight(serRef.current.offsetHeight)
+        }
+
+        heightHandler()
+
+        window.addEventListener('scroll', () => {
+            if( serRef && window.scrollY > 800 && window.scrollY < (height + 760) ) {
+                setOffset(true)
+                setOnset(false)
+            } else if ( serRef && window.scrollY > (height + 760) && isSubscribed ) {
+                setOnset(true)
+                setOffset(false)
+            } else {
+                setOffset(false)
+                setOffset(false)
+            }
+        })
+
+        return () => (isSubscribed = false)
+    }, [height])
 
     const handleClick = () => {
         history.push('/services/1')
@@ -43,8 +72,10 @@ const ServicesList = (props) => {
                             <Button className={classNames('itemBtn')} onClick={() => handleClick()}>view more</Button>
                         </Box>
                     </Grid>
-                    <Grid item lg={5}>
-                        List of some informations......
+                    <Grid item lg={5} ref={serRef} className={classNames('rightServiceContainer')}>
+                        <Box className={classNames(i18n.language === 'en' ? `${ offset ?  'static' : ''} ${ onset ?  'staticbase' : ''}` : `${ offset ?  'static ars' : ''} ${ onset ?  'staticbase sb' : ''}`)}>
+                            List of some informations......
+                        </Box>
                     </Grid>
                 </Grid>
             </Container>

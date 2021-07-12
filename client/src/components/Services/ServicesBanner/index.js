@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Container, Typography, Grid } from '@material-ui/core'
 import classNames from 'classnames'
 
-import useStyles from '../../styles/ServicesStyles/IndexSectionStyles'
+import useStyles from './ServiesBannerStyles'
 import { useTranslation } from 'react-i18next'
 
 const IndexSection = () => {

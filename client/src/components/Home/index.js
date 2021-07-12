@@ -3,11 +3,11 @@ import React, { Fragment } from 'react'
 import { Box } from '@material-ui/core'
 
 import HomeSlider from './HomeSlider'
-import Client from './Clients'
+// import Client from './Clients'
 import HomeAbout from './HomeAbout'
 import HomeProjects from './HomeProjects'
 import HomeServices from './HomeServices'
-import HomeHistory from './HomeHistory'
+import History from '../History'
 import HomeDownload from './HomeDownload'
 import HomePartners from './HomePartners'
 
@@ -22,8 +22,7 @@ export default () => {
                 <HomeProjects />
                 <HomeServices />
                 <HomeDownload />
-                <Client />
-                <HomeHistory />
+                <History />
             </Box>
         </Fragment>
     )

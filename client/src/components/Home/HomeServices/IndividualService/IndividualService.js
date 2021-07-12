@@ -6,6 +6,7 @@ export default makeStyles((theme) => ({
         '& .servicesItem': {
             paddingBottom: '6rem',
 
+
             '& .servicesItemIcon': {
                 width: '7rem',
                 height: '7rem',
@@ -73,6 +74,10 @@ export default makeStyles((theme) => ({
             [theme.breakpoints.down(412)]: {
                 paddingBottom: '2rem',
             },
+
+            '&:lastChild': {
+                paddingBottom: '0',
+            }
         },
     }
 }))

@@ -6,7 +6,7 @@ import useStyles from '../../styles/AboutStyles/index'
 import TopSection from './TopSection'
 import Glance from './Glance'
 import Certifications from './Cerifications'
-import History from './History'
+import History from '../History'
 
 export default () => {
     const classes = useStyles()

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import {  Grid, Box, Typography, List, ListItem } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 
@@ -17,14 +16,16 @@ const HomeServices = () => {
     const [ services, setServices] = useState([{name: 'Geotechnical', code: 'GEO'}, {name: 'Material', code: 'MAT'}])
     const [height, setHeight] = useState()
 
+    // console.log(serRef)
+
     useEffect(() => {
         let isSubscribed = true
 
         window.addEventListener('scroll', () => {
-            if( serRef && window.scrollY > 3453 && window.scrollY < 5013 ) {
+            if( serRef && window.scrollY > 3500 && window.scrollY < (height + 2900) ) {
                 setOffset(true)
                 setOnset(false)
-            } else if ( serRef && window.scrollY > 4730 && isSubscribed ) {
+            } else if ( serRef && window.scrollY > (height + 2901) && isSubscribed ) {
                 setOnset(true)
                 setOffset(false)
             } else {
@@ -33,8 +34,14 @@ const HomeServices = () => {
             }
         })
 
+        const heightHandler = () => {
+            setHeight(serRef.current.offsetHeight)
+        }
+
+        heightHandler()
+
         return () => ( isSubscribed = false )
-    },[offset])
+    },[height])
 
     return (
         <Box className={classes.services}>
