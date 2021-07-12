@@ -1,0 +1,16 @@
+{
+    "fCName": "Omar Jazzar",
+    "sCName": "Consulting Engineers",
+    "oLang": "عربى",
+    "cNo": "800 120 1523",
+    "get_proposal": "Pre-Qualification",
+    "slider_content": "Propel your business to new heights with our award-winning digital marketing services and technology platform.",
+    "about_home": "Ready To Grow? Get Your Free Proposal Today",
+    "about_home_inner": "Our digital marketing experts have put together thousands of successful digital marketing campaigns for businesses looking to increase leads, phone calls, transactions, and qualified website traffic. They’ll do the same for you. Request a free strategy proposal and experience why elite revenue generation.",
+    "about_home_explain": "Our tech-enabled marketing services help your business grow online leads, calls, and revenue.",
+    "about_home_explain_content": "Combining our technology platform and our expert digital marketing team gives you an unfair advantage over your competition. As a leader in SEO, PPC, social, marketplaces, and web design services, our firm prides itself on driving qualified traffic, converting visitors, and using cutting-edge technology measuring effectiveness to deliver real results for our clients. / Don't just take our word for it. We have an ever-expanding trophy cabinet for our web design, SEO, and digital marketing work. Get in touch with our team today to experience what makes WebFX stand apart from other digital agencies.",
+    "project_home": "Most Popular Projects",
+    "services_home": "How Al Jazzar Create Reliable Consulting",
+    "services_types": ["Geotechnical Investigation", "Material Testing", "Chemical Analysis", "Survey GIS", "Geophysics and Hydrology", "Calibration and Maintenance"],
+    "navigations": [{"name": "home", "link": ""}, { "name": "about", "link": "about"}, {"name": "service", "link": "services"}, {"name": "project", "link": "projects"}, {"name": "contact", "link": "contacts"}]
+}

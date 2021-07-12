@@ -1,0 +1,23 @@
+{
+  "name": "jazzar-web",
+  "version": "1.0.0",
+  "description": "jazzar website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others-on-fail \"cd server && npm start\" \"cd client && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://ojce-web.herokuapp.com/"
+  },
+  "keywords": [
+    "jazzar",
+    "website"
+  ],
+  "author": "bestin",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}
