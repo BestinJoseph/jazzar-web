@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Box } from '@material-ui/core'
+import { Box, Typography } from '@material-ui/core'
 import Slider from 'react-slick'
 import classNames from 'classnames'
 import _ from 'lodash'
@@ -55,9 +55,13 @@ const ProjectLists = () => {
 
             <Box className={classNames('sliderContainer')}>
                 <Slider {...settings}>
-                    { projects && projects.map( (item, id) => (
-                        <ProjectSlide index={item._id} item={item} key={id}/>
-                    ))}
+                    { projects.length === 0 ? 
+                        <Typography>No Projects Found / Fetching Projects</Typography> 
+                    : 
+                        projects && projects.map( (item, id) => (
+                            <ProjectSlide index={item._id} item={item} key={id}/>
+                        ))
+                    }
                 </Slider>
             </Box>
             <Box style={{ marginTop: '0rem'}}>
