@@ -17,6 +17,8 @@ const Popular = () => {
     const { projects } = useSelector( state => state.projects )
     const popularProjects = projects && projects.slice(0, 5)
 
+    console.log(projects)
+
     return (
         <Container className={classes.popular}>
             <img src={Zigzag} alt="svg zig zag" className={classNames(i18n.language === 'en' ? 'abstract_zig_zag_top' : 'abstract_zig_zag_top arZZ')} />
