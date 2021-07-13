@@ -17,7 +17,7 @@ const Popular = () => {
     const { projects: { projects } } = useSelector( state => state.projects )
     const popularProjects = projects && projects.slice(0, 5)
 
-    console.log(i18n.language)
+    console.log(projects)
 
     return (
         <Container className={classes.popular}>

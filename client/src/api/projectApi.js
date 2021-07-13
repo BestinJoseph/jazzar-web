@@ -1,3 +1,3 @@
 import axios from 'axios'
 
-export const fetchProjects = () => axios.get('projects')
+export const fetchProjects = () => axios.get('/projects')

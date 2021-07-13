@@ -12,7 +12,7 @@ import HomeDownload from './HomeDownload'
 import HomePartners from './HomePartners'
 
 export default () => {
-
+    
     return (
         <Fragment>
             <Box style={{ height: '100%' }}>
