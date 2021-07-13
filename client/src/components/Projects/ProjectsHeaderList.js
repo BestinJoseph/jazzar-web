@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import useStyles from './ProjectsStyles'
 
-const ProjectsHeaderList = ({setType, handleSelect, index}) => {
+const ProjectsHeaderList = ({setType}) => {
     const classes = useStyles()
     const projectTypes = [ 'Tower', 'Univesity', 'Dam', 'Housing' ]
 

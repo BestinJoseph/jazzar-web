@@ -2,7 +2,7 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types';
 import { Box, Button, Grid, Typography, useScrollTrigger, Slide } from '@material-ui/core'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from '../../../assets/images/logo.png'
 import classNames from 'classnames';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -13,7 +13,6 @@ import useStyles from './HeaderStyles'
 
 export default (props) => {
     const classes = useStyles()
-    const history = useHistory()
     const nav = useRef()
     const {t, i18n} = useTranslation()
 
@@ -49,10 +48,6 @@ export default (props) => {
     ElevationOnScroll.prototype = {
         children: PropTypes.element.isRequired,
         window: PropTypes.func
-    }
-
-    const handleProposalLink = () => {
-        history.push('/proposal')
     }
 
     const handleOpenMenu = () => {

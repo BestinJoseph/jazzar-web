@@ -1,8 +1,5 @@
 import { makeStyles } from '@material-ui/core'
 
-import { AlmaraiLight, AlmaraiBold, AlmaraiExtraBold } from '../../../globalFonts'
-import AlmaraiRegular from '../../../assets/fonts/Almarai-Regular.ttf'
-
 export default makeStyles((theme) => (
     {
         slider: (props) => ({

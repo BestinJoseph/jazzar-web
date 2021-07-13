@@ -51,7 +51,7 @@ const ProjectLists = () => {
 
     return (
         <Box className={classes.popular}>
-            <ProjectsHeaderList handleSelect={handleSelect} setType={setType} />
+            <ProjectsHeaderList handleSelect={handleSelect} setType={setType} index={index} type={type} />
 
             <Box className={classNames('sliderContainer')}>
                 <Slider {...settings}>

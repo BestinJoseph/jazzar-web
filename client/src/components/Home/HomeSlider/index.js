@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, Grid, Typography, Button } from '@material-ui/core'
+import { Box, Container, Grid, Typography } from '@material-ui/core'
 import classNames from 'classnames'
 import { useTranslation } from 'react-i18next'
 import GetAppIcon from '@material-ui/icons/GetApp';

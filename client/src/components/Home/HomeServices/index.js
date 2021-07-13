@@ -13,7 +13,7 @@ const HomeServices = () => {
     const serRef = useRef()
     const [ offset, setOffset] = useState(false)
     const [ onset, setOnset] = useState(false)
-    const [ services, setServices] = useState([{name: 'Geotechnical', code: 'GEO'}, {name: 'Material', code: 'MAT'}])
+    const [ services ] = useState([{name: 'Geotechnical', code: 'GEO'}, {name: 'Material', code: 'MAT'}])
     const [height, setHeight] = useState()
 
     // console.log(serRef)

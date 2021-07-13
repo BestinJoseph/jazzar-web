@@ -1,7 +1,5 @@
 import {createMuiTheme} from '@material-ui/core'
 
-import { AlmaraiLight, AlmaraiRegular, AlmaraiBold, AlmaraiExtraBold } from './globalFonts'
-
 export default createMuiTheme({
     language: {
       arb: {
