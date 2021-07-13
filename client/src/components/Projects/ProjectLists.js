@@ -19,6 +19,8 @@ const ProjectLists = () => {
     const [type, setType] = useState(0)
     const [numb] = useState(7)
 
+    console.log(projects.length)
+
     useEffect(() => {
         setItem(projects[0])
     }, [projects])
@@ -55,7 +57,7 @@ const ProjectLists = () => {
 
             <Box className={classNames('sliderContainer')}>
                 <Slider {...settings}>
-                    { projects.length === 0 ? 
+                    { projects && projects.length === 0 ? 
                         <Typography>No Projects Found / Fetching Projects</Typography> 
                     : 
                         projects && projects.map( (item, id) => (
