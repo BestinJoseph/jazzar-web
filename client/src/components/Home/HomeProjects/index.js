@@ -14,10 +14,8 @@ import ConeShape from '../../../assets/images/cone_shape_abstract_yellow.svg'
 const Popular = () => {
     const classes = useStyles()
     const {t, i18n} = useTranslation()
-    const { projects: { projects } } = useSelector( state => state.projects )
+    const { projects } = useSelector( state => state.projects )
     const popularProjects = projects && projects.slice(0, 5)
-
-    console.log(projects)
 
     return (
         <Container className={classes.popular}>

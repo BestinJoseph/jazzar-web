@@ -15,8 +15,8 @@ const ProjectLists = () => {
     const classes = useStyles()
     const [index, setIndex] = useState(1)
     const [item, setItem] = useState({})
-    const { projects : { projects} } = useSelector( state => state.projects )
     const [type, setType] = useState(0)
+    const { projects } = useSelector( state => state.projects )
     const [numb] = useState(7)
 
     console.log(projects)

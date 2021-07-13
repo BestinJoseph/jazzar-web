@@ -7,9 +7,9 @@ const __dirname = path.resolve()
 export const getProjects =  async (req, res) => {
     try {
         const data = await Project.find()
-        res.json({projects: data})
+        res.status(200).json({data})
     } catch (err) {
-        res.json({ error: err.message })
+        res.status(400).json({ error: err.message })
     }
 }
 
