@@ -12,7 +12,7 @@ dotenv.config()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({origin: ['https://cocky-lumiere-90393c.netlify.app', 'http://localhost:3000']}))
+app.use(cors({origin: ['https://infallible-feynman-a382a9.netlify.app', 'http://localhost:3000']}))
 
 app.use(express.static(path.join(__dirname, 'public')))
 
