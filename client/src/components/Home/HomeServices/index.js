@@ -6,6 +6,7 @@ import useStyles from './HomeServicesStyle'
 import classNames from 'classnames'
 import serviceImg from '../../../assets/images/services.JPG'
 import IndividualService from './IndividualService'
+import { useSelector } from 'react-redux'
 
 const HomeServices = () => {
     const classes = useStyles()
@@ -13,16 +14,14 @@ const HomeServices = () => {
     const serRef = useRef()
     const [ offset, setOffset] = useState(false)
     const [ onset, setOnset] = useState(false)
-    const [ services ] = useState([{name: 'Geotechnical', code: 'GEO'}, {name: 'Material', code: 'MAT'}])
     const [height, setHeight] = useState()
-
-    // console.log(serRef)
+    const { services } = useSelector( state => state.services )
 
     useEffect(() => {
         let isSubscribed = true
 
         window.addEventListener('scroll', () => {
-            if( serRef && window.scrollY > 3500 && window.scrollY < (height + 2900) ) {
+            if( serRef && window.scrollY > 3500 && window.scrollY < (height + 2900) && isSubscribed) {
                 setOffset(true)
                 setOnset(false)
             } else if ( serRef && window.scrollY > (height + 2901) && isSubscribed ) {
@@ -35,7 +34,9 @@ const HomeServices = () => {
         })
 
         const heightHandler = () => {
-            setHeight(serRef.current.offsetHeight)
+            if( isSubscribed ) {
+                setHeight(serRef.current.offsetHeight)
+            }
         }
 
         heightHandler()

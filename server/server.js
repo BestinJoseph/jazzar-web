@@ -1,9 +1,11 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import project from './routes/project.js'
 import cors from 'cors'
 import path from 'path'
 import dotenv from 'dotenv'
+
+import project from './routes/project.js'
+import service from './routes/services.js'
 
 const app = express()
 const __dirname = path.resolve()
@@ -21,6 +23,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/projects', project)
+app.use('/api/services', service)
 
 const port = process.env.PORT || 8000
 const db = process.env.DB_URI

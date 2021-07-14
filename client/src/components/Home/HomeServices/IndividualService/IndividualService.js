@@ -6,16 +6,16 @@ export default makeStyles((theme) => ({
         '& .servicesItem': {
             paddingBottom: '6rem',
 
-
             '& .servicesItemIcon': {
                 width: '7rem',
                 height: '7rem',
                 borderRadius: '3.5rem',
-                color: 'white',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 marginBottom: '2rem',
+                fontSize: '2rem',
+                fontWeight: '700',
 
                 [theme.breakpoints.down(412)]: {
                     marginBottom: '1rem',

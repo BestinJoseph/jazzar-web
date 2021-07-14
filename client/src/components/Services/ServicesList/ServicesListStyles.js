@@ -53,19 +53,21 @@ export default makeStyles((theme) => (
                             },
     
                             '& .itemTitle': {
-                                fontWeight: '900',
+                                fontWeight: '700',
                                 fontSize: '2rem',
                                 letterSpacing: '-0.15rem',
                                 marginBottom: '1.5rem',
+                                color: '#483a15',
                             }
                         },
     
                         '& .itemHeaderTitle': {
-                            fontWeight: '900',
-                            fontSize: '3rem',
-                            lineHeight: '3rem',
-                            letterSpacing: '-0.15rem',
-                            marginBottom: '2rem',
+                            fontWeight: '700',
+                            fontSize: '1.5rem',
+                            lineHeight: '1.75rem',
+                            letterSpacing: '0rem',
+                            marginBottom: '1.5rem',
+                            color: '#b89535'
                         },
     
                         '& .itemBody': {
@@ -75,13 +77,16 @@ export default makeStyles((theme) => (
                         },
     
                         '& .itemBtn': {
-                            background: '#26B16D',
-                            color: 'white',
-                            padding: '0.5rem 1.5rem',
-                            fontSize: '1.15rem',
+                            marginTop: '0.5rem',
+                            background: '#b89535',
+                            color: '#483a15',
+                            padding: '1.25rem',
+                            fontSize: '1.1rem',
+                            fontWeight: '700',
+                            borderRadius: '0rem',
     
                             '&:hover': {
-                                background: '#1d8753',
+                                background: '#90752a',
                             }
                         }
                     }
@@ -137,7 +142,7 @@ export default makeStyles((theme) => (
     
                         '& .itemHeaderTitle': {
                             fontWeight: '900',
-                            fontSize: '3rem',
+                            fontSize: '2rem',
                             lineHeight: '3rem',
                             letterSpacing: '-0.15rem',
                             marginBottom: '2rem',

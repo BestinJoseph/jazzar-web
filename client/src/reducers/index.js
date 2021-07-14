@@ -1,7 +1,8 @@
 import { combineReducers  } from 'redux'
-import projects from '../reducers/projects'
-import project from '../reducers/project'
+import projects from './projects'
+import project from './project'
+import services from './services'
 
 export default combineReducers ({
-    projects, project
+    projects, project, services
 })

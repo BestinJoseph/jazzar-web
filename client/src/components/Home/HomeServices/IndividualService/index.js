@@ -16,11 +16,11 @@ const IndividualService = ({ service }) => {
     return (
         <Box className={classes.individualService} ref={inRef}>
             <Box className={classNames('servicesItem')}>
-                <Typography style={{ background: '#ddd'}} className={classNames('servicesItemIcon')}>GEO</Typography>
-                <Typography className={ classNames('servicesItemTitle')}>GeoTechnical Investigation</Typography>
-                <Typography className={ classNames('servicesDescription')}>Geotechnical A website without traffic is worthless, but a website with the right traffic consistently flowing can propel a business to new heights. Our marketers partner with you to identify your target market and get to work making your site more visible to your key market through our comprehensive digital marketing services.</Typography>
-                <Link to="/" className={ classNames('serviceLink')}>
-                    <Typography variant="body1" className={classNames('serviceLinkText')}>more about geotechical</Typography>
+                <Typography style={{ background: '#ddd'}} className={classNames('servicesItemIcon')}>{ service && service.abb }</Typography>
+                <Typography className={ classNames('servicesItemTitle')}>{ service && service.name }</Typography>
+                <Typography className={ classNames('servicesDescription')}>{ service && service.content.substring(0, 245) + '...' }</Typography>
+                <Link to={ `/services/${service.slug}` } className={ classNames('serviceLink') }>
+                    <Typography variant="body1" className={classNames('serviceLinkText')}>find more</Typography>
                     <ArrowForwardIosIcon fontSize="small" className={classNames('serviceLinkIcon')} />
                     <ArrowForwardIosIcon fontSize="small" className={classNames('serviceLinkIcon')} />
                 </Link>
