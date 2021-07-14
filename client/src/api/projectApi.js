@@ -1,3 +1,5 @@
 import axios from 'axios'
 
-export const fetchProjects = () => axios.get(`https://api-ojce.herokuapp.com/api/projects`)
+const url = 'https://api-ojce.herokuapp.com/api'
+
+export const fetchProjects = () => axios.get(`${url}/projects`)
