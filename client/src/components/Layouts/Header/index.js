@@ -94,7 +94,9 @@ export default (props) => {
                     <div className={classNames('nav')} ref={nav}>
                         <ul className={classNames('nav_ul')}>
                         { i18n.isInitialized && t('navigations', { returnObjects: true}).map( (nav, index) => (
-                            <NavLink to={`/${nav.link}`} activeClassName="active" exact key={index} className={classNames(`nav_ul_a ${i18n.language === 'ar' ? 'ar' : ''}`)}><li className={classNames('li')}>{ nav.name }</li></NavLink>
+                            <NavLink to={`/${nav.link}`} activeClassName="active" exact key={index} className={classNames(`nav_ul_a ${i18n.language === 'ar' ? 'ar' : ''}`)}>
+                                <li className={classNames('li')}>{ nav.name }</li>
+                            </NavLink>
                         )) }
                         </ul>
                         <Box className={classNames('closeBtn')} onClick={ () => handleCloseMenu() }>

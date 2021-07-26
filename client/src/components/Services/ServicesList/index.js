@@ -2,12 +2,13 @@ import React, {useEffect, useRef, useState} from 'react'
 import { useHistory } from 'react-router'
 import { Box, Button, Container, Grid, Typography } from '@material-ui/core'
 import classNames from 'classnames'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import useStyles from './ServicesListStyles'
 import geotechnical from '../../../assets/images/services/ojce_geo.jpg'
 // import material from '../../../assets/images/services/ojce_mat.jpg'
-import { useTranslation } from 'react-i18next'
+import { getOneService } from '../../../actions/services'
 
 const ServicesList = (props) => {
     const classes = useStyles()
@@ -18,6 +19,7 @@ const ServicesList = (props) => {
     const [ height, setHeight ] = useState()
     const serRef = useRef()
     const {services} = useSelector( state => state.services )
+    const dispatch = useDispatch()
 
     useEffect(() => {
         let isSubscribed = true
@@ -36,7 +38,9 @@ const ServicesList = (props) => {
         })
 
         const heightHandler = () => {
-            setHeight(serRef.current.offsetHeight)
+            if(isSubscribed) {
+                setHeight(serRef.current.offsetHeight)
+            }
         }
 
         heightHandler()
@@ -44,8 +48,9 @@ const ServicesList = (props) => {
         return () => (isSubscribed = false)
     }, [height])
 
-    const handleClick = () => {
-        history.push('/services/1')
+    const handleClick = (slug) => {
+        dispatch(getOneService(slug))
+        history.push(`/services/${slug}`)
     }
 
     return (
@@ -65,7 +70,7 @@ const ServicesList = (props) => {
                                 <Typography variant="body1" className={classNames('itemBody')}>
                                     {ser.content.split('/n')[1] }
                                 </Typography>
-                                <Button className={classNames('itemBtn')} onClick={() => handleClick()}>view more</Button>
+                                <Button className={classNames('itemBtn')} onClick={() => handleClick(ser.slug)}>view more</Button>
                             </Box>
                         ))}
                     </Grid>
