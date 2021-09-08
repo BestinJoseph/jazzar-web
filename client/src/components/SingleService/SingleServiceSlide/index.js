@@ -1,20 +1,23 @@
 import React from 'react'
 import { Box, Typography } from '@material-ui/core'
+import classNames from 'classnames'
 
 import useStyles from './SingleServiceSlideStyles'
 
-import geotechnical from '../../../assets/images/geotechnical.JPG'
-import classNames from 'classnames'
-
-const SignleServiceSlide = () => {
+const SignleServiceSlide = ({service}) => {
     const classes = useStyles()
 
     return (
         <Box className={classes.singleserviceslide}>
-            <Box className={classNames('sliderContainerServices')}>
-                <img src={geotechnical} alt="ojce" className={classNames('serviceImage')}/>
+            <Box className={classNames('sliderTitle')}>
+                <Box className={classNames('departmentTitle')}>
+                    <Typography>Department</Typography>
+                    <Typography variant="h4">{service && service.name}</Typography>
+                </Box>
             </Box>
-            <Typography variant="h6" className={classNames('sliderContentServices')}>Geotechnical</Typography>
+            <Box className={classNames('sliderContainerServices')}>
+                { service ? <img src={ service.images && service.images[0].path } alt="ojce" className={classNames('serviceImage')}/> : null }
+            </Box>
         </Box>
     )
 }

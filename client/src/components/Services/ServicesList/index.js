@@ -6,11 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
 import useStyles from './ServicesListStyles'
-import geotechnical from '../../../assets/images/services/ojce_geo.jpg'
-// import material from '../../../assets/images/services/ojce_mat.jpg'
 import { getOneService } from '../../../actions/services'
 
-const ServicesList = (props) => {
+const ServicesList = () => {
     const classes = useStyles()
     const history = useHistory()
     const { i18n } = useTranslation()
@@ -18,17 +16,16 @@ const ServicesList = (props) => {
     const [ onset, setOnset ] = useState(false)
     const [ height, setHeight ] = useState()
     const serRef = useRef()
+    const _isUnmounted = useRef(true)
     const {services} = useSelector( state => state.services )
     const dispatch = useDispatch()
 
     useEffect(() => {
-        let isSubscribed = true
-
         window.addEventListener('scroll', () => {
-            if( serRef && window.scrollY > 800 && window.scrollY < (height + 760) ) {
+            if( serRef && window.scrollY > 540 && window.scrollY > (height + 1000) ) {
                 setOffset(true)
                 setOnset(false)
-            } else if ( serRef && window.scrollY > (height + 760) && isSubscribed ) {
+            } else if ( serRef && window.scrollY > 240 && window.scrollY < (height + 1000) ) {
                 setOnset(true)
                 setOffset(false)
             } else {
@@ -37,20 +34,19 @@ const ServicesList = (props) => {
             }
         })
 
-        const heightHandler = () => {
-            if(isSubscribed) {
-                setHeight(serRef.current.offsetHeight)
-            }
-        }
-
         heightHandler()
 
-        return () => (isSubscribed = false)
+        return () => { _isUnmounted.current = false }
     }, [height])
 
+    const heightHandler = () => {
+        if(_isUnmounted) {
+            setHeight(serRef.current.offsetHeight)
+        }
+    }
+
     const handleClick = (slug) => {
-        dispatch(getOneService(slug))
-        history.push(`/services/${slug}`)
+        dispatch(getOneService(slug, history))
     }
 
     return (
@@ -64,12 +60,9 @@ const ServicesList = (props) => {
                             <Box className={classNames('servicesListItems')} key={index}>
                                 <Box className={classNames('itemTitleContainer')}>
                                     <Typography variant="h5" className={classNames('itemTitle')}>{index+1}. {ser.name}</Typography>
-                                    <img src={geotechnical} alt="Geotechnical investigation" className={classNames('itemImage')} />
+                                    <img src="false" alt={ser && ser.name} className={classNames('itemImage')} />
                                 </Box>
                                 <Typography variant="h3" className={classNames('itemHeaderTitle')}>{ ser.subtitle }</Typography>
-                                <Typography variant="body1" className={classNames('itemBody')}>
-                                    {ser.content.split('/n')[1] }
-                                </Typography>
                                 <Button className={classNames('itemBtn')} onClick={() => handleClick(ser.slug)}>view more</Button>
                             </Box>
                         ))}

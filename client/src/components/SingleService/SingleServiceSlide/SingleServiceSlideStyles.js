@@ -2,29 +2,38 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles((theme) => ({
     singleserviceslide: {
-        height: '20rem',
+        height: '35rem',
         width: '100%',
         overflow: 'hidden',
         position: 'relative',
+        display: 'flex',
 
         '& .sliderContainerServices': {
-            width: '100%',
+            width: '50%',
+            textAlign: 'center', 
+            verticalAlign: 'center',
 
             '& .serviceImage': {
                 objectPosition: 'center center',
+                height: 'auto',
+                width: '100%',
             }
         },
 
-        '& .sliderContentServices': {
-            position: 'absolute',
-            left: '17.5%',
-            bottom: '5rem',
-            zIndex: '10rem',
-            fontSize: '2rem',
-            fontWeight: '700',
-            color: '#4f3a3c',
-            padding: '0 1rem',
-            background: 'gold',
+        '& .sliderTitle': {
+            width: '50%',
+            background: '#483a15',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
+            position: 'relative',
+
+            '& .departmentTitle': {
+                position: 'absolute',
+                width: '65%',
+                right: '0rem',
+            }
         }
     }
 }))

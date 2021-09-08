@@ -44,6 +44,8 @@ const HomeServices = () => {
         return () => ( isSubscribed = false )
     },[height])
 
+    // console.log(services)
+
     return (
         <Box className={classes.services}>
             <Grid container>

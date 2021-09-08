@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core"
 
 export default makeStyles((theme) => ({
     singleServiceImages: {
-        background: 'gold',
+        // background: 'gold',
         height: '100%',
         margin: '0 auto',
         display: 'grid',
@@ -11,18 +11,37 @@ export default makeStyles((theme) => ({
         justifyContent: 'center',
 
         '& .imageContainer': {
-            backgroundColor: 'red',
             gridRowEnd: 'span 60',
-            transition: 'background-color 2s ease-out',
+            transition: 'all 2s ease-out',
+            overflow: 'hidden',
+            position: 'relative',
+
+            '& .serviceDisplayImage': {
+                width: 'auto',
+                height: '100%',
+                position: 'absolute',
+                zIndex: '-1',
+                top: '0',
+                left: '0',
+                transition: '2s ease-out',
+            },
 
             '& .imageText': {
                 display: 'none',
                 padding: '2rem',
-                transition: 'all 5s ease-out',
+                transition: '5s ease-out',
+                color: 'white',
+                bottom: '0',
+                left: '0',
+                position: 'absolute',
             },
 
             '&:hover': {
-                backgroundColor: 'green',
+                backgroundColor: '#00000090',
+
+                '& .serviceDisplayImage': {
+                    transform: 'scale(1.10)'
+                },
 
                 '& .imageText': {
                     display: 'block',

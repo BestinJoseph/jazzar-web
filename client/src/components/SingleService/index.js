@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { Box } from '@material-ui/core'
 import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
+import _ from 'lodash'
 
 import SingleServiceSlide from './SingleServiceSlide'
 import SingleServiceContent from './SingleServiceContent'
@@ -9,26 +11,32 @@ import SingleServiceImages from './SingleServiceImages'
 
 const SingleService = (props) => {
   const { services } = useSelector(state => state.services)
-  const [service, setService] = useState()
-  const slug = props.match.params.slug
+  const [service, setService] = useState({})
+  const location = useLocation()
+  const _isUnmounted = useRef(true)
 
-  // console.log(props.match.params.slug)
-  
+  const slug = new URLSearchParams(location.search).get('slug')
+
   useEffect( () => {
-    let isSubscribed = true
-
-    if(isSubscribed && services.length > 0 ) {
-      setService(Object.assign({}, ...services.filter( ser => ser.slug === slug)))
+    if(_isUnmounted && services.length > 0) {
+      setService(services.find( ser => ser.slug === slug))
     }
 
-    return () => isSubscribed = false
+    return () => { _isUnmounted.current = false }
   }, [services, slug])
 
   return (
     <Box>
-      <SingleServiceSlide />
-      <SingleServiceContent service={service}/>
-      <SingleServiceImages />
+      {
+        _.isEmpty(service) ? 
+          null
+        : 
+        <Fragment>
+          <SingleServiceSlide service={service}/>
+          <SingleServiceContent service={service}/>
+          <SingleServiceImages service={service}/>
+        </Fragment>
+      }
       <History />
     </Box>
   )

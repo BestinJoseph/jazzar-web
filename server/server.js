@@ -1,33 +1,39 @@
+import dotenv from 'dotenv'
+if(process.env.NODE_ENV !== 'production') {
+    dotenv.config()
+}
+
 import express from 'express'
-import mongoose from 'mongoose'
 import cors from 'cors'
 import path from 'path'
-import dotenv from 'dotenv'
+import passport from 'passport'
+import cookieParser from 'cookie-parser'
 
 import project from './routes/project.js'
 import service from './routes/services.js'
+import contact from './routes/contact.js'
+import user from './routes/user.js'
+import './strategies/JwtStrategy.js'
+import './strategies/LocalStrategy.js'
+import './utils/authentication.js'
+import './database.js'
 
 const app = express()
+const port = process.env.PORT || 8000
 const __dirname = path.resolve()
-
-dotenv.config()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser(process.env.COOKIE_SECRET))
 app.use(cors({origin: ['https://infallible-feynman-a382a9.netlify.app', 'http://localhost:3000']}))
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(passport.initialize())
 
-app.get('/', (req, res) => {
-    res.send('Its started working.')
-})
+app.use('/images', express.static(path.join(__dirname, 'public/uploads')))
 
 app.use('/api/projects', project)
 app.use('/api/services', service)
+app.use('/api/contacts', contact)
+app.use('/api/users', user)
 
-const port = process.env.PORT || 8000
-const db = process.env.DB_URI
-
-mongoose.connect( db, {useNewUrlParser: true, useUnifiedTopology: true, 'useCreateIndex': true, useFindAndModify: false})
-mongoose.connection.once('open', () => app.listen( port, () => { console.log('app running on port ', port)}))
-mongoose.connection.on('error', console.error.bind(console, 'connection error: '))
+app.listen( port, () => console.log('Server on', port) )

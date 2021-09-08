@@ -15,9 +15,7 @@ const IndexSection = () => {
                 <Typography variant="h4" className={classNames('servicesTitle')}>OJCO Services that Grow <span>Traffic and Increase Revenue</span></Typography>
                 <Grid container>
                     <Grid item lg={6} className={classNames( i18n.language === 'en' ? 'servicesLeftContainer' : 'servicesLeftContainer_arb')}>
-                        <Typography variant="body1" className={classNames('servicesTopBody')}>If you're looking for serious business growth, SEO, or search engine optimization is the strategy for you. Why does it work? Simple! It targets the users that are most likely to convert on your website, and takes them there.</Typography>
-                        <Typography variant="body1" className={classNames('servicesTopBody')}>If you're looking for serious business growth, SEO, or search engine optimization is the strategy for you. Why does it work? Simple! It targets the users that are most likely to convert on your website, and takes them there.</Typography>
-                        <Typography variant="body1" className={classNames('servicesTopBody')}>If you're looking for serious business growth, SEO, or search engine optimization is the strategy for you. Why does it work? Simple! It targets the users that are most likely to convert on your website, and takes them there.</Typography>
+                        <Typography variant="body1" className={classNames('servicesTopBody')}>some introduction about services goes here...</Typography>
                     </Grid>
                     <Grid item lg={6} className={classNames( i18n.language === 'en' ? 'servicesRightContainer' : 'servicesRightContainer_arb')}>
                         <Box className={classNames('rightContainer')}>

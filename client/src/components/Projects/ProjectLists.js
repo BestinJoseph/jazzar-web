@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import classNames from 'classnames'
 import _ from 'lodash'
 import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
 import { NextProArrow, PrevProArrow } from '../Helpers/ProArrow'
 import useStyles from '../../styles/ProjectStyles/PopularStyles'
@@ -18,23 +19,37 @@ const ProjectLists = () => {
     const [item, setItem] = useState({})
     const [type, setType] = useState(0)
     const { projects } = useSelector( state => state.projects )
-    const [numb] = useState(7)
+    const [numb] = useState(2)
     const dispatch = useDispatch()
+    const { search } = useLocation()
+    const searchParams = new URLSearchParams(search)
 
-    // console.log(projects)
+    const id = searchParams.get('id')
+    // console.log(id)
 
     useEffect(() => {
         let isSubscribed = true
+
         const handler = () => {
             if( isSubscribed ) {
                 dispatch(getProjects())
             }
         }
+
+        if(projects.length > 0 && isSubscribed && _.isEmpty(item) && !!id) {
+            const projectIndex = projects.findIndex( pro => pro._id === id)
+            setItem(projects[projectIndex])
+        } else if(projects.length > 0 && isSubscribed && _.isEmpty(item) && id === null) {
+            setItem(projects[0])
+        }
+
         handler()
+
         return () => { isSubscribed = false }
-    }, [dispatch])
+    }, [dispatch, projects, item, id])
 
     const settings = {
+        initialSlide: 0,
         dots: false,
         focusOnSelect: true,
         className: "center",
@@ -77,9 +92,6 @@ const ProjectLists = () => {
             </Box>
             <Box style={{ marginTop: '0rem'}}>
                 { !_.isEmpty(item) && <SingleProject item={item} /> }
-                <pre>
-                    { JSON.stringify(item, null, 2)}
-                </pre>
             </Box>
         </Box>
     )

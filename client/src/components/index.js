@@ -5,5 +5,16 @@ import Contacts from './contacts'
 import Projects from './Projects'
 import Proposal from './Proposal'
 import SingleService from './SingleService'
+import Admin from './Admin'
+import Login from './Admin/Login'
+import Register from './Admin/Register'
+import Dashboard from './Admin/Dashboard'
+import AdminLayout from './Admin/AdminLayout'
+import AdminService from './Admin/AdminService'
+import AdminServiceForm from './Admin/AdminService/AdminServiceForm'
+import AdminProject from './Admin/AdminProject'
+import AdminProjectForm from './Admin/AdminProject/AdminProjectForm'
+import AdminContact from './Admin/AdminContact'
+import RequestNotFound from './RequestNotFound'
 
-export { Home, About, Services, Contacts, Projects, Proposal, SingleService }
+export { RequestNotFound, Home, About, Services, Contacts, Projects, Proposal, SingleService, Admin, Login, Register, Dashboard, AdminLayout, AdminService, AdminServiceForm, AdminProject, AdminProjectForm, AdminContact }

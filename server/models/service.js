@@ -40,6 +40,12 @@ const serviceSchema = mongoose.Schema({
     specialized: [
         { type: String }
     ],
+    images: [
+        {
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'images'
+        }
+    ],
     arname: {
         type: String,
         unique: true,
@@ -49,16 +55,16 @@ const serviceSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    arcontent: {
-        type: String,
-        require: true
-    },
     arscope: [
         { type: String }
     ],
     arspecialized: [
         { type: String }
-    ]
+    ],
+    arcontent: {
+        type: String,
+        require: true
+    }
 }, {timestamps: true})
 
 export default mongoose.model('services', serviceSchema)

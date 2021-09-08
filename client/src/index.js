@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 import { MuiThemeProvider } from '@material-ui/core'
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { BrowserRouter as Router } from 'react-router-dom'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import './i18n/index'
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'

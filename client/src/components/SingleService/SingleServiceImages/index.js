@@ -1,28 +1,24 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { Box, Typography } from '@material-ui/core'
 
 import useStyles from './SingleServiceImagesStyles'
 import classNames from 'classnames'
 
-const SingleServiceImages = () => {
+const SingleServiceImages = ({service}) => {
     const classes = useStyles()
     const cRef = useRef()
-    const images = [{image:'', name: 'One Project'},{image:'', name: 'Two Project'},{image:'', name: 'Three Project'},{image:'', name: 'Four Project'}]
-
-    // console.log(cRef.current)
-
-    // const gridComputedStyle = window.getComputedStyle(cRef)
-    // const gridColumnCount = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length
-    // console.log(gridColumnCount)
 
     return (
         <Box className={classes.singleServiceImages} ref={cRef}>
-            { images && images.map((image, index) => (
-                <Box className={classNames('imageContainer')} key={index}>
-                    <img src="" alt="one project" />
-                    <Typography variant="body1" className={classNames('imageText')}>{ image.name }</Typography>
-                </Box>
-            ))}
+            { service.images && service.images.map((image, index) => {
+                if(index > 3) return false;
+                return (
+                    <Box className={classNames('imageContainer')} key={index}>
+                        <img src={image.path} alt="one project" className={classNames('serviceDisplayImage')}/>
+                        <Typography variant="body1" className={classNames('imageText')}>{ image.name }</Typography>
+                    </Box>
+                )
+            })}
         </Box>
     )
 }
