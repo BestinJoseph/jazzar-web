@@ -1,17 +1,27 @@
 import { Box } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect, } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import useStyles from '../../styles/ContactStyles/index'
+import useStyles from './contactsStyles'
 import Form from './Form'
 import Location from './Location'
+import { getLocationsAction } from '../../actions/locationActions'
+import History from '../History'
 
 const Contact = () => {
     const classes = useStyles()
+    const { locations } = useSelector( state => state.locations )
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      dispatch(getLocationsAction())
+    }, [dispatch])
 
     return (
       <Box className={classes.contact} >
         <Form />
-        <Location />
+        { locations ? <Location locations={locations}/> : null}
+        <History />
       </Box>
     )
 }

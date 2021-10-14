@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux';
 // import './App.scss';
 import { getProjects } from './actions/projects'
 import { getServices, reinitializeServices } from './actions/services'
+import { getLocationsAction } from './actions/locationActions';
+import { getContacts } from './actions/contactActions';
+import { getDailesAction } from './actions/dailyActions';
 import AuthRoutes from './Routers/AuthRoutes';
 import PublicRoutes from './Routers/PublicRoutes';
 import AdminRoutes from './Routers/AdminRoutes';
@@ -18,6 +21,9 @@ const App = () => {
     dispatch(reinitializeServices())
     dispatch(getProjects())
     dispatch(getServices())
+    dispatch(getLocationsAction())
+    dispatch(getContacts())
+    dispatch(getDailesAction())
   }, [dispatch, location.pathname])
 
   return (

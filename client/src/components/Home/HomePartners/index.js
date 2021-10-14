@@ -8,7 +8,7 @@ const HomePartners = () => {
     const classes = useStyles()
 
     const names = [
-        {title: "OJPAD", name: "Archeitect, Green Dome and Pre-Case"},
+        {title: "OJPAD", name: "Archeitect, Green Dome and Pre-Cast"},
         {title: "Geo", name: "Geotechnical Investigation"}, 
         {title: "Mat", name: "Material Testing"},
         {title: "Hydro", name: "Hydrogeology"}, 

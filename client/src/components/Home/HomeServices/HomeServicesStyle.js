@@ -16,6 +16,7 @@ export default makeStyles( (theme) => (
             '& .servicesLeft': {
                 position: 'relative',
                 height: '100%',
+                // border: '1px solid red',
 
                 [theme.breakpoints.down(412)]: {
                     height: '100%',
@@ -24,16 +25,16 @@ export default makeStyles( (theme) => (
                 '& .servicesListHeader': {
                     height: '100%',
                     position: 'relative',
-                    // border: '1px solid red',
+                    // border: '1px solid gold',
 
                     [theme.breakpoints.down(412)]: {
                         height: '100%',
                     },
     
                     '& .servicesListTitle': {
-                        background: '#D4EFE2',
+                        background: theme.palette.primary.main,
                         position: 'absolute',
-                        color: 'green',
+                        color: theme.palette.ajwhite.main,
                         top: '-5rem',
                         left: '-3rem',
                         right: 'auto',
@@ -78,7 +79,7 @@ export default makeStyles( (theme) => (
                         zIndex: '3',
                         top: '7.5rem',
                         width: '50rem',
-                        height: '30rem',
+                        height: '30rem',    
                         // border: '1px solid yellow',
 
                         [theme.breakpoints.down(412)]: {
@@ -91,9 +92,9 @@ export default makeStyles( (theme) => (
                 },
 
                 '& .servicesContentList': {
-                    marginTop: '25rem',
-                    position: 'absolute',
-                    top: '20rem',
+                    marginTop: '45rem',
+                    position: 'relative',
+                    // top: '40rem',
                     right: '-10rem',
                     width:'30rem',
                     // border: '1px solid orange',
@@ -123,7 +124,7 @@ export default makeStyles( (theme) => (
                 },
     
                 '& .serviceTitles': {
-                    background: '#ddd',
+                    background: theme.palette.quaternary.main,
                     padding: '7rem 0 7rem 15rem',
                     width: '100%',
                     height: '45rem',
@@ -132,8 +133,9 @@ export default makeStyles( (theme) => (
                         fontWeight: '900',
                         fontSize: '3rem',
                         width: '40rem',
-                        letterSpacing: '-0.25rem',
-                        lineHeight: '4.5rem',
+                        // letterSpacing: '-0.05rem',
+                        lineHeight: '3rem',
+                        color: theme.palette.ourgold.main
                     },
     
                     '& .servicesTitlesContent': {
@@ -142,6 +144,8 @@ export default makeStyles( (theme) => (
                         '& .servicesTitleList': {
                             padding: '.5rem 0rem',
                             fontSize: '1.25rem',
+                            color: theme.palette.secondary.main,
+                            fontWeight: '600'
                         }
                     },
 

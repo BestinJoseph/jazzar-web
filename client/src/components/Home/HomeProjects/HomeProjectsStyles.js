@@ -14,7 +14,7 @@ export default makeStyles((theme) => (
             '& .popularTitle': {
                 paddingBottom: '1rem',
                 fontWeight: '600',
-                color: '#b89535',
+                color: theme.palette.primary.main,
 
                 [theme.breakpoints.down(412)]: {
                     paddingBottom: '1rem',
@@ -39,7 +39,7 @@ export default makeStyles((theme) => (
                         fontWeight: 'bold',
                         fontSize: '2.5rem',
                         fontStyle: 'italic',
-                        color: '#b89535',
+                        color: theme.palette.secondary.main,
                     }
                 },
     
@@ -48,7 +48,7 @@ export default makeStyles((theme) => (
                     '& .title': {
                         fontWeight: 'bold',
                         fontSize: '1.25rem',
-                        color: 'grey',
+                        color: theme.palette.secondary.main,
 
                         [theme.breakpoints.down(412)]: {
                             fontSize: '1.1rem',
@@ -68,7 +68,7 @@ export default makeStyles((theme) => (
                     '& .index': {
         
                         '& .innerText': {
-                            color: 'gold',
+                            color: theme.palette.ourgold.main,
                         }
                     },
 
@@ -88,7 +88,7 @@ export default makeStyles((theme) => (
             '& .linkProject': {
                 marginTop: '2rem',
                 textDecoration: 'none',
-                color: '#b89535',
+                color: theme.palette.btncolor.main,
                 display: 'flex',
                 alignItems: 'center',
                 height: '100%',
@@ -97,6 +97,7 @@ export default makeStyles((theme) => (
                 '& .linkText': {
                     fontSize: '1.25rem',
                     marginRight: '.25rem',
+                    fontWeight: '600'
                 },
 
                 '& .arrows': {

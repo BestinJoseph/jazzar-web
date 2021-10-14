@@ -8,13 +8,25 @@ export default createMuiTheme({
     },
     palette: {
       primary: {
-        main: '#64511d',
-      },
-      main: {
-        main: '#735d21'
+        main: '#090057',
       },
       secondary: {
-        main: '#752a90',
+        main: '#57007E'
       },
+      tertiary: {
+        main: 'gray'
+      },
+      quaternary: {
+        main: '#C400C6'
+      },
+      ourgold: {
+        main: 'gold',
+      },
+      ajwhite: {
+        main: '#fff'
+      },
+      btncolor: {
+        main: '#C400C6'
+      }
     },
   })

@@ -45,6 +45,11 @@ const Dashboard = () => {
                             <Typography variant="h6">Contacts</Typography>
                         </Paper>
                     </Grid>
+                    <Grid item xs={3} style={{ cursor: 'pointer', }}>
+                        <Paper onClick={(e) => handleLink('branches', e)} style={{ height: '15rem', padding: '1rem', }}>
+                            <Typography variant="h6">Branches</Typography>
+                        </Paper>
+                    </Grid>
                 </Grid>
             </Box>
         </Box>

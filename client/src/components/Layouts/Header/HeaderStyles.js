@@ -12,7 +12,7 @@ export default makeStyles((theme) => (
         
             '& .top': {
                 display: 'none',
-                background: '#ffffff70',
+                background: theme.palette.primary.main,
                 padding: '.5rem 2rem',
                 borderBottom: '0.1rem solid #ffffff70',
 
@@ -42,7 +42,7 @@ export default makeStyles((theme) => (
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 // transition: 'all 250ms',
-                background: 'linear-gradient(to bottom, #90752a, #90752a70 50%, #90752a10 80%, #90752a00 100%)', //'#90752a', //
+                background: theme.palette.primary.main, // 'linear-gradient(to bottom, #90752a, #90752a70 50%, #90752a10 80%, #90752a00 100%)', //'#90752a', //
                 height: '3rem',
                 transition: 'all 0.5s ease',
                 transitionDuration: '700ms',
@@ -54,6 +54,7 @@ export default makeStyles((theme) => (
                 '& .logo': {
     
                     '& .image_container': {
+                        cursor: 'pointer',
     
                         '& .image_logo': {
                             width: '3rem',
@@ -207,7 +208,7 @@ export default makeStyles((theme) => (
                     '& .langBtn': {
                         fontWeight: '600',
                         fontSize: '1rem',
-                        color: 'gold',
+                        color: theme.palette.ourgold.main,
                         border: 'none',
                     }, 
     

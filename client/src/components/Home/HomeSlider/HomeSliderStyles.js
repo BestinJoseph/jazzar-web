@@ -7,7 +7,7 @@ export default makeStyles((theme) => (
             height: '100vh',
             overflow: 'hidden',
             position: 'relative',
-            background: '#664f0e',
+            background: theme.palette.primary.main,
     
             [theme.breakpoints.down(412)]: {
                 height: '100vh',
@@ -60,11 +60,11 @@ export default makeStyles((theme) => (
                     },
         
                     '& .textMain': {
-                        // fontWeight: 'bold',
-                        fontSize: '3.25rem',
-                        lineHeight: '4rem',
+                        color: theme.palette.ourgold.main,
+                        fontSize: '2.5rem',
+                        lineHeight: '3.5rem',
                         backgroungColor: 'gray',
-                        letterSpacing: '0.25rem',
+                        letterSpacing: '0.05rem',
                         opacity: '0.75',
                         textTransform: 'uppercase',
                         fontWeight: '500',
@@ -106,8 +106,8 @@ export default makeStyles((theme) => (
                                 cursor: 'pointer',
 
                                 '&:hover': {
-                                    background: '#ffffff50',
-                                    color: 'gold',
+                                    background: 'white',
+                                    color: theme.palette.ourgold.main,
                                 }
                             },
 

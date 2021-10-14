@@ -1,25 +1,21 @@
-"use strict"
 import React from 'react'
-import { Box, Typography, Grid, Paper, Breadcrumbs } from '@material-ui/core'
+import { Box, Typography, Grid, Breadcrumbs } from '@material-ui/core'
 import classNames from 'classnames'
-import { Link, useHistory } from 'react-router-dom'
-import AddIcon from '@material-ui/icons/Add'
-import EditIcon from '@material-ui/icons/Edit'
-import moment from 'moment'
+import { useHistory } from 'react-router-dom'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import HomeIcon from '@material-ui/icons/Home'
 
 import useStyles from './AdminContactStyles'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 
 const AdminContact = () => {
     const classes = useStyles()
-    const { projects } = useSelector(state => state.projects)
+    // const { projects } = useSelector(state => state.projects)
     const history = useHistory()
 
-    const handleClick = (id) => {
-        history.push({ pathname: '/admin/contacts/lists', state: {id: id}})
-    }
+    // const handleClick = (id) => {
+    //     history.push({ pathname: '/admin/contacts/lists', state: {id: id}})
+    // }
 
     return (
         <Box className={classes.admincontact}>

@@ -51,7 +51,6 @@ export const putProjectImages = async (req, res) => {
                         Project.findByIdAndUpdate(req.params.id, {$push: {images: savedImages}}, { new: true})
                             .populate({path: 'images'})
                             .exec( (err, proj) => {
-                                console.log(proj)
                                 if (err) res.status(400).json({errors: err.message})
                                 if (proj) res.status(200).json({message: 'Project Successfully Updated.', project: proj})
                             })

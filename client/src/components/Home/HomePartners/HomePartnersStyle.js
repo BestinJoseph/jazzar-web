@@ -1,7 +1,7 @@
 /* eslint-disable no-labels */
 import { makeStyles } from "@material-ui/core";
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
     partners: {
         padding: '3rem 0',
         margin: '0 auto',
@@ -19,8 +19,8 @@ export default makeStyles(() => ({
                 alignItems: 'center',
 
                 '& .titleStyle': {
-                    color: '#b89535',
-                    fontSize: '3.5rem',
+                    color: theme.palette.secondary.main,
+                    fontSize: '2.5rem',
                     fontWeight: '800',
                     margin: '0',
                     lineHeight: '4rem',
@@ -28,7 +28,7 @@ export default makeStyles(() => ({
                 },
 
                 '& .textStyle': {
-                    color: 'grey',
+                    color: theme.palette.tertiary.main,
                     fontSize: '.75rem',
                 }
             }

@@ -4,8 +4,8 @@ import PhonelinkRingIcon from '@material-ui/icons/PhonelinkRing';
 import classNames from 'classnames'
 import { useTranslation } from 'react-i18next';
 
-import useStyles from '../../styles/ContactStyles/Form'
-import ContactForm from '../Helpers/ContactForm';
+import useStyles from './FormStyles'
+import ContactForm from '../../Helpers/ContactForm';
 
 const Form = () => {
     const classes = useStyles()

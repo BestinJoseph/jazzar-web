@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core'
 
 export default makeStyles((theme) => ({
     homedownload: {
-        background: '#483a15',
+        background: theme.palette.secondary.main,
         padding: '7rem 0 7rem 0',
 
         [theme.breakpoints.down(412)]:{
@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
             margin: '0 auto',
 
             '& .downloadContainer': {
-                width: '35rem',
+                width: '40rem',
                 // marginLeft: '18.5rem',
     
                 [theme.breakpoints.down(412)]:{
@@ -28,8 +28,8 @@ export default makeStyles((theme) => ({
                 '& .downloadTitle': {
                     fontSize: '2.75rem',
                     fontWeight: '800',
-                    color: '#32280e',
-                    letterSpacing: '-0.15rem',
+                    color: theme.palette.ourgold.main,
+                    letterSpacing: '-0.05rem',
                     lineHeight: '3rem',
                     marginBottom: '1.5rem',
     
@@ -54,7 +54,7 @@ export default makeStyles((theme) => ({
                 '& .downloadInput': {
                     marginTop: '2rem',
                     color: 'white',
-                    borderColor: 'white',
+                    borderColor: theme.palette.ajwhite.main,
                     fontSize: '3rem',
                     borderWidth: '1rem',
     
@@ -65,8 +65,8 @@ export default makeStyles((theme) => ({
     
                 '& .downloadBtn': {
                     marginTop: '2rem',
-                    background: '#b89535',
-                    color: '#483a15',
+                    background: theme.palette.ourgold.main,
+                    color: theme.palette.secondary.main,
                     padding: '1.5rem',
                     fontSize: '1.25rem',
                     fontWeight: '600',
@@ -77,7 +77,7 @@ export default makeStyles((theme) => ({
                     },
     
                     '&:hover': {
-                        background: '#90752a',
+                        background: theme.palette.btncolor.main,
                     }
                 },
     
@@ -93,6 +93,12 @@ export default makeStyles((theme) => ({
             '& .preqBook': {
                 // width: '12rem',
                 height: '40rem',
+                // boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+                filter: 'drop-shadow(0px 0px 10px rgba(0,0,0,.8))',
+
+                [theme.breakpoints.down(412)]:{
+                    display: 'none',
+                },
             }
         }
     },

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Form, Formik, Field } from 'formik'
 
 import useStyles from './HomeDownload'
-import preq from '../../../assets/images/pre_q_cover_page.png'
+import preq from '../../../assets/images/preQBook.png'
 
 const HomeDownload = () => {
     const classes = useStyles()

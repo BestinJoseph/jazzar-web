@@ -5,7 +5,9 @@ export default makeStyles((theme) => (
         footer: {
             position: 'relative',
             padding: '6rem 0 8rem',
-            borderTop: '0.1rem solid gray',
+            borderTopStyle: 'solid',
+            borderTopWidth: '0.1rem',
+            borderTopColor: theme.palette.secondary.main,
 
             [theme.breakpoints.down(415)]: {
                 padding: '3rem 1rem',
@@ -22,7 +24,7 @@ export default makeStyles((theme) => (
                     top: '-11rem',
                     position: 'absolute',
                     borderRadius: '.25rem',
-                    backgroundColor: '#32280e',
+                    backgroundColor: theme.palette.primary.main,
                     width: '100%',
                     color: 'white',
                 

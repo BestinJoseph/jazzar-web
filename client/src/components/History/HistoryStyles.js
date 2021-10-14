@@ -4,7 +4,7 @@ export default makeStyles((theme) => (
     {
         history: {
             height: '100%',
-            background: '#483a15',
+            background: theme.palette.ourgold.main,
             overflow: 'hidden',
 
             [theme.breakpoints.down(412)]: {
@@ -34,7 +34,7 @@ export default makeStyles((theme) => (
                         '& .historySubTitle': {
                             fontWeight: '700',
                             fontSize: '2rem',
-                            color: '#6c6143',
+                            color: theme.palette.quaternary.main,
                             marginBottom: '1rem',
                         },
     
@@ -44,19 +44,19 @@ export default makeStyles((theme) => (
                             letterSpacing: '-0.15rem',
                             lineHeight: '2.75rem',
                             marginBottom: '2rem',
-                            color: '#32280e',
+                            color: theme.palette.secondary.main,
                         },
     
                         '& .historyBody': {
                             fontSize: '1.25rem',
                             fontWeight: '500',
                             marginBottom: '1rem',
-                            color: '#b5b0a1',
+                            color: theme.palette.ajwhite.main,   
                         },
         
                         '& .historyBtn': {
-                            background: '#b89535',
-                            color: '#483a15',
+                            background: theme.palette.secondary.main,
+                            color: theme.palette.ajwhite.main,
                             padding: '1.5rem',
                             marginTop: '1rem',
                             fontWeight: '800',
@@ -71,7 +71,7 @@ export default makeStyles((theme) => (
                     },
     
                     '& .arHC': {
-                        marginRight: '16.5%',
+                        marginLeft: '16.5%',
                     }
                 },
         

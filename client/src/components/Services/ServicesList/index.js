@@ -22,10 +22,10 @@ const ServicesList = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            if( serRef && window.scrollY > 540 && window.scrollY > (height + 1000) ) {
+            if( window.scrollY > 650 && window.scrollY < (750 + 2000) ) {
                 setOffset(true)
                 setOnset(false)
-            } else if ( serRef && window.scrollY > 240 && window.scrollY < (height + 1000) ) {
+            } else if ( window.scrollY > 650 && window.scrollY < (750 + 2157) ) {
                 setOnset(true)
                 setOffset(false)
             } else {
@@ -38,6 +38,8 @@ const ServicesList = () => {
 
         return () => { _isUnmounted.current = false }
     }, [height])
+
+    console.log(serRef)
 
     const heightHandler = () => {
         if(_isUnmounted) {

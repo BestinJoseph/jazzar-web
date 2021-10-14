@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 
 import useStyles from './HomeAboutStyles'
 import image from '../../../assets/images/pres.jpg'
-import circle from '../../../assets/images/circle-abstract.png'
+import circle from '../../../assets/images/circle-abstract.svg'
 import square from '../../../assets/images/square-abstract.png'
 
 const About = () => {

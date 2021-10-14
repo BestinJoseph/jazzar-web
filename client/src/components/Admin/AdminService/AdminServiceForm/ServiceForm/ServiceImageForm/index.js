@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Grid, Box } from '@material-ui/core'
-import { Formik, Form, FieldArray, setNestedObjectValues } from 'formik'
+import { Formik, Form, FieldArray } from 'formik'
 import classNames from 'classnames'
 
 import useStyles from './ServiceImageFormStyles'

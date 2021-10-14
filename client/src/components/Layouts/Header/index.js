@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router';
 import { Box, Button, Grid, Typography, useScrollTrigger, Slide } from '@material-ui/core'
 import { NavLink } from 'react-router-dom'
 import logo from '../../../assets/images/logo.png'
@@ -15,6 +16,7 @@ export default (props) => {
     const classes = useStyles()
     const nav = useRef()
     const {t, i18n} = useTranslation()
+    const history = useHistory()
 
     document.body.dir = i18n.dir()
     
@@ -62,6 +64,10 @@ export default (props) => {
         i18n.language === 'en' ? i18n.changeLanguage('ar') : i18n.changeLanguage('en')
     }
 
+    const handleLogo = () => {
+        history.push('/')
+    }
+
     return (
         <Box className={classes.header}>
             <HideOnScroll {...props}>
@@ -83,8 +89,8 @@ export default (props) => {
             <ElevationOnScroll {...props}>
                 <Box className={classNames('section')}>
                     <Box className={classNames('logo')}>
-                        <Grid container alignItems="center" className={classNames('image_container')}>
-                            <img src={logo} alt="Omar Jazzar Consulting Engineers" className={classNames('image_logo')}/>
+                        <Grid container alignItems="center" className={classNames('image_container')} onClick={()=> handleLogo()}>
+                            <img src={logo} alt="Omar Jazzar Consulting Engineers" className={classNames('image_logo')} />
                             <Box className={classNames('h2-en')}>
                                 <Typography variant="subtitle1" className={classNames(`title_text_1 ${i18n.language === 'ar' ? 'ar' : ''}`)}>{t('fCName')}</Typography>
                                 <Typography variant="subtitle1" className={classNames(`title_text_2 ${i18n.language === 'ar' ? 'ar' : ''}`)}>{t('sCName')}</Typography>

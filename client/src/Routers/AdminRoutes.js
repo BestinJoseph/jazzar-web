@@ -1,7 +1,17 @@
 import React from 'react'
 import { Switch } from 'react-router-dom'
 
-import { Dashboard, AdminService, AdminServiceForm, AdminProject, AdminProjectForm, AdminContact, RequestNotFound } from '../components';
+import { 
+  Dashboard, 
+  AdminService, 
+  AdminServiceForm, 
+  AdminProject, 
+  AdminProjectForm, 
+  AdminContact, 
+  RequestNotFound, 
+  AdminBranch,
+  AdminBranchCreate
+} from '../components';
 import AdminComponent from './AdminComponent';
 
 const AdminRoutes = () => {
@@ -15,6 +25,9 @@ const AdminRoutes = () => {
       <AdminComponent path="/admin/projects/create" component={AdminProjectForm} />
       <AdminComponent path="/admin/projects/edit" component={AdminProjectForm} />
       <AdminComponent path="/admin/contacts" component={AdminContact} exact/>
+      <AdminComponent path="/admin/branches" component={AdminBranch} exact/>
+      <AdminComponent path="/admin/branches/create" component={AdminBranchCreate} exact/>
+      <AdminComponent path="/admin/branches/edit" component={AdminBranchCreate} exact/>
       <AdminComponent path="/admin/*" component={RequestNotFound} />
     </Switch>
   )

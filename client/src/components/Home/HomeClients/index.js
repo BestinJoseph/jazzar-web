@@ -4,10 +4,10 @@ import ArrowForwardIosTwoToneIcon from '@material-ui/icons/ArrowForwardIosTwoTon
 import classNames from 'classnames'
 import { useTranslation } from 'react-i18next';
 
-import useStyles from '../../styles/Home/Client'
-import video from '../../assets/videos/ojce.mp4'
+import useStyles from './HomeClientsStyle.js'
+import video from '../../../assets/videos/ojce.mp4'
 
-const Clients = () => {
+const HomeClients = () => {
     const classes = useStyles()
     const [play, setPlay] = useState(false)
     const videoRef = useRef(false)
@@ -36,4 +36,4 @@ const Clients = () => {
     )
 }
 
-export default Clients
+export default HomeClients

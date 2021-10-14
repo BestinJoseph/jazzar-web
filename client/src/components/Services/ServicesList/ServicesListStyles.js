@@ -15,7 +15,6 @@ export default makeStyles((theme) => (
     
                 '& .servicesLeftSection': {
                     paddingRight: '5rem',
-                    // border: '1px solid red',
 
                     [theme.breakpoints.down(415)]: {
                         paddingRight: '0rem',
@@ -27,7 +26,7 @@ export default makeStyles((theme) => (
                         letterSpacing: '-0.15rem',
                         lineHeight: '3rem',
                         marginBottom: '2rem',
-                        color: theme.palette.main.main,
+                        color: theme.palette.secondary.main,
     
                         '& span': {
                             display: 'block'

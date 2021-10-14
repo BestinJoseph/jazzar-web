@@ -11,45 +11,41 @@ import { useSelector } from 'react-redux'
 const HomeServices = () => {
     const classes = useStyles()
     const {t, i18n} = useTranslation()
-    const serRef = useRef()
+    const serRef = useRef(0)
     const [ offset, setOffset] = useState(false)
     const [ onset, setOnset] = useState(false)
     const [height, setHeight] = useState()
     const { services } = useSelector( state => state.services )
+    const _isMounted = useRef(true)
 
     useEffect(() => {
-        let isSubscribed = true
 
         window.addEventListener('scroll', () => {
-            if( serRef && window.scrollY > 3500 && window.scrollY < (height + 2900) && isSubscribed) {
+            if( window.scrollY > 3500 && window.scrollY < (3500 + 2320) ) {
                 setOffset(true)
                 setOnset(false)
-            } else if ( serRef && window.scrollY > (height + 2901) && isSubscribed ) {
-                setOnset(true)
+            } else if ( window.scrollY > (3500 + 2320) ) {
                 setOffset(false)
+                setOnset(true)
             } else {
                 setOffset(false)
-                setOffset(false)
+                setOnset(false)
             }
         })
 
         const heightHandler = () => {
-            if( isSubscribed ) {
-                setHeight(serRef.current.offsetHeight)
-            }
+            setHeight(serRef.current.offsetHeight)
         }
 
         heightHandler()
 
-        return () => ( isSubscribed = false )
+        return () => { _isMounted.current = false}
     },[height])
-
-    // console.log(services)
 
     return (
         <Box className={classes.services}>
             <Grid container>
-                <Grid item lg={4} className={classNames('servicesLeft')} style={{ height: `${(services.length * 31.7 ) + 45 }rem` }} >
+                <Grid item lg={4} className={classNames('servicesLeft')} >
                     <Box className={classNames('servicesListHeader')}>
                         <Typography className={classNames( i18n.language === 'en' ? 'servicesListTitle' : 'servicesListTitle arh')}>
                             { i18n.language === 'en' ? '10+' : '١٠+'} <br />
@@ -57,15 +53,15 @@ const HomeServices = () => {
                         </Typography>
                         <img src={serviceImg} alt="services video" className={classNames('servicesListVideo')}/>
                     </Box>
-                    <Box className={classNames( i18n.language === 'en' ? 'servicesContentList' : 'servicesContentList arb')}>
+                    <Box className={classNames( i18n.language === 'en' ? 'servicesContentList' : 'servicesContentList arb')} ref={serRef}>
                         { services && services.map( (service, index) => (
                             <IndividualService service={service} key={index}/>
                         )) }
                     </Box>
                 </Grid>
-                <Grid item lg={8} className={classNames( i18n.language === 'en' ?  `servicesRight` : `servicesRight ar`)} ref={serRef}>
+                <Grid item lg={8} className={classNames( i18n.language === 'en' ?  `servicesRight` : `servicesRight ar`)}>
                     <Box className={classNames(i18n.language === 'en' ? 'serviceTitles' : 'serviceTitles ar')}>
-                        <Box className={classNames(i18n.language === 'en' ? `${ offset ?  'static' : ''} ${ onset ?  'staticbase' : ''}` : `${ offset ?  'static ars' : ''} ${ onset ?  'staticbase sb' : ''}`)}>
+                        <Box className={classNames(i18n.language === 'en' ? `${ offset ?  'static' : ''} ${ onset ?  'staticbase' : ''}` : `${ offset ?  'static ars' : ''} ${ onset ?  'staticbase arsb' : ''}`)}>
                             <Typography variant="h2" className={classNames(i18n.language === 'en' ? 'servicesTitlesHeader' : 'servicesTitlesHeader art')}>{t('services_home')}</Typography>
                             <List className={classNames(i18n.language === 'en' ? 'servicesTitlesContent' : 'servicesTitlesContent art')}>
                                 { i18n.isInitialized === true && t('services_types', { returnObjects: true }).map( (service, index) => (

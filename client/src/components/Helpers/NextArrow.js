@@ -50,12 +50,12 @@ const useStyles = makeStyles((theme) => (
     
                 '& .arrowIcon': {
                     fontSize: '4rem',
-                    color: '#32280e',
+                    color: theme.palette.ourgold.main,
                 }
             },
     
             '&:hover': {
-                background: "#32280e",
+                background: theme.palette.secondary.main,
                 
                 [theme.breakpoints.down(415)]: {
                     background: "#32280e50",
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => (
                 '& .btnContainer': {
         
                     '& .arrowIcon': {
-                        color: '#6c6143',
+                        color: theme.palette.ourgold.main, //'#6c6143'
                 
                         [theme.breakpoints.down(415)]: {
                             color: '#6c6143',

@@ -26,7 +26,7 @@ const ServiceForm = ({ service = {} }) => {
         let isSubscribed = true
 
         if(isSubscribed && !_.isEmpty(service)) {
-             setInitialValues(service)
+            setInitialValues(service)
         }
 
         return () => (isSubscribed = false)

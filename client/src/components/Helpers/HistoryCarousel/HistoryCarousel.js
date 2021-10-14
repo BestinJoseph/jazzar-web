@@ -49,7 +49,7 @@ export default makeStyles((theme) => ({
 
     arRP: {
         left: 'auto',
-        right: '-20rem',
+        right: '-10rem',
         zIndex: '5',
 
         '& .ImagesSection': {

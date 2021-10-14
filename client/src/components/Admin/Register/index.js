@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-import { Box, Button, Checkbox, Grid, TextField, Typography } from '@material-ui/core'
+import { Box, Button, Grid, TextField, Typography } from '@material-ui/core'
 import * as Yup from 'yup'
 import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'

@@ -28,7 +28,7 @@ export default makeStyles((theme) => (
                             fontWeight: '600',
                             letterSpacing: '0.01rem',
                             lineHeight: '2.5rem',
-                            color: '#90752a',
+                            color: theme.palette.primary.main,
                             fontSize: '2rem',
                             textTransform: 'uppercase',
                         },
@@ -41,7 +41,7 @@ export default makeStyles((theme) => (
                             width: '85%',
                             marginTop: '1.5rem',
                             fontSize: '1.1rem',
-                            color: '#869298'
+                            color: theme.palette.tertiary.main
                         },
 
                         '& .arBO': {
@@ -50,16 +50,18 @@ export default makeStyles((theme) => (
                         },
     
                         '& .aboutBtn': {
-                            background: '#b89535',
-                            color: 'white',
+                            background: theme.palette.ourgold.main,
+                            color: theme.palette.primary.main,
                             display: 'inline-block',
                             marginTop: '1.75rem',
                             padding: '1.5rem',
                             fontSize: '1.1rem',
+                            fontWeight: '600',  
                             textDecoration: 'none',
     
                             '&:hover': {
-                                background: '#90752a'
+                                color: theme.palette.ourgold.main,
+                                background: theme.palette.secondary.main,
                             }
                         }
                     },
@@ -70,19 +72,16 @@ export default makeStyles((theme) => (
 
                     '& .absoluteGrid': {
                         postion: 'relative',
-                        // border: '1px solid orange',
                         width: '100%',
     
                         '& .absoluteCon': {
                             position: 'absolute',
                             right: '-2rem',
                             top: '5rem',
-                            // border: '1px solid red',
 
                             '& .aboutImg': {
                                 width: '30rem', 
                                 height: 'auto',
-                                // display: 'none',
 
                                 [theme.breakpoints.down(412)]: {
                                     width: '100%',
@@ -97,13 +96,12 @@ export default makeStyles((theme) => (
                             },
 
                             '& .circleAbstract': {
-                                width: '5rem',
-                                height: '5rem',
+                                width: '10rem',
+                                height: '10rem',
                                 position: 'absolute',
                                 top: '18rem',
-                                left: '-10rem',
+                                left: '-5rem',
                                 zIndex: '1',
-                                // border: '1px solid gold',
                             },
 
                             '& .arCC': {
@@ -121,13 +119,13 @@ export default makeStyles((theme) => (
                             },
 
                             '& .squareFull': {
-                                width: '5rem',
-                                height: '5rem',
+                                width: '6rem',
+                                height: '6rem',
                                 position: 'absolute',
                                 top: '-3rem',
                                 right: '0rem',
                                 zIndex: '1',
-                                background: 'gold',
+                                background: theme.palette.secondary.main,
                             },
 
                             '& .arFL': {
@@ -156,7 +154,7 @@ export default makeStyles((theme) => (
                                 bottom: '-10rem',
                                 left: '-5rem',
                                 zIndex: '1',
-                                background: 'blue',
+                                background: theme.palette.primary.main,
                             },
 
                             '& .arFLL': {
@@ -178,7 +176,7 @@ export default makeStyles((theme) => (
                 // border: '1px solid red',
     
                 '& .contentSec': {
-                    background: '#e9dbb540',
+                    background: theme.palette.secondary.main,
                     padding: '7.5rem 0rem',
                     display: 'flex',
                     justifyContent: 'flex-end',
@@ -203,7 +201,7 @@ export default makeStyles((theme) => (
                             marginBottom: '1.75rem',
                             lineHeight: '2.5rem',
                             fontSize: '2rem',
-                            color: '#90752a',
+                            color: theme.palette.ourgold.main,
 
                             [theme.breakpoints.down(412)]: {
                                 fontSize: '2rem',
@@ -218,12 +216,12 @@ export default makeStyles((theme) => (
                         '& .textSecBody': {
                             marginBottom: '1rem',
                             fontSize: '1.1rem',
-                            color: '#869298',
+                            color: theme.palette.ajwhite.main,
                         },
 
                         '& .arTSB': {
                             fontFamily: "'Almarai', sans-serif",
-                            fontWeight: '600',
+                            // fontWeight: '400',
                             lineHeight: '1.85rem',
                             marginBottom: '1.5rem',
                         },
@@ -239,7 +237,7 @@ export default makeStyles((theme) => (
                             marginBottom: '1.75rem',
                             lineHeight: '3rem',
                             fontSize: '2.5rem',
-                            color: '#374046',
+                            color: theme.palette.ajwhite.main,
                         }
                     }
                 }

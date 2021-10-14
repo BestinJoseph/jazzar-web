@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Box, Tab, Tabs, AppBar } from '@material-ui/core'
 import { Formik, } from 'formik'
 import * as Yup from 'yup'
-import classNames from 'classnames'
 import _ from 'lodash'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -21,9 +20,6 @@ const ProjectForm = ({ project }) => {
     const { services } = useSelector( state => state.services )
     const [ value, setValue ] = useState(0)
     const [initialValues, setInitialValues] = useState({ project: '', client: '', location: '', category: '', services: [], start_date: "", end_date: '', description: '', images: [] })
-
-    // console.log(service)
-    // console.log(!_.isEmpty(service))
 
     useEffect( () => {
         let isSubscribed = true

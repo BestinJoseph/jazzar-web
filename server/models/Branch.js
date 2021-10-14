@@ -29,6 +29,10 @@ const branchSchema = mongoose.Schema({
         require: true,
         unique: true
     },
+    landmark: {
+        type: String,
+        require: true
+    },
     active: {
         type: Boolean,
         default: true
@@ -36,6 +40,7 @@ const branchSchema = mongoose.Schema({
     started: {
         type: Date,
         require: true,
+        default: Date.now
     }
 }, {timestamps: true})
 

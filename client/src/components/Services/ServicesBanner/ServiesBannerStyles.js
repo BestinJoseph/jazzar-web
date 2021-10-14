@@ -4,7 +4,7 @@ export default makeStyles((theme) => (
     {
         indexsection: {
             // height: '50rem',
-            padding: '10rem 0 5rem',
+            padding: '8rem 0 5rem',
             background: theme.palette.primary.main,
             marginBottom: '6rem',
 
@@ -18,7 +18,7 @@ export default makeStyles((theme) => (
                 margin: '3rem 0',
                 letterSpacing: '-0.15rem',
                 lineHeight: '3.25rem',
-                color: '#b19e69',
+                color: theme.palette.ourgold.main,
     
                 '& span': {
                     display: 'block',
