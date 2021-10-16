@@ -1,7 +1,7 @@
-import { Box, Button, TextField, Typography, Select, MenuItem } from '@material-ui/core'
+import { Box, Button, TextField, Typography } from '@material-ui/core'
 import { Formik, Form, Field } from 'formik'
 import {  } from 'formik-material-ui'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
@@ -18,30 +18,44 @@ const DailyRequirement = () => {
     const { project } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
-    // const { project } = useParams()
     const { projects } = useSelector( state => state.projects )
+    const [roles, setRoles] = useState([])
 
     const query = (history.location.search).substring(1) 
     const projectQuery = _.isEmpty((history.location.search).substring(1)) ? query : ''
-    const initialValues = { project: projectQuery, createdAt: '', requirements: {technicians: 0, rigs: 0, helpers: 0}}
+    const initialValues = { project: projectQuery, createdAt: moment().format('yyyy-MM-DD'), requirements: {}}
+
+    useEffect(() => {
+        const proRoles = []
+        Object.values(projects).forEach(({_id, roles}) => {
+            if(_id === project) {
+                proRoles.push(roles)
+            } else {
+                return []
+            }
+        })
+        console.log(proRoles[0])
+        const roless = proRoles && Object.entries({...proRoles[0]})
+
+        console.log(roless)
+
+        setRoles(proRoles)
+    },[project])
 
     const handleSubmit = (values, {setSubmitting, resetForm}) => {
-        // _.isEmpty(query) ? delete values.project : delete values.project_id
         const projectValue = project === 'newproject' ? values.project : values.project = project
-        
-        // console.log(values)
-        // console.log(projectValue)
         if(_.isEmpty(values.project)) {
             
         } else {
-            dispatch(postDailyAction(projectValue, values))
-            resetForm()
-            history.push('/promanage')
+            console.log(values)
+            // dispatch(postDailyAction(projectValue, values))
+            // resetForm()
+            // history.push('/promanage')
         }
         
     }
-    console.log(query)
-    console.log(project)
+    // console.log(roles)
+    // console.log(project)
 
     return (
         <Box className={classes.dailyrequirements}>
@@ -52,33 +66,19 @@ const DailyRequirement = () => {
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                 <Form>
                     {
-                        _.isEmpty(query) ? 
-                        <Box>
-                            <Field name="project" fullWidth as={TextField} select>
-                                <MenuItem value=''>Select Project</MenuItem>
-                                {
-                                    projects.map((pro, index) => (
-                                        <MenuItem value={pro._id} key={index}>{pro.project}</MenuItem>
-                                    ))
-                                }
-                            </Field>
-                        </Box> 
-                        : null
+                        roles[0] && roles[0].map((role, index) => (
+                            <Box  style={{ marginTop: '1.25rem' }} key={index}>
+                                <Field as={TextField} type="text" name={`requirements.${role}`} label={role}/>
+                            </Box>
+                        ))
                     }
-                    <Box style={{ marginTop: '1rem' }}>
-                        <Field as={TextField} type="date" name={`createdAt`} />
+                    <Box style={{ marginTop: '1.25rem' }} label="Date">
+                        <Field as={TextField} type="date" name={`createdAt`} fullWidth/>
                     </Box>
-                    <Box  style={{ marginTop: '1rem' }}>
-                        <Field as={TextField} type="text" name={`requirements.technicians`} label="Technicians"/>
+                    <Box style={{ marginTop: '2rem' }}>
+                        <Button type="submit" variant="contained" color="primary" style={{ marginRight: '1rem'}}>Submit</Button>
+                        <Link to={{pathname:"/promanage"}}>cancel</Link>
                     </Box>
-                    <Box  style={{ marginTop: '1rem' }}>
-                        <Field as={TextField} type="text" name={`requirements.rigs`} label="Rigs" InputLabelProps={{ shrink: true }}/>
-                    </Box>
-                    <Box style={{ marginTop: '1rem' }}>
-                        <Field as={TextField} type="text" name={`requirements.helpers`} label="Helpers"/>
-                    </Box><br />
-                    <Button type="submit" variant="contained" color="primary" style={{ marginTop: '1rem' }}>Submit</Button>
-                    <Link to={{pathname:"/promanage"}}>cancel</Link>
                 </Form>
             </Formik>
         </Box>

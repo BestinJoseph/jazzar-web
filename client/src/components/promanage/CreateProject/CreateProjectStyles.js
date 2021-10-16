@@ -2,11 +2,25 @@ import { makeStyles } from '@material-ui/core'
 
 export default makeStyles((theme) => ({
     createproject: {
-        height: '25rem',
+        // height: '40rem',
+        padding: '9rem 0 8rem',
         backgroundColor: 'gold',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         // color: 'white',
+        flexDirection: 'column',
+
+        '& .createdproject_container': {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '2rem',
+        },
+
+        '& .createproject_form': {
+            padding: '2rem', 
+            width: '35rem'
+        }
     }
 }))

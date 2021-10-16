@@ -70,7 +70,7 @@ export const putProject = async (req, res) => {
             .populate({path: 'images'})
             .exec( (err, proj) => {
                 if(err) res.status(409).json({ errors: err.message })
-                if(proj) res.status(200).json({message: 'Project Successfully Updated.', project: proj})
+                if(proj) res.status(200).json({errors: null, success: false, project: proj})
             })
     } catch (err) {
         res.status(400).json({errors: err.message})

@@ -5,20 +5,7 @@ const dailySchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'projects'
     },
-    requirements: {
-        technicians: {
-            type: Number,
-            default: 0
-        },
-        rigs: {
-            type: Number,
-            default: 0
-        },
-        helpers: {
-            type: Number,
-            default: 0
-        },
-    }
+    requirements: {}
 }, {timestamps: true})
 
 export default mongoose.model('daily', dailySchema)

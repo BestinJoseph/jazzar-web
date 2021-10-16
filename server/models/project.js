@@ -19,6 +19,12 @@ const projectSchema = mongoose.Schema({
         require: true,
         enum: ['tower','university','housing','reservoir','airport']
     },
+    roles: [
+        {
+            type: String,
+            enum: ['technicians','helper','rigs','supervisor','engineer','secretary', 'driver', 'survivor', 'geologist']
+        }
+    ],
     services: [
         {
             type: mongoose.Schema.Types.ObjectId,

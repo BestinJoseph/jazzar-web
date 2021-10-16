@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, TableFooter } from '@material-ui/core'
+import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid } from '@material-ui/core'
 import classesNames from 'classnames'
 import _ from 'lodash'
 import AddIcon from '@material-ui/icons/Add'
@@ -15,13 +15,17 @@ const ProManageHome = () => {
     const classes = useStyles()
     const { dailies: { dailies } } = useSelector( state => state )
     const [result, setResult] = useState({})
-    const [months, setMonths] = useState([])
+    const [data, setData] = useState([])
     const history = useHistory()
 
     useEffect(() => {
         const data = dailies.reduce((gr, obj) => {
             if(_.isEmpty(obj)) return null
             gr[obj.project.project] = gr[obj.project.project] || []
+            gr[obj.project.project]['roles'] = gr[obj.project.project]['roles'] || []
+            if( _.isEmpty(gr[obj.project.project]['roles']) ) {
+                gr[obj.project.project]['roles'].push(obj.project.roles)
+            }
             gr[obj.project.project][moment(obj.createdAt).month()] = gr[obj.project.project][moment(obj.createdAt).month()] || []
             // gr[obj.projects.project][moment(obj.createdAt).month()][moment(obj.createdAt).week()] = gr[obj.projects.project][moment(obj.createdAt).month()][moment(obj.createdAt).week()] || []
             gr[obj.project.project][moment(obj.createdAt).month()].push(obj.requirements) //[moment(obj.createdAt).week()]
@@ -30,34 +34,32 @@ const ProManageHome = () => {
             return gr
         }, {})
 
-        // const months = dailies.reduce((acc, obj) => {
-        //     acc.months = acc.months || []
-        //     if( acc.months.findIndex( ass => ass == moment(obj.createdAt).month()) === -1 ) {
-        //         acc.months.push(moment(obj.createdAt).month())
-        //     }
-        //     acc.months = acc.months.sort()
-        //     return acc
-        // },{})
-
-        console.log(months)
-
         const totalWorkers = dailies.reduce((tWork, obj) => {
             if(_.isEmpty(obj)) return null
-            tWork[moment(obj.createdAt).month()] = tWork[moment(obj.createdAt).month()] || []
-            tWork[moment(obj.createdAt).month()].push(obj)
+            tWork['months'] = tWork['months'] || {}
+            tWork['months'][moment(obj.createdAt).month()] = tWork['months'][moment(obj.createdAt).month()] || []
+            tWork['months'][moment(obj.createdAt).month()].push(obj)
+            tWork['roles'] = tWork['roles'] || []
+            obj.project.roles.forEach( role => {
+                if( tWork['roles'].findIndex(ro => role === ro) === -1 ) {
+                    tWork['roles'].push(role)
+                }
+            })
             return tWork
         },{})
 
+        console.log(totalWorkers)
+
         setTimeout(() => {
             setResult(data)
-            setMonths(totalWorkers)
+            setData(totalWorkers)
         }, 500)
     }, [dailies])
 
-    // console.log(months)
+    // console.log(data.roles)
 
     const handleLInk = () => {
-        history.push({pathname: `/promanage/create` })
+        history.push({ pathname: `/promanage/create` })
     }
 
     return (
@@ -88,15 +90,12 @@ const ProManageHome = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <ProTableRow pro={result && result} months={months}/>
-                        </TableBody>
-                        <TableFooter>
-                            <TableCell className={classNames('tableCellHeaderCss')} >total employees....</TableCell>
-                            
+                            <ProTableRow pro={result && result} months={data}/>
+                            <TableRow>
+                                <TableCell className={classNames('tableCellHeaderCss')} >Employee worked</TableCell>
                                 {
-
-                                    Object.entries(months).map(([month, data]) => {
-                                        const daa = data.reduce((acc, obj) => {
+                                    data.months && Object.entries(data.months).map(([month, months], index) => {
+                                        const daa = months && months.reduce((acc, obj) => {
                                             acc[month] = acc[month] || {}
                                             acc[month].technicians = acc[month].technicians + parseInt(obj.requirements.technicians) || parseInt(obj.requirements.technicians)
                                             acc[month].rigs = acc[month].rigs + parseInt(obj.requirements.rigs) || parseInt(obj.requirements.rigs)
@@ -105,15 +104,21 @@ const ProManageHome = () => {
                                         },{})
 
                                         return (
-                                            <TableCell className={classNames('tableCellHeaderCss')} >
-                                                <Box>Technicians: { Object.values(daa)[0].technicians }</Box>
-                                                <Box>Rigs: { Object.values(daa)[0].rigs }</Box>
-                                                <Box>Helpers: { Object.values(daa)[0].helpers }</Box>
+                                            <TableCell className={classNames('tableCellHeaderCss')} key={index}>
+                                                {
+                                                    // roles && roles[0].map( (role, index) => (
+                                                    //     <Box key={index}>{ role }: </Box>
+                                                    // ))
+
+                                                    console.log(data.roles)
+                                                }
                                             </TableCell>
                                         )
                                     })
+                                    
                                 }
-                        </TableFooter>
+                            </TableRow>
+                        </TableBody>
                     </Table>
                 </TableContainer>
             </Box>

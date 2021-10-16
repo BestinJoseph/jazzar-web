@@ -14,6 +14,7 @@ export default makeStyles((theme) => ({
             justifyContent: 'center',
             alignItems:'center',
             flexFlow: 'column',
+            marginBottom: '2rem',
         }
     }
 }))
