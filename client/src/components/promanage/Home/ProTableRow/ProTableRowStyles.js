@@ -4,44 +4,60 @@ export default makeStyles((theme) => ({
     protablerow: {
         // background: 'gold',
 
-            '& .tableRowsCellSL': {
-                border: '1px solid green',
-                padding: '0',
-                position: 'relative',
+        '& .headerSec': {
+            textTransform: 'capitalize', 
+            height: '2.5rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            border: '1px solid #E7E6E1',
+        },
+
+        '& .tableRowsCellSL': {
+            border: '1px solid #E7E6E1',
+            padding: '0',
+            position: 'relative',
+        },
+
+        '& .tableRowsCellCss': {
+            width: '10rem',
+            height: '5rem', 
+            border: '1px solid #E7E6E1',
+            padding: '0',
+            position: 'relative',
+
+            '& .buttonEff': {
+                position: 'absolute',
+                right: '5%',
+                bottom: '5%',
+                width: '2.25rem',
+                height: '2.25rem',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                cursor: 'pointer',
+                borderRadius: '50%',
+                background: 'white',
+
+                '&:hover': {
+                    boxShadow:'0 0 5px 0px #23689B',
+                    color: '#D9DAB0',
+                }
             },
 
-            '& .tableRowsCellCss': {
-                width: '10rem',
-                height: '5rem', 
-                border: '1px solid green',
-                padding: '0',
-                position: 'relative',
+            '& .unHideAddButton': {
+                color: 'red',
+                display: 'block'
+            },
 
-                '& .buttonEff': {
-                    position: 'absolute',
-                    right: '5%',
-                    bottom: '5%',
-                    width: '2rem',
-                    height: '2rem',
-                    border: '1px solid orange',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                },
-
-                '& .unHideAddButton': {
-                    color: 'red',
-                    display: 'block'
-                },
-
-                '& .dataStructure': {
-                    // color: 'white',
-                    height: '2.5rem',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderBottom: '1px solid green',
-                }
+            '& .dataStructure': {
+                // color: 'white',
+                height: '2.5rem',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                // borderBottom: '1px solid green',
             }
+        }
     }
 }))

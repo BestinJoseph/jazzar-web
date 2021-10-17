@@ -4,6 +4,7 @@ import AddIcon from '@material-ui/icons/Add'
 import EditIcon from '@material-ui/icons/Edit';
 import { useHistory } from 'react-router'
 import classNames from 'classnames'
+import _ from 'lodash'
 
 import useStyles from './ProTableRowStyles'
 import moment from 'moment'
@@ -11,7 +12,7 @@ import moment from 'moment'
 const ProTableRow = ({ pro }) => {
     const classes = useStyles()
     const history = useHistory()
-    const months = [8, 9, 10]
+    const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     const [daataa, setDaataa] = useState({})
     const _isMounted = useRef(true)
 
@@ -20,29 +21,40 @@ const ProTableRow = ({ pro }) => {
     }
 
     useEffect(() => {
-        const daaa = Object.entries(pro).reduce((acc, obj) => {
-            acc[obj[0]] = acc[obj[0]] || []
-            acc[obj[0]]['roles'] = acc[obj[0]]['roles'] || []
-            acc[obj[0]]['roles'].push(...obj[1].roles)
-            acc[obj[0]]['months'] = acc[obj[0]]['months'] || []
-            months.forEach( month => {
-                acc[obj[0]]['months'][month] = acc[obj[0]]['months'][month] || []
-                Object.entries(obj[1]).forEach( ([mon, wee]) => {
-                    if( month === parseInt(mon)) {
-                        acc[obj[0]]['months'][month]['technicians'] = acc[obj[0]]['months'][month]['technicians'] || 0
-                        acc[obj[0]]['months'][month]['rigs'] = acc[obj[0]]['months'][month]['rigs'] || 0
-                        acc[obj[0]]['months'][month]['helper'] = acc[obj[0]]['months'][month]['helper'] || 0
-                        wee.forEach((we) => {
-                            acc[obj[0]]['months'][month]['technicians'] += parseInt(we.technicians)
-                            acc[obj[0]]['months'][month]['rigs'] += parseInt(we.rigs)
-                            acc[obj[0]]['months'][month]['helper'] += parseInt(we.helper)
-                        })
-                    } else {
-                    }
+        const daaa = Object.entries(pro).reduce((acc, [project, obj]) => {
+            acc[project] = acc[project] || []
+            acc[project]['_id'] = obj._id
+            acc[project]['roles'] = acc[project]['roles'] || []
+            acc[project]['roles'].push(...obj.roles)
+            acc[project]['months'] = acc[project]['months'] || []
+            if( obj.hasOwnProperty('months') === true ) {
+                months && months.forEach( month => {
+                    acc[project]['months'][month] = acc[project]['months'][month] || []
+                    // console.log(obj.months)
+                    Object.entries(obj.months).forEach( ([mon, wee]) => {
+                        if( month == parseInt(mon)) {
+                            Object.entries(obj.roles).forEach( ([role, value]) => {
+                                const objj = {}
+                                objj[value] = obj['months'][mon][0][value]
+                                acc[project]['months'][month][value] = acc[project]['months'][month][value] || 0
+                                
+                                wee.forEach((we) => {
+                                    // console.log(we)
+                                    acc[project]['months'][month][value] += parseInt(we[value])
+                                })
+                            })
+                        } else {
+                        }
+                    })
                 })
-            })
+            } else {
+                months && months.forEach( month => {
+                    acc[project]['months'][month] = acc[project]['months'][month] || []
+                })
+            }
             return acc
         }, {})
+        // console.log(daaa)
         setDaataa(daaa)
         return () => { _isMounted.current = false}
     }, [pro])
@@ -59,14 +71,14 @@ const ProTableRow = ({ pro }) => {
     // console.log(daataa)
 
     return (
-        Object.entries(daataa).map(([pr, {months, roles}], index) => (
+        daataa && Object.entries(daataa).map(([pr, {months, roles, _id}], index) => (
             <TableRow key={index} className={classes.protablerow}>
                 <TableCell style={{ position: 'sticky', left: 0, background: 'white', }} component="th" scopt="row" className={classNames('tableRowsCellSL')}>
                     <Grid container style={{ display: 'flex', alignItems: 'center' }}>
                         <Grid item lg={10}>
                             <Grid container style={{ display: 'flex', alignItems: 'center' }}>
                                 <Grid item lg={3} style={{ textAlign: 'center' }}>
-                                    <EditIcon onClick={() => handleLInk(pro[pr].project)} style={{cursor: 'pointer'}}/>
+                                    <EditIcon onClick={() => handleLInk(_id)} style={{cursor: 'pointer'}}/>
                                 </Grid>
                                 <Grid item lg={9}>
                                     <Typography>{ pr.substring(0, 18) + ' ...' }</Typography>
@@ -76,8 +88,8 @@ const ProTableRow = ({ pro }) => {
                         <Grid item lg={2}>
                             <Grid container>
                                 {
-                                    roles[0].map((role, index) => (
-                                        <Grid item lg={12} key={index} style={{ textTransform: 'capitalize' }}>
+                                    roles.map((role, index) => (
+                                        <Grid item lg={12} key={index} className={classNames('headerSec')}>
                                             { role.toString().substring(0, 4) }
                                         </Grid>
                                     ))
@@ -90,32 +102,32 @@ const ProTableRow = ({ pro }) => {
                     Object.entries(months).map(([month, values], index) => (
                         <TableCell key={index} className={classNames('tableRowsCellCss')} onMouseOver={ () => handleMouseHover() }>
                             
-                                { moment().month() == month 
-                                    ? 
-                                        <Box className={classNames('buttonEff')}>
-                                            <AddIcon onClick={() => handleAdd(pro[pr].project, pr)} className={classNames('addButton')}/>
-                                        </Box>
-                                    :   null 
-                                }
-                                
+                            { 
+                                moment().month() + 1 == month 
+                                ? 
+                                    <Box className={classNames('buttonEff')}>
+                                        <AddIcon onClick={() => handleAdd(_id, pr)} className={classNames('addButton')}/>
+                                    </Box>
+                                :   null
+                            }
                             {
                                 (() => {
                                     switch(typeof(values.technicians)) {
                                         case 'number':
                                             return <Box>
                                                 {
-                                                    roles[0].map((role, index) => {
+                                                    roles.map((role, index) => {
                                                         switch(role) {
                                                             case 'supervisor':
-                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: 'green' }}>{ values[`${role}`] }</Box>
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#F7F7E8' }}>{ values[`${role}`] }</Box>
                                                             case 'technicians':
-                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: 'blue' }}>{ values[`${role}`] }</Box>
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#C7CFB7' }}>{ values[`${role}`] }</Box>
                                                             case 'rigs':
-                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: 'red' }}>{ values[`${role}`] }</Box>
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#9DAD7F' }}>{ values[`${role}`] }</Box>
                                                             case 'engineer':
-                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: 'gold' }}>{ values[`${role}`] }</Box>
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#9DAD7F' }}>{ values[`${role}`] }</Box>
                                                             case 'helper':
-                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: 'purple' }}>{ values[`${role}`] }</Box>
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#FF7878' }}>{ values[`${role}`] }</Box>
                                                             default:
                                                                 return <Box key={index} className={classNames('dataStructure')}>{ values[`${role}`] }</Box>
                                                         }

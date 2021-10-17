@@ -23,7 +23,7 @@ const DailyRequirement = () => {
 
     const query = (history.location.search).substring(1) 
     const projectQuery = _.isEmpty((history.location.search).substring(1)) ? query : ''
-    const initialValues = { project: projectQuery, createdAt: moment().format('yyyy-MM-DD'), requirements: {}}
+    const [initialValues, setInitialValues] = useState({ project: projectQuery, createdAt: moment().format('yyyy-MM-DD'), requirements: {}})
 
     useEffect(() => {
         const proRoles = []
@@ -34,28 +34,30 @@ const DailyRequirement = () => {
                 return []
             }
         })
-        console.log(proRoles[0])
-        const roless = proRoles && Object.entries({...proRoles[0]})
-
-        console.log(roless)
-
+        // const roless = proRoles && Object.entries({...proRoles[0]})
+        const obj = {}
+        roles[0] && roles[0].forEach( role => {
+            obj[role] = 0
+        })
+        setInitialValues({...initialValues, requirements: {...obj}})
         setRoles(proRoles)
     },[project])
 
     const handleSubmit = (values, {setSubmitting, resetForm}) => {
         const projectValue = project === 'newproject' ? values.project : values.project = project
-        if(_.isEmpty(values.project)) {
-            
-        } else {
-            console.log(values)
-            // dispatch(postDailyAction(projectValue, values))
-            // resetForm()
-            // history.push('/promanage')
-        }
         
+        values.createdAt = moment(values.createdAt, 'YYYY-MM-DD').format()
+        
+        if(_.isEmpty(values.project)) {
+            setSubmitting(false)
+        } else {
+            dispatch(postDailyAction(projectValue, values))
+            resetForm()
+            history.push('/promanage')
+        }
     }
     // console.log(roles)
-    // console.log(project)
+    console.log(initialValues)
 
     return (
         <Box className={classes.dailyrequirements}>

@@ -10,7 +10,7 @@ import _ from 'lodash'
 
 import useStyles from './CreateProjectStyles'
 import { putProject } from '../../../actions/projects'
-import ProjectsStyles from '../../Projects/ProjectsStyles'
+import moment from 'moment'
 
 const CreateProject = () => {
     const classes = useStyles()
@@ -25,8 +25,6 @@ const CreateProject = () => {
         history.push({pathname: '/promanage'})
     }
 
-    // console.log(params)
-
     useEffect(() => {
         let proData = {}
         if(project) {
@@ -38,9 +36,7 @@ const CreateProject = () => {
                 }
             })
         }
-
         setInitialValues(proData)
-
     },[project, projects])
 
     const handleSubmit = ({projectId, roles}, { setSubmitting, resetForm }) => {
@@ -51,7 +47,7 @@ const CreateProject = () => {
         history.push('/promanage')
     }
 
-    console.log(initialValues)
+    // console.log(moment().format('MM'))
 
     return (
         <Box className={classes.createproject}>
