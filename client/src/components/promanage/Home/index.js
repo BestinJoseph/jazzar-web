@@ -159,7 +159,7 @@ const ProManageHome = () => {
                                                     {
                                                         Object.entries(daa[month]).map(([role, value], index) => ( 
                                                             <Box key={index}>
-                                                                <Box style={{ fontSize: '.625rem' }}>{role}: {value}</Box>
+                                                                <Box style={{ fontSize: '.7rem' }}>{role}: { isNaN(value) ? 0 : value }</Box>
                                                             </Box>
                                                         ))
                                                     }
