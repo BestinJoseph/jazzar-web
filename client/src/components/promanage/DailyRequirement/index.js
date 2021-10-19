@@ -44,21 +44,17 @@ const DailyRequirement = () => {
         // console.log(proRoles[0])
         let obj = {}
         if(proRoles[0] !== undefined) {
-            obj = proRoles[0].reduce( (acc, role) => {
-                acc['requirements'] = {}
-                acc['requirements'][role] = 0
-
-                return acc
-            },{})
+            proRoles[0].forEach( role => {
+                obj[role] = 0
+            })
         }  else {
             obj = {}
         }
-        console.log(obj)
         setInitialValues({...initialValues, requirements: {...obj}})
         setRoles(proRoles)
     },[project, projects])
 
-    // console.log(roles)
+    console.log(initialValues)
 
     const handleSubmit = (values, {setSubmitting, resetForm}) => {
         const projectValue = project === 'newproject' ? values.project : values.project = project
@@ -82,23 +78,32 @@ const DailyRequirement = () => {
                 <Typography>{ moment().format('MMM DD, YYYY') }</Typography>
                 <Typography variant="h4">{ _.isEmpty(query) ?  'New Project' : query  }</Typography>
             </Box>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-                <Form>
-                    {
-                        roles[0] && roles[0].map((role, index) => (
-                            <Box  style={{ marginTop: '1.25rem' }} key={index}>
-                                <Field as={TextField} type="text" name={`requirements.${role}`} label={role}/>
-                            </Box>
-                        ))
+            <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize>
+                {
+                    
+                    ({values}) => {
+                        console.log(values)
+
+                        return (
+                            <Form>
+                                {
+                                   Object.keys( values.requirements).map((role, index) => (
+                                        <Box style={{ marginTop:'1.25rem' }} key={index}>
+                                            <Field as={TextField} type="text" name={`requirements.${role}`} label={role}/>
+                                        </Box>
+                                    ))
+                                }
+                                <Box style={{ marginTop: '1.25rem' }} label="Date">
+                                    <Field as={TextField} type="date" name={`createdAt`} fullWidth/>
+                                </Box>
+                                <Box style={{ marginTop: '2rem' }}>
+                                    <Button type="submit" variant="contained" color="primary" style={{ marginRight: '1rem'}}>Submit</Button>
+                                    <Link to={{pathname:"/promanage"}}>cancel</Link>
+                                </Box>
+                            </Form>
+                        )
                     }
-                    <Box style={{ marginTop: '1.25rem' }} label="Date">
-                        <Field as={TextField} type="date" name={`createdAt`} fullWidth/>
-                    </Box>
-                    <Box style={{ marginTop: '2rem' }}>
-                        <Button type="submit" variant="contained" color="primary" style={{ marginRight: '1rem'}}>Submit</Button>
-                        <Link to={{pathname:"/promanage"}}>cancel</Link>
-                    </Box>
-                </Form>
+                }
             </Formik>
         </Box>
     )
