@@ -73,6 +73,7 @@ const Footer = () => {
                             <ListItem className={classNames('list')}><Link to="/">Pre-Cast</Link></ListItem>
                             <ListItem className={classNames('list')}><Link to="/">Architecture</Link></ListItem>
                             <ListItem className={classNames('list')}><Link to="/">IT</Link></ListItem>
+                            <ListItem className={classNames('list')}><Link to="/promanage">Project Manager</Link></ListItem>
                         </List>
                     </Grid>
                     <Grid item lg={6} xs={12}>

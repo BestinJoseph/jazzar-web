@@ -6,6 +6,7 @@ import Projects from './Projects'
 import Proposal from './Proposal'
 import Promange from './promanage'
 import DailyRequirement from './promanage/DailyRequirement'
+import MonthlyRequirement from './promanage/MonthlyRequirement'
 import CreateProject from './promanage/CreateProject'
 import SingleService from './SingleService'
 import Admin from './Admin'
@@ -45,5 +46,6 @@ export {
     AdminBranchCreate,
     Promange,
     DailyRequirement,
+    MonthlyRequirement,
     CreateProject
 }

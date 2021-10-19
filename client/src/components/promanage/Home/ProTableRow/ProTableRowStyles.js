@@ -26,7 +26,27 @@ export default makeStyles((theme) => ({
             padding: '0',
             position: 'relative',
 
-            '& .buttonEff': {
+            '& .buttonEffView': {
+                position: 'absolute',
+                left: '5%',
+                bottom: '5%',
+                // transform: 'translate(-50%,-50%)',
+                width: '2.25rem',
+                height: '2.25rem',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                cursor: 'pointer',
+                borderRadius: '50%',
+                background: 'white',
+
+                '&:hover': {
+                    boxShadow:'0 0 5px 0px #23689B',
+                    color: '#D9DAB0',
+                }
+            },
+
+            '& .buttonEffAdd': {
                 position: 'absolute',
                 right: '5%',
                 bottom: '5%',
@@ -57,7 +77,14 @@ export default makeStyles((theme) => ({
                 justifyContent: 'center',
                 alignItems: 'center',
                 // borderBottom: '1px solid green',
-            }
+            },
+
+            // '&:hover': {
+
+            //     '& .buttonEffView': {
+            //         display: 'flex'
+            //     }
+            // }
         }
     }
 }))

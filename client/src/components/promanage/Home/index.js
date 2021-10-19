@@ -19,6 +19,8 @@ const ProManageHome = () => {
     const [data, setData] = useState([])
     const history = useHistory()
 
+    // console.log(projects)
+
     useEffect(() => {
 
         const projectInDailyActivities = Object.values(projects).reduce((acc, obj) => {
@@ -99,8 +101,8 @@ const ProManageHome = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell style={{ width: 400, position: "sticky", left: 0, backgroundColor: 'white' }}>
-                                    <Grid container >
-                                        <Grid item lg={2}><AddIcon onClick={() => handleLInk()} style={{ cursor: 'pointer' }}/></Grid>
+                                    <Grid container style={{ display: 'flex', alignItems: 'center' }}>
+                                        <Grid item lg={2}><AddIcon onClick={() => handleLInk()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}/></Grid>
                                         <Grid item lg={10}>Project Name</Grid>
                                     </Grid>
                                 </TableCell>
@@ -148,7 +150,7 @@ const ProManageHome = () => {
                                                 return (
                                                     <TableCell className={classNames('tableCellHeaderCss')} key={index}>
                                                         <Box key={index}>
-                                                            <Box style={{ fontSize: '.75rem', textTransform: 'capitalize' }}>Not Yet</Box>
+                                                            <Box style={{ fontSize: '.75rem', textTransform: 'capitalize' }}></Box>
                                                         </Box>
                                                     </TableCell>
                                                 )
@@ -159,7 +161,7 @@ const ProManageHome = () => {
                                                     {
                                                         Object.entries(daa[month]).map(([role, value], index) => ( 
                                                             <Box key={index}>
-                                                                <Box style={{ fontSize: '.7rem' }}>{role}: { isNaN(value) ? 0 : value }</Box>
+                                                                <Box style={{ fontSize: '.7rem', textTransform: 'capitalize' }}>{ role }: { isNaN(value) ? 0 : value }</Box>
                                                             </Box>
                                                         ))
                                                     }

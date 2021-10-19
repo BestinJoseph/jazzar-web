@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { TableRow, TableCell, Grid, Typography, Box } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from '@material-ui/icons/Edit'
+import SearchIcon from '@material-ui/icons/Search'
 import { useHistory } from 'react-router'
 import classNames from 'classnames'
 import _ from 'lodash'
@@ -18,6 +19,11 @@ const ProTableRow = ({ pro }) => {
 
     const handleAdd = (id, pr) => {
         history.push({pathname: `/promanage/${id}/create`, search: pr})
+    }
+
+    const handleView = (id, month) => {
+        console.log(month)
+        history.push({pathname: `/promanage/${id}/monthly`, search: `month=${month}`})
     }
 
     useEffect(() => {
@@ -77,8 +83,8 @@ const ProTableRow = ({ pro }) => {
                     <Grid container style={{ display: 'flex', alignItems: 'center' }}>
                         <Grid item lg={10}>
                             <Grid container style={{ display: 'flex', alignItems: 'center' }}>
-                                <Grid item lg={3} style={{ textAlign: 'center' }}>
-                                    <EditIcon onClick={() => handleLInk(_id)} style={{cursor: 'pointer'}}/>
+                                <Grid item lg={3} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <EditIcon onClick={() => handleLInk(_id)} style={{cursor: 'pointer', background: '#F1F6F9' , padding: '.5rem', width: '2.5rem', height: '2.5rem', borderRadius: '50%', }}/>
                                 </Grid>
                                 <Grid item lg={9}>
                                     <Typography>{ pr.substring(0, 18) + ' ...' }</Typography>
@@ -103,9 +109,9 @@ const ProTableRow = ({ pro }) => {
                         <TableCell key={index} className={classNames('tableRowsCellCss')} onMouseOver={ () => handleMouseHover() }>
                             
                             { 
-                                moment().month() + 1 == month 
+                                moment().month() + 1 === parseInt(month) 
                                 ? 
-                                    <Box className={classNames('buttonEff')}>
+                                    <Box className={classNames('buttonEffAdd')}>
                                         <AddIcon onClick={() => handleAdd(_id, pr)} className={classNames('addButton')}/>
                                     </Box>
                                 :   null
@@ -115,6 +121,9 @@ const ProTableRow = ({ pro }) => {
                                     switch(typeof(values.technicians)) {
                                         case 'number':
                                             return <Box>
+                                                <Box className={classNames('buttonEffView')}>
+                                                    <SearchIcon onClick={() => handleView(_id, month)} className={classNames('addButton')}/>
+                                                </Box>
                                                 {
                                                     roles.map((role, index) => {
                                                         switch(role) {
@@ -135,9 +144,19 @@ const ProTableRow = ({ pro }) => {
                                                 }
                                             </Box>
                                         case 'undefined':
-                                            return <Box style={{ textAlign: 'center'}}>
-                                            <Box>No data available</Box>
-                                        </Box>
+                                            if( month == moment().month() + 1 ) {
+                                                return  <Box style={{ background: '#C9D1D3', height: '100%' }} className={classNames('dataStructure')}>
+                                                            <Box>Current Month</Box>
+                                                        </Box>
+                                            } else if ( month > moment().month() ) {
+                                                return  <Box style={{ textAlign: 'center', background: 'red' }}>
+                                                            <Box></Box>
+                                                        </Box>
+                                            } else {
+                                                return  <Box style={{ textAlign: 'center' }}>
+                                                            <Box>No data available</Box>
+                                                        </Box>
+                                            }
                                         default:
                                             return <Box>
                                             <Box  className={classNames('dataStructure')}>0</Box>

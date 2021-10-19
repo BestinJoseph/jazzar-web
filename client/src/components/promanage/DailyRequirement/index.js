@@ -9,6 +9,7 @@ import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 // import { KeyboardDatePicker } from "@material-ui/pickers";
 import _ from 'lodash'
+import * as Yup from 'yup'
 
 import useStyles from './DailyRequirementStyles'
 import { postDailyAction } from '../../../actions/dailyActions'
@@ -25,6 +26,12 @@ const DailyRequirement = () => {
     const projectQuery = _.isEmpty((history.location.search).substring(1)) ? query : ''
     const [initialValues, setInitialValues] = useState({ project: projectQuery, createdAt: moment().format('yyyy-MM-DD'), requirements: {}})
 
+    // const validationSchema = Yup.object().shape({
+    //     return roles.map( role => {
+    //         role: Yup.number().required('Required, starts from 0.')
+    //     })
+    // })
+
     useEffect(() => {
         const proRoles = []
         Object.values(projects).forEach(({_id, roles}) => {
@@ -34,20 +41,32 @@ const DailyRequirement = () => {
                 return []
             }
         })
-        // const roless = proRoles && Object.entries({...proRoles[0]})
-        const obj = {}
-        roles[0] && roles[0].forEach( role => {
-            obj[role] = 0
-        })
+        // console.log(proRoles[0])
+        let obj = {}
+        if(proRoles[0] !== undefined) {
+            obj = proRoles[0].reduce( (acc, role) => {
+                acc['requirements'] = {}
+                acc['requirements'][role] = 0
+
+                return acc
+            },{})
+        }  else {
+            obj = {}
+        }
+        console.log(obj)
         setInitialValues({...initialValues, requirements: {...obj}})
         setRoles(proRoles)
-    },[project])
+    },[project, projects])
+
+    // console.log(roles)
 
     const handleSubmit = (values, {setSubmitting, resetForm}) => {
         const projectValue = project === 'newproject' ? values.project : values.project = project
         
         values.createdAt = moment(values.createdAt, 'YYYY-MM-DD').format()
-        
+
+        // console.log(values)
+
         if(_.isEmpty(values.project)) {
             setSubmitting(false)
         } else {
@@ -56,8 +75,6 @@ const DailyRequirement = () => {
             history.push('/promanage')
         }
     }
-    // console.log(roles)
-    console.log(initialValues)
 
     return (
         <Box className={classes.dailyrequirements}>

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Switch } from 'react-router-dom'
 
-import { Home, About, Services, Contacts, Projects, Proposal, SingleService, Promange, DailyRequirement, CreateProject } from '../components'
+import { Home, About, Services, Contacts, Projects, Proposal, SingleService, Promange, DailyRequirement, CreateProject, MonthlyRequirement } from '../components'
 import PublicComponent from './PublicComponent'
 
 import { Header, Footer } from '../components/Layouts'
@@ -19,6 +19,7 @@ const PublicRoutes = () => {
                 <PublicComponent path="/projects" component={Projects} exact/>
                 <PublicComponent path="/contacts" component={Contacts} exact/>
                 <PublicComponent path="/promanage" component={Promange} exact/>
+                <PublicComponent path="/promanage/:id/monthly" component={MonthlyRequirement} exact/>
                 <PublicComponent path="/promanage/:project/create" component={DailyRequirement} exact/>
                 <PublicComponent path="/promanage/create" component={CreateProject} exact/>
             </Switch>
