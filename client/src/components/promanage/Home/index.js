@@ -19,7 +19,7 @@ const ProManageHome = () => {
     const [data, setData] = useState([])
     const history = useHistory()
 
-    // console.log(projects)
+    // console.log(dailies)
 
     useEffect(() => {
 
@@ -32,7 +32,6 @@ const ProManageHome = () => {
                     acc[obj.project]['roles'].push(role)
                 })
                 Object.values(dailies).forEach( daily => {
-                    // console.log(daily.createdAt)
                     if(obj._id === daily.project._id) {
                         acc[obj.project]['months'] = acc[obj.project]['months'] || []
                         acc[obj.project]['months'][moment(daily.createdAt).format('M')] = acc[obj.project]['months'][moment(daily.createdAt).format('M')] || []

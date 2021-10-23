@@ -65,6 +65,7 @@ export const putProjectImages = async (req, res) => {
 }
 
 export const putProject = async (req, res) => {
+    console.log()
     try {
         Project.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
             .populate({path: 'images'})
@@ -78,7 +79,6 @@ export const putProject = async (req, res) => {
 }
 
 export const deleteProjectImages = async (req, res) => {
-    // console.log(req.body)
     try {
         Image.findByIdAndRemove(req.body.imageId)
             .exec( (err, image) => {

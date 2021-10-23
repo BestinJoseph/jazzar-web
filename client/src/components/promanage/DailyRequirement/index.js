@@ -2,35 +2,33 @@ import { Box, Button, TextField, Typography } from '@material-ui/core'
 import { Formik, Form, Field } from 'formik'
 import {  } from 'formik-material-ui'
 import React, { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router'
+import { useHistory, useLocation, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 // import { KeyboardDatePicker } from "@material-ui/pickers";
 import _ from 'lodash'
-import * as Yup from 'yup'
+// import * as Yup from 'yup'
 
 import useStyles from './DailyRequirementStyles'
-import { postDailyAction } from '../../../actions/dailyActions'
+import { postDailyAction, putDailyAction } from '../../../actions/dailyActions'
 
 const DailyRequirement = () => {
     const classes = useStyles()
     const { project } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
-    const { projects } = useSelector( state => state.projects )
-    const [roles, setRoles] = useState([])
+    const location = useLocation()
+    const {projects: { projects }, dailies: { dailies }} = useSelector( state => state )
+    const [daily, setDaily] = useState()
 
-    const query = (history.location.search).substring(1) 
+    // const [roles, setRoles] = useState([])
+
+    const { dailyId } = location.state
+    const query = (history.location.search).substring(1)
     const projectQuery = _.isEmpty((history.location.search).substring(1)) ? query : ''
     const [initialValues, setInitialValues] = useState({ project: projectQuery, createdAt: moment().format('yyyy-MM-DD'), requirements: {}})
-
-    // const validationSchema = Yup.object().shape({
-    //     return roles.map( role => {
-    //         role: Yup.number().required('Required, starts from 0.')
-    //     })
-    // })
 
     useEffect(() => {
         const proRoles = []
@@ -41,34 +39,49 @@ const DailyRequirement = () => {
                 return []
             }
         })
-        // console.log(proRoles[0])
+
         let obj = {}
-        if(proRoles[0] !== undefined) {
-            proRoles[0].forEach( role => {
-                obj[role] = 0
+        if( dailyId === null ) {
+            if(proRoles[0] !== undefined) {
+                proRoles[0].forEach( role => {
+                    obj[role] = 0
+                })
+            }  else {
+                obj = {}
+            }
+        } else {
+            dailies.map( daily => {
+                if(daily._id === dailyId) {
+                    obj = daily.requirements
+                    setDaily(daily)
+                }
             })
-        }  else {
-            obj = {}
         }
         setInitialValues({...initialValues, requirements: {...obj}})
-        setRoles(proRoles)
+        // setRoles(proRoles)
     },[project, projects])
 
-    console.log(initialValues)
+    // console.log(project)
 
     const handleSubmit = (values, {setSubmitting, resetForm}) => {
         const projectValue = project === 'newproject' ? values.project : values.project = project
         
-        values.createdAt = moment(values.createdAt, 'YYYY-MM-DD').format()
+        values.createdAt = dailyId === null ? moment(values.createdAt, 'YYYY-MM-DD').format() : daily.createdAt
 
-        // console.log(values)
+        console.log(values)
 
         if(_.isEmpty(values.project)) {
             setSubmitting(false)
         } else {
-            dispatch(postDailyAction(projectValue, values))
-            resetForm()
-            history.push('/promanage')
+            if(dailyId === null) {
+                dispatch(postDailyAction(project, values))
+                resetForm()
+                history.push('/promanage')
+            } else {
+                dispatch(putDailyAction(dailyId, values))
+                resetForm()
+                history.push({pathname: `/promanage/${project}/monthly`, search: `month=${moment(daily.createdAt).format('M')}`})
+            }
         }
     }
 
@@ -82,7 +95,6 @@ const DailyRequirement = () => {
                 {
                     
                     ({values}) => {
-                        console.log(values)
 
                         return (
                             <Form>

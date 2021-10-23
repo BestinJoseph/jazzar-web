@@ -19,15 +19,16 @@ export default makeStyles((theme) => ({
             '& .mrHeaderBtn': {
                 marginLeft: '2rem', 
                 cursor: 'pointer',
-                border: '2px solid white',
+                border: '2px solid #CEE5D0',
                 width: '2.5rem',
                 height: '2.5rem',
                 borderRadius: '50%',
                 padding: '.35rem',
+                color: '#5B6D5B',
 
                 '&:hover': {
-                    color: 'white',
-                    border: '2px solid black',
+                    color: '#CEE5D0',
+                    border: '2px solid #5B6D5B',
                 }
             }
         },

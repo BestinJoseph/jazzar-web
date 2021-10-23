@@ -18,11 +18,10 @@ const ProTableRow = ({ pro }) => {
     const _isMounted = useRef(true)
 
     const handleAdd = (id, pr) => {
-        history.push({pathname: `/promanage/${id}/create`, search: pr})
+        history.push({pathname: `/promanage/${id}/create`, search: pr, state: { dailyId: null }})
     }
 
     const handleView = (id, month) => {
-        console.log(month)
         history.push({pathname: `/promanage/${id}/monthly`, search: `month=${month}`})
     }
 
@@ -127,16 +126,24 @@ const ProTableRow = ({ pro }) => {
                                                 {
                                                     roles.map((role, index) => {
                                                         switch(role) {
-                                                            case 'supervisor':
-                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#F7F7E8' }}>{ values[`${role}`] }</Box>
-                                                            case 'technicians':
-                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#C7CFB7' }}>{ values[`${role}`] }</Box>
-                                                            case 'rigs':
-                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#9DAD7F' }}>{ values[`${role}`] }</Box>
                                                             case 'engineer':
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#F7F7E8' }}>{ values[`${role}`] }</Box>
+                                                            case 'supervisor':
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#C7CFB7' }}>{ values[`${role}`] }</Box>
+                                                            case 'technicians':
                                                                 return <Box key={index} className={classNames('dataStructure')} style={{ background: '#9DAD7F' }}>{ values[`${role}`] }</Box>
-                                                            case 'helper':
+                                                            case 'secretary':
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#798777' }}>{ values[`${role}`] }</Box>
+                                                            case 'geologist':
                                                                 return <Box key={index} className={classNames('dataStructure')} style={{ background: '#FF7878' }}>{ values[`${role}`] }</Box>
+                                                            case 'survivor':
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#E7E0C9' }}>{ values[`${role}`] }</Box>
+                                                            case 'driver':
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#C1CFC0' }}>{ values[`${role}`] }</Box>
+                                                            case 'helper':
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#6B7AA1' }}>{ values[`${role}`] }</Box>
+                                                            case 'rigs':
+                                                                return <Box key={index} className={classNames('dataStructure')} style={{ background: '#11324D' }}>{ values[`${role}`] }</Box>
                                                             default:
                                                                 return <Box key={index} className={classNames('dataStructure')}>{ values[`${role}`] }</Box>
                                                         }
