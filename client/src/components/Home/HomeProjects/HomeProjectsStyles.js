@@ -4,10 +4,10 @@ export default makeStyles((theme) => (
     {
         popular: {
             padding: '7.5rem 0',
-            // border: '1px solid gold',
             position: 'relative',
+            overflow: 'hidden',
     
-            [theme.breakpoints.down(412)]: {
+            [theme.breakpoints.down(429)]: {
                 padding: '4rem 1rem 2rem',
             },
     
@@ -16,7 +16,7 @@ export default makeStyles((theme) => (
                 fontWeight: '600',
                 color: theme.palette.primary.main,
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     paddingBottom: '1rem',
                 },
             },
@@ -27,7 +27,7 @@ export default makeStyles((theme) => (
                 padding: '2rem 0',
                 boxSizing: 'border-box',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     width: '100%',
                     padding: '1.5rem .75rem 1.5rem 0rem',
                 },
@@ -50,7 +50,7 @@ export default makeStyles((theme) => (
                         fontSize: '1.25rem',
                         color: theme.palette.secondary.main,
 
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             fontSize: '1.1rem',
                             lineHeight: '1.5rem',
                             paddingBottom: '.5rem',
@@ -123,6 +123,11 @@ export default makeStyles((theme) => (
                 zIndex: '-1',
                 opacity: '70%',
                 transform: 'rotate(45deg)',
+
+                [theme.breakpoints.down(429)]: {
+                    top: '8rem',
+                    left: '-11rem',
+                },
             },
 
             '& .arZZ': {
@@ -138,6 +143,11 @@ export default makeStyles((theme) => (
                 right: '25rem',
                 zIndex: '-1',
                 transform: 'rotate(30deg)',
+
+                [theme.breakpoints.down(429)]: {
+                    bottom: '0rem',
+                    right: '-2rem',
+                },
             },
 
             '& .arCR': {

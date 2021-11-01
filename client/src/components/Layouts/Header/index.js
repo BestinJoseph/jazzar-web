@@ -109,7 +109,7 @@ export default (props) => {
                             <CloseIcon fontSize="large"/>
                         </Box>
                     </div>
-                    <Box className={classNames('right')}>
+                    <Box className={classNames('mobileNavRight')}>
                         <Box>
                             <Button variant="outlined" onClick={ () => handleLang() } className={classNames(`langBtn ${i18n.language === 'en' ? 'ar' : null }`)}>{t('oLang')}</Button>
                         </Box>

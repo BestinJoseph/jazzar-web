@@ -20,6 +20,7 @@ const CreateProject = () => {
     const dispatch = useDispatch()
     const { projects } = useSelector( state => state.projects )
     const { project } = history.location.state || {}
+    const [updatedProjects, setUpdatedProjects] = useState()
 
     const handleClick = () => {
         history.push({pathname: '/promanage'})
@@ -36,6 +37,9 @@ const CreateProject = () => {
                 }
             })
         }
+
+        setUpdatedProjects(projects.filter( pro => _.isEmpty(pro.roles) ? pro : null))
+
         setInitialValues(proData)
     },[project, projects])
 
@@ -51,8 +55,9 @@ const CreateProject = () => {
 
     return (
         <Box className={classes.createproject}>
+            <Box>
             <Box className={classNames('createdproject_container')}>
-                <Typography variant="h6">create project here.</Typography>
+                <Typography variant="h6">{ project && project ? 'Update' : 'Create' } project here.</Typography>
                 <ArrowBackIcon onClick={() => handleClick()} style={{cursor: 'pointer'}}/>
             </Box>
 
@@ -68,7 +73,7 @@ const CreateProject = () => {
                                             <Field name="projectId" fullWidth as={TextField} select label="Select Project">
                                                 <MenuItem value=''>Select Project</MenuItem>
                                                 {
-                                                    projects.map((pro, index) => (
+                                                    updatedProjects && updatedProjects.map((pro, index) => (
                                                         <MenuItem value={pro._id} key={index}>{pro.project}</MenuItem>
                                                     ))
                                                 }
@@ -79,9 +84,9 @@ const CreateProject = () => {
                                     <Box>
                                         <Grid container>
                                         { 
-                                            projectList.map((project, index) => (
+                                            projectList && projectList.map((project, index) => (
                                                     <Grid item lg={6} key={index}>
-                                                        <Field component={CheckboxWithLabel} type="checkbox" checked={values.roles.includes(project)} value={project} name={`roles`} Label={{ label: `${project}` }}/>
+                                                        <Field component={CheckboxWithLabel} type="checkbox" checked={values.roles && values.roles.includes(project)} value={project} name={`roles`} Label={{ label: `${project}` }}/>
                                                     </Grid>
                                             ))
                                         }
@@ -96,6 +101,7 @@ const CreateProject = () => {
                     }
                 </Formik>
             </Paper>
+            </Box>
         </Box>
     )
 }

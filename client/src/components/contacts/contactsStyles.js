@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core"
 export default makeStyles((theme) => ({
     contact: {
 
-        [theme.breakpoints.down(415)]: {
-            marginBottom: '3rem',
+        [theme.breakpoints.down(429)]: {
+            // marginBottom: '3rem',
         }
     }
 }))

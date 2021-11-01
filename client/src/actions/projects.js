@@ -1,5 +1,7 @@
 import * as api from '../api/projectApi'
 
+import { GET_ERRORS } from './types'
+
 export const getProjects = () => async (dispatch) => {
     try {
         const { data } = await api.fetchProjects()
@@ -12,9 +14,9 @@ export const getProjects = () => async (dispatch) => {
 export const newProject = (project) => async (dispatch) => {
     try {
         const { data } = await api.postProject(project)
-        dispatch({ type: 'POST_PROJECTS', payload: data.data })
+        dispatch({ type: 'POST_PROJECTS', payload: data })
     } catch (err) {
-        console.log(err)
+        dispatch({type: GET_ERRORS, payload: err.response.data })
     }
 }
 

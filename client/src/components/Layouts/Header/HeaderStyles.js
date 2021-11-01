@@ -5,8 +5,9 @@ export default makeStyles((theme) => (
         header: {
             position: 'fixed',
             width: '100%',
-            zIndex: '2',
-            [theme.breakpoints.down(412)]: {
+            zIndex: '10',
+
+            [theme.breakpoints.down(429)]: {
                 width: '100vw',
             },
         
@@ -16,7 +17,7 @@ export default makeStyles((theme) => (
                 padding: '.5rem 2rem',
                 borderBottom: '0.1rem solid #ffffff70',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     display: 'none',
                 },
 
@@ -47,11 +48,18 @@ export default makeStyles((theme) => (
                 transition: 'all 0.5s ease',
                 transitionDuration: '700ms',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     padding: '2rem 0.5rem',
+                    height: '2rem',
                 },
         
                 '& .logo': {
+
+                    [theme.breakpoints.down(429)]: {
+                        display: 'flex',
+                        alignItems: 'center',
+                        height: '100%',
+                    },
     
                     '& .image_container': {
                         cursor: 'pointer',
@@ -60,8 +68,9 @@ export default makeStyles((theme) => (
                             width: '3rem',
                             height: 'auto',
 
-                            [theme.breakpoints.down(412)]: {
+                            [theme.breakpoints.down(429)]: {
                                 width: '2rem',
+                                marginRight: '.5rem',
                             },
                         },
                     },
@@ -75,10 +84,10 @@ export default makeStyles((theme) => (
                             lineHeight: '1.15rem', 
                             color: 'white',
 
-                            [theme.breakpoints.down(412)]: {
-                                fontSize: '.75rem',
-                                marginLeft: '0.5rem',
-                                lineHeight: '1rem',
+                            [theme.breakpoints.down(429)]: {
+                                fontSize: '1.75rem',
+                                margin: '0rem', 
+                                // lineHeight: '1rem',
                             }
                         },
     
@@ -88,10 +97,8 @@ export default makeStyles((theme) => (
                             lineHeight: '1.15rem', 
                             color: 'white',
 
-                            [theme.breakpoints.down(412)]: {
-                                fontSize: '.75rem',
-                                marginLeft: '0.5rem',
-                                lineHeight: '1rem',
+                            [theme.breakpoints.down(429)]: {
+                                display: 'none',
                             }
                         },
 
@@ -108,13 +115,13 @@ export default makeStyles((theme) => (
                     display: 'block',
                     transition: 'all 2500ms linear',
 
-                    [theme.breakpoints.down(412)]: {
+                    [theme.breakpoints.down(429)]: {
                         display: 'none',
                         position: 'absolute',
-                        width: '100%',
+                        width: '70vw',
                         height: '100vh',
                         top: '0',
-                        left: '0rem',
+                        right: '0rem',
                         background: '#152035',
                     },
                     
@@ -124,7 +131,7 @@ export default makeStyles((theme) => (
                         padding: '0',
                         display: 'flex',
 
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             flexDirection: 'column',
                             justifyContent: 'Center',
                             alignItems: 'center',
@@ -139,13 +146,18 @@ export default makeStyles((theme) => (
                             color: 'white',
                             margin: '.5rem 1.25rem 0 1.25rem',
                             paddingBottom: '0.5rem',
+
+                            [theme.breakpoints.down(429)]: {
+                                paddingBottom: '0rem',
+                                marginBottom: '1.75rem',
+                            },
         
                             '& .li': {
                                 color: 'white',
 
-                                [theme.breakpoints.down(412)]: {
+                                [theme.breakpoints.down(429)]: {
                                     padding: '0',
-                                    marginBottom: '2rem',
+                                    marginBottom: '.25rem',
                                 }
                             },
         
@@ -167,7 +179,7 @@ export default makeStyles((theme) => (
                     '& .closeBtn': {
                         display: 'none',
 
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             display: 'block',
                             position: 'absolute',
                             top: '1rem',
@@ -178,14 +190,16 @@ export default makeStyles((theme) => (
                     }
                 },
         
-                '& .right': {
+                '& .mobileNavRight': {
+                    display: 'flex',
+                    alignItems: 'center',
         
                     '& .btn': {
                         fontWeight: 'bold',
                         fontSize: '1.15rem',
                         padding: '.55rem 1.5rem',
 
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             display: 'none',
                         }
                     },
@@ -194,7 +208,7 @@ export default makeStyles((theme) => (
                         display: 'none',
                         lineHeight: '0',
 
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             display: 'block',
 
                             '& .hamburgerIcon': {

@@ -7,19 +7,24 @@ export default makeStyles((theme) => (
             background: theme.palette.ourgold.main,
             overflow: 'hidden',
 
-            [theme.breakpoints.down(412)]: {
+            [theme.breakpoints.down(429)]: {
                 width: '100%',
+                paddingBottom: '3rem',
             },
             
             '& .historyContainer': {
                 width: '1280px',
                 margin: '0 auto',
 
+                [theme.breakpoints.down(429)]: {
+                    width: '100%',
+                },
+
                 '& .historyLeftPanel': {
                     padding: '7rem 0 11rem',
     
-                    [theme.breakpoints.down(412)]: {
-                        padding: '4rem 1rem',
+                    [theme.breakpoints.down(429)]: {
+                        padding: '4rem 1rem 2rem 1rem',
                     },
         
                     '& .leftHistoryContainer': {
@@ -27,7 +32,7 @@ export default makeStyles((theme) => (
                         // marginLeft: '16.5%',
                         // border: '1px solid red',
     
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             width: '100%',
                         },
     
@@ -36,6 +41,12 @@ export default makeStyles((theme) => (
                             fontSize: '2rem',
                             color: theme.palette.quaternary.main,
                             marginBottom: '1rem',
+
+                            [theme.breakpoints.down(429)]: {
+                                fontSize: '2rem',
+                                lineHeight: '2rem',
+                                marginBottom: '0rem',
+                            }
                         },
     
                         '& .historyTitle': {
@@ -45,18 +56,29 @@ export default makeStyles((theme) => (
                             lineHeight: '2.75rem',
                             marginBottom: '2rem',
                             color: theme.palette.secondary.main,
+
+                            [theme.breakpoints.down(429)]: {
+                                fontSize: '2rem',
+                                lineHeight: '2rem',
+                                letterSpacing: '0rem',
+                            }
                         },
     
                         '& .historyBody': {
                             fontSize: '1.25rem',
                             fontWeight: '500',
                             marginBottom: '1rem',
-                            color: theme.palette.ajwhite.main,   
+                            color: theme.palette.ajwhite.main,
+
+                            [theme.breakpoints.down(429)]: {
+                                fontSize: '1rem',
+                                color: theme.palette.primary.main,
+                            }
                         },
         
                         '& .historyBtn': {
                             background: theme.palette.secondary.main,
-                            color: theme.palette.ajwhite.main,
+                            color: theme.palette.quaternary.main,
                             padding: '1.5rem',
                             marginTop: '1rem',
                             fontWeight: '800',
@@ -66,6 +88,16 @@ export default makeStyles((theme) => (
     
                             '&:hover': {
                                 background: '#90752a',
+                            },
+
+                            [theme.breakpoints.down(429)]: {
+                                fontSize: '1rem',
+                                fontWeight: '600',
+                                background: 'transparent',
+                                border: '1px solid',
+                                borderColor: theme.palette.quaternary.main,
+                                borderRadius: '.75rem',
+                                padding: '.75rem 1.25rem',
                             }
                         }
                     },
@@ -77,6 +109,11 @@ export default makeStyles((theme) => (
         
                 '& .rightContainer': {
                     position: 'relative',
+
+                    [theme.breakpoints.down(429)]: {
+                        position: 'relative',
+                        height: '100%',
+                    }
                 }
             }
         },

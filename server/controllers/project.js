@@ -24,7 +24,7 @@ export const postProject = async (req, res) => {
                 if(pro) {
                     res.status(200).json(pro)
                 } else {
-                    res.status(400).json({errors: err.message})
+                    res.status(400).json({errors: 'Unable to post project'})
                 }
             }
         })

@@ -9,8 +9,8 @@ export default makeStyles( (theme) => (
             boxSizing: 'border-box',
             // border: '1px solid gold',
 
-            [theme.breakpoints.down(412)]: {
-                padding: '0rem 0rem',
+            [theme.breakpoints.down(429)]: {
+                padding: '3rem 0rem',
             },
     
             '& .servicesLeft': {
@@ -18,7 +18,7 @@ export default makeStyles( (theme) => (
                 height: '100%',
                 // border: '1px solid red',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     height: '100%',
                 },
     
@@ -27,7 +27,7 @@ export default makeStyles( (theme) => (
                     position: 'relative',
                     // border: '1px solid gold',
 
-                    [theme.breakpoints.down(412)]: {
+                    [theme.breakpoints.down(429)]: {
                         height: '100%',
                     },
     
@@ -53,18 +53,18 @@ export default makeStyles( (theme) => (
                         '& span': {
                             fontSize: '2rem',
 
-                            [theme.breakpoints.down(412)]: {
+                            [theme.breakpoints.down(429)]: {
                                 fontSize: '1.25rem',
                             },
                         },
 
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             fontSize: '1.5rem',
                             lineHeight: '1.5rem',
                             height: '10rem',
                             width: '10rem',
-                            top: '8rem',
-                            left: '-.5rem',
+                            top: '2rem',
+                            left: '0rem',
                             
                         },
                     },
@@ -82,11 +82,11 @@ export default makeStyles( (theme) => (
                         height: '30rem',    
                         // border: '1px solid yellow',
 
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             position: 'relative',
                             top: '2rem',
                             width: '100vw',
-                            height: 'auto',
+                            height: '20rem',
                         },
                     },
                 },
@@ -100,11 +100,11 @@ export default makeStyles( (theme) => (
                     // border: '1px solid orange',
                     zIndex: '2',
         
-                    [theme.breakpoints.down(412)]: {
+                    [theme.breakpoints.down(429)]: {
                         position: 'relative',
                         right: '0rem',
                         width:'100%',
-                        marginTop: '7rem',
+                        marginTop: '4rem',
                         padding: '0 1rem',
                     },
                 },
@@ -119,7 +119,7 @@ export default makeStyles( (theme) => (
                 position: 'relative',
                 // border: '1px solid red',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     display: 'none',
                 },
     

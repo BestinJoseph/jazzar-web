@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import NextArrow from '../NextArrow'
 import PrevArrow from '../PrevArrow'
 import useStyles from './HistoryCarousel'
-import useWindowSize from '../../RJHooks/useWindowSize';
 
 import one from '../../../assets/images/carousel/ojce_material.jpg'
 import two from '../../../assets/images/carousel/ojce_geotechnical.jpg'
@@ -15,12 +14,12 @@ import three from '../../../assets/images/carousel/ojce_survey.jpg'
 import four from '../../../assets/images/carousel/ojce_pullout.jpg'
 
 
-const HistoryCarousel = () => {
+const HistoryCarousel = ({width}) => { // 
     const { i18n } = useTranslation()
     const classes = useStyles()
-    const {width} = useWindowSize()
+    // const width = 900;
 
-    // console.log(width - (width/3))
+    // console.log(width)
 
     const slides = [
         { name: 'slide One', image: one },
@@ -41,7 +40,7 @@ const HistoryCarousel = () => {
 
     return (
         <Box className={ i18n.language === 'en' ? classes.historyRightPanel : `${classes.historyRightPanel} ${classes.arRP}` }>
-            <Box className={ classNames('ImagesSection')} style={{ width: `${width - (width/2)}px` }}>
+            <Box className={ classNames('ImagesSection')} style={{ width: width < 800 ? width * (97 / 100) : `${width - (width/2)}px` }}>
                 <Slider {...setting}>
                     { slides.map( (photo, index) => (
                         <Box className={ classNames('imageContainer')} key={index} >

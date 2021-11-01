@@ -6,6 +6,10 @@ export default makeStyles((theme) => ({
         '& .servicesItem': {
             paddingBottom: '6rem',
 
+            [theme.breakpoints.down(429)]: {
+                paddingBottom: '10rem',
+            },
+
             '& .servicesItemIcon': {
                 width: '7rem',
                 height: '7rem',
@@ -17,7 +21,7 @@ export default makeStyles((theme) => ({
                 fontSize: '2rem',
                 fontWeight: '700',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     marginBottom: '1rem',
                 },
             },
@@ -27,7 +31,7 @@ export default makeStyles((theme) => ({
                 fontSize: '1.75rem',
                 letterSpacing: '-0.05rem',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     fontSize: '1.25rem',
                 },
             },
@@ -37,7 +41,7 @@ export default makeStyles((theme) => ({
                 color: '#869298',
                 paddingTop: '1.25rem',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     paddingTop: '.75rem',
                 },
             },
@@ -50,7 +54,7 @@ export default makeStyles((theme) => ({
                 // border: '1px solid blue',
                 alignItems: 'center',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     marginTop: '1rem',
                 },
 
@@ -71,7 +75,7 @@ export default makeStyles((theme) => ({
                 }
             },
 
-            [theme.breakpoints.down(412)]: {
+            [theme.breakpoints.down(429)]: {
                 paddingBottom: '2rem',
             },
 

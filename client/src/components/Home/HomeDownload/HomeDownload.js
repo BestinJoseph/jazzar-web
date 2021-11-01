@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
         background: theme.palette.secondary.main,
         padding: '7rem 0 7rem 0',
 
-        [theme.breakpoints.down(412)]:{
+        [theme.breakpoints.down(429)]:{
             padding: '4rem 1rem',
         },
 
@@ -16,11 +16,15 @@ export default makeStyles((theme) => ({
             width: '70%',
             margin: '0 auto',
 
+            [theme.breakpoints.down(429)]:{
+                width: '90%',
+            },
+
             '& .downloadContainer': {
                 width: '40rem',
                 // marginLeft: '18.5rem',
     
-                [theme.breakpoints.down(412)]:{
+                [theme.breakpoints.down(429)]:{
                     width: '100%',
                     marginLeft: '0em',
                 },
@@ -33,7 +37,7 @@ export default makeStyles((theme) => ({
                     lineHeight: '3rem',
                     marginBottom: '1.5rem',
     
-                    [theme.breakpoints.down(412)]:{
+                    [theme.breakpoints.down(429)]:{
                         fontSize: '2rem',
                         lineHeight: '2.25rem',
                         letterSpacing: '-0.05rem',
@@ -42,11 +46,11 @@ export default makeStyles((theme) => ({
         
                 '& .downloadBody': {
                     fontSize: '1.25rem',
-                    color: 'white',
+                    color: theme.palette.tertiary.main,
                     lineHeight: '2rem',
     
-                    [theme.breakpoints.down(412)]:{
-                        fontSize: '1rem',
+                    [theme.breakpoints.down(429)]:{
+                        fontSize: '1.2rem',
                         lineHeight: '1.5rem',
                     },
                 },
@@ -69,11 +73,16 @@ export default makeStyles((theme) => ({
                     color: theme.palette.secondary.main,
                     padding: '1.5rem',
                     fontSize: '1.25rem',
-                    fontWeight: '600',
-                    borderRadius: '0rem',
+                    fontWeight: '800',
+                    borderRadius: '.5rem',
     
-                    [theme.breakpoints.down(412)]:{
-                        fontSize: '1rem',
+                    [theme.breakpoints.down(429)]:{
+                        fontSize: '.9rem',
+                        padding: '1rem 1.75rem',
+                        border: '1px solid',
+                        borderColor: theme.palette.ourgold.main,
+                        background: 'transparent',
+                        color: theme.palette.ourgold.main,
                     },
     
                     '&:hover': {
@@ -96,7 +105,7 @@ export default makeStyles((theme) => ({
                 // boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
                 filter: 'drop-shadow(0px 0px 10px rgba(0,0,0,.8))',
 
-                [theme.breakpoints.down(412)]:{
+                [theme.breakpoints.down(429)]:{
                     display: 'none',
                 },
             }

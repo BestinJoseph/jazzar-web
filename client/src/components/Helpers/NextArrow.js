@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => (
             position: 'absolute',
             cursor: 'pointer',
 
-            [theme.breakpoints.down(415)]: {
+            [theme.breakpoints.down(429)]: {
                 width: '5rem',
                 height: '5rem',
                 top: '5rem',
@@ -51,13 +51,17 @@ const useStyles = makeStyles((theme) => (
                 '& .arrowIcon': {
                     fontSize: '4rem',
                     color: theme.palette.ourgold.main,
-                }
+                },
+
+                [theme.breakpoints.down(429)]: {
+
+                },
             },
     
             '&:hover': {
                 background: theme.palette.secondary.main,
                 
-                [theme.breakpoints.down(415)]: {
+                [theme.breakpoints.down(429)]: {
                     background: "#32280e50",
                 },
     
@@ -66,7 +70,7 @@ const useStyles = makeStyles((theme) => (
                     '& .arrowIcon': {
                         color: theme.palette.ourgold.main, //'#6c6143'
                 
-                        [theme.breakpoints.down(415)]: {
+                        [theme.breakpoints.down(429)]: {
                             color: '#6c6143',
                         },
                     }

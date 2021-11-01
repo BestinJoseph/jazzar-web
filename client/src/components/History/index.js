@@ -1,7 +1,8 @@
 import { Button, Grid, Typography, Box } from '@material-ui/core'
 import React from 'react'
 import classNames from 'classnames'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
+import useWindowSize from '../RJHooks/useWindowSize'
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -12,6 +13,7 @@ import HistoryCarousel from '../Helpers/HistoryCarousel';
 const HomeHistory = () => {
     const classes = useStyles()
     const { i18n } = useTranslation()
+    const {width} = useWindowSize()
 
     return (
         <Grid className={classes.history}>
@@ -26,7 +28,7 @@ const HomeHistory = () => {
                     </Box>
                 </Grid>
                 <Grid item lg={5} className={ classNames('rightContainer')} xs={12}>
-                    <HistoryCarousel />
+                    <HistoryCarousel width={width} />
                 </Grid>
             </Grid>
         </Grid>

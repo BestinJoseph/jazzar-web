@@ -2,10 +2,10 @@
 import React from 'react'
 import { Box } from '@material-ui/core'
 
-import useStyles from '../../styles/AboutStyles/index'
+import useStyles from './AboutStyles'
 import TopSection from './TopSection'
 import Glance from './Glance'
-import Certifications from './Cerifications'
+import Certifications from './Certifications'
 import History from '../History'
 
 export default () => {

@@ -7,8 +7,10 @@ export default makeStyles((theme) => (
             background: 'white',
             borderRadius: '.25rem',
 
-            [theme.breakpoints.down(415)]: {
-                padding: '2.5rem 1rem'
+            [theme.breakpoints.down(429)]: {
+                padding: '1rem',
+                background: 'white',
+                borderRadius: '1rem',
             }
         },
 
@@ -16,7 +18,7 @@ export default makeStyles((theme) => (
             fontSize: '2rem',
             padding: '1.25rem 0',
 
-            [theme.breakpoints.down(415)]: {
+            [theme.breakpoints.down(429)]: {
                 padding: '1rem 0',
             }
         },

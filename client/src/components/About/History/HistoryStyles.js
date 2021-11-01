@@ -7,7 +7,7 @@ export default makeStyles((theme) => (
             background: '#0f1524',
             padding: '10rem 5rem',
 
-            [theme.breakpoints.down(429)]: {
+            [theme.breakpoints.down(415)]: {
                 padding: '4rem 1rem',
             },
     
@@ -16,7 +16,7 @@ export default makeStyles((theme) => (
                 color: 'white',
                 fontSize: '2rem',
 
-                [theme.breakpoints.down(429)]: {
+                [theme.breakpoints.down(415)]: {
                     fontSize: '1.5rem',
                 },
             },
@@ -30,7 +30,7 @@ export default makeStyles((theme) => (
                 lineHeight: '3.5rem',
                 textTransform: 'uppercase',
 
-                [theme.breakpoints.down(429)]: {
+                [theme.breakpoints.down(415)]: {
                     fontSize: '2.35rem',
                 },
             },
@@ -45,7 +45,7 @@ export default makeStyles((theme) => (
             '& .rightContainer': {
                 position: 'relative',
 
-                [theme.breakpoints.down(429)]: {
+                [theme.breakpoints.down(415)]: {
                     marginTop: '2.5rem',
                 },
     
@@ -60,7 +60,7 @@ export default makeStyles((theme) => (
                     alignItems: 'center',
                     justifyContent: 'flex-end',
 
-                    [theme.breakpoints.down(429)]: {
+                    [theme.breakpoints.down(415)]: {
                         position: 'relative',
                         right: '0rem',
                     },
@@ -68,7 +68,7 @@ export default makeStyles((theme) => (
                     '& .ImagesSection': {
                         width: '960px',
 
-                        [theme.breakpoints.down(429)]: {
+                        [theme.breakpoints.down(415)]: {
                             width: '755px',
                         },
                         
@@ -99,7 +99,7 @@ export default makeStyles((theme) => (
                     alignItems: 'center',
                     justifyContent: 'flex-end',
 
-                    [theme.breakpoints.down(429)]: {
+                    [theme.breakpoints.down(415)]: {
                         position: 'relative',
                         right: '0rem',
                     },
@@ -107,7 +107,7 @@ export default makeStyles((theme) => (
                     '& .ImagesSection': {
                         width: '960px',
 
-                        [theme.breakpoints.down(429)]: {
+                        [theme.breakpoints.down(415)]: {
                             width: '755px',
                         },
                         

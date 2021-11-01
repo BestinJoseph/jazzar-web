@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Box, Typography, Grid, Paper, Breadcrumbs } from '@material-ui/core'
 import classNames from 'classnames'
 import { Link, useHistory } from 'react-router-dom'
@@ -15,6 +15,14 @@ const AdminProject = () => {
     const classes = useStyles()
     const { projects } = useSelector(state => state.projects)
     const history = useHistory()
+    const [allProjects, setAllProjects] = useState([])
+    const _isMounted = useRef()
+    // console.log(allProjects)
+
+    useEffect(() => {
+        setAllProjects(projects)
+        return () => _isMounted.current = false
+    },[projects])
 
     const handleClick = (id) => {
         history.push({ pathname: '/admin/projects/edit', state: {id: id}})
@@ -36,12 +44,12 @@ const AdminProject = () => {
             <Box className={classNames('adminprojectcontents')}>
                 <Grid container className={classNames('adminprojectContainer')} spacing={2}>
                     {
-                        projects && projects.map( (project, index) => (
+                        allProjects.map( (project, index) => (
                             <Grid item xs={3} className={classNames('adminprojectItem')} key={index}>
                                 <Paper className={classNames('itemContainer')}>
                                     <Box>
-                                        <Typography variant="h6">{ project.project }</Typography>
-                                        <Typography variant="body2">{ moment(project.updatedAt).format('DD MMM, YYYY') }</Typography>
+                                        <Typography variant="h6">{ project && project.project }</Typography>
+                                        <Typography variant="body2">{project &&  moment(project.updatedAt).format('DD MMM, YYYY') }</Typography>
                                     </Box>
                                     <Box className={classNames('itemFooter')}>
                                         <EditIcon onClick={() => handleClick(project._id)} style={{ cursor: 'pointer', }}/>

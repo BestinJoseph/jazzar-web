@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core'
 
-export default makeStyles({
+export default makeStyles((theme) => ({
     clients: {
         padding: '0 10%',
         height: '53rem',
@@ -8,6 +8,10 @@ export default makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
+
+        [theme.breakpoints.down(429)]: {
+            height: '40rem',
+        },
 
         '& .video': {
             position: 'absolute',
@@ -36,10 +40,17 @@ export default makeStyles({
                 cursor: 'pointer',
                 transition: '0.3s ease-in',
 
+                [theme.breakpoints.down(429)]: {
+                    width: '6rem', 
+                    height: '6rem', 
+                    padding: '1rem',
+                    marginRight: '1.5rem',
+                },
+
                 '&:hover': {
                     background: 'white',
                     color: 'black',
-                }
+                },
             },
 
             '& .textInside': {
@@ -47,6 +58,11 @@ export default makeStyles({
                 color: 'white',
                 letterSpacing: '-0.25rem',
                 opacity: '0.75',
+
+                [theme.breakpoints.down(429)]: {
+                    fontSize: '1.75rem',
+                    letterSpacing: '-0.075rem',
+                },
             }
         },
 
@@ -66,6 +82,13 @@ export default makeStyles({
                 cursor: 'pointer',
                 transition: '0.3s ease-in',
 
+                [theme.breakpoints.down(429)]: {
+                    width: '6rem', 
+                    height: '6rem', 
+                    padding: '1rem',
+                    marginRight: '1.5rem',
+                },
+
                 '&:hover': {
                     background: 'white',
                     color: 'black',
@@ -77,7 +100,11 @@ export default makeStyles({
                 color: 'white',
                 letterSpacing: '-0.25rem',
                 opacity: '0.75',
+
+                [theme.breakpoints.down(429)]: {
+                    fontSize: '2rem',
+                }
             }
         }
     },
-})
+}))

@@ -5,8 +5,8 @@ export default makeStyles((theme) => (
         location: {
             margin: '5rem 0',
 
-            [theme.breakpoints.down(415)]: {
-                margin: '3rem 0 0rem',
+            [theme.breakpoints.down(429)]: {
+                margin: '3rem 0 3rem',
                 padding: '0 1rem',
             },
     
@@ -16,7 +16,7 @@ export default makeStyles((theme) => (
                 textTransform: 'capitalize',
                 marginBottom: '2.5rem',
 
-                [theme.breakpoints.down(415)]: {
+                [theme.breakpoints.down(429)]: {
                     marginBottom: '1.5rem',
                 },
             },
@@ -30,7 +30,7 @@ export default makeStyles((theme) => (
                     border: '1px solid #ddd',
                     borderRadius: '0.25rem',
 
-                    [theme.breakpoints.down(415)]: {
+                    [theme.breakpoints.down(429)]: {
                         padding: '1rem 1.5rem',
                     },
     

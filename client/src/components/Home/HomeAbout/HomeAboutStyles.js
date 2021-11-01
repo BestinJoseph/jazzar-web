@@ -5,7 +5,7 @@ export default makeStyles((theme) => (
         aboutMain: {
             padding: '7.5rem 0rem 0rem',
     
-            [theme.breakpoints.down(412)]: {
+            [theme.breakpoints.down(429)]: {
                 padding: '4rem 1rem 0 1rem',
             },
     
@@ -16,7 +16,7 @@ export default makeStyles((theme) => (
                     position: 'relative',
                     padding: '0rem 0rem 7.5rem 0rem',
 
-                    [theme.breakpoints.down(412)]: {
+                    [theme.breakpoints.down(429)]: {
                         paddingBottom: '6rem',
                     },
         
@@ -73,22 +73,32 @@ export default makeStyles((theme) => (
                     '& .absoluteGrid': {
                         postion: 'relative',
                         width: '100%',
+
+                        [theme.breakpoints.down(429)]: {
+                            marginTop: '5rem',
+                        },
     
                         '& .absoluteCon': {
                             position: 'absolute',
                             right: '-2rem',
                             top: '5rem',
 
+                            [theme.breakpoints.down(429)]: {
+                                position: 'relative',
+                                top: '0rem',
+                                right: '0rem',
+                            },
+
                             '& .aboutImg': {
                                 width: '30rem', 
                                 height: 'auto',
 
-                                [theme.breakpoints.down(412)]: {
+                                [theme.breakpoints.down(429)]: {
                                     width: '100%',
                                 }
                             },
 
-                            [theme.breakpoints.down(412)]: {
+                            [theme.breakpoints.down(429)]: {
                                 position: 'relative',
                                 left: '0rem',
                                 top: '3rem',
@@ -102,6 +112,11 @@ export default makeStyles((theme) => (
                                 top: '18rem',
                                 left: '-5rem',
                                 zIndex: '1',
+
+                                [theme.breakpoints.down(429)]: {
+                                    top: 'auto',
+                                    bottom: '-5rem'
+                                },
                             },
 
                             '& .arCC': {
@@ -116,6 +131,11 @@ export default makeStyles((theme) => (
                                 top: '-8rem',
                                 left: '10rem',
                                 zIndex: '-1',
+
+                                [theme.breakpoints.down(429)]: {
+                                    left: 'auto',
+                                    right: '0rem',
+                                },
                             },
 
                             '& .squareFull': {
@@ -155,6 +175,12 @@ export default makeStyles((theme) => (
                                 left: '-5rem',
                                 zIndex: '1',
                                 background: theme.palette.primary.main,
+
+                                [theme.breakpoints.down(429)]: {
+                                    bottom: '0rem',
+                                    top: 'auto',
+                                    background: 'white',
+                                },
                             },
 
                             '& .arFLL': {
@@ -182,7 +208,7 @@ export default makeStyles((theme) => (
                     justifyContent: 'flex-end',
                     // height: '44.25rem',
 
-                    [theme.breakpoints.down(412)]: {
+                    [theme.breakpoints.down(429)]: {
                         padding: '2rem 1rem',
                     },
                     
@@ -190,7 +216,7 @@ export default makeStyles((theme) => (
                         width: '640px',
                         padding: '0 5rem 0 0',
 
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             width: '100%',
                             padding: '0 2rem 0 0',
                         },
@@ -203,7 +229,7 @@ export default makeStyles((theme) => (
                             fontSize: '2rem',
                             color: theme.palette.ourgold.main,
 
-                            [theme.breakpoints.down(412)]: {
+                            [theme.breakpoints.down(429)]: {
                                 fontSize: '2rem',
                                 lineHeight: '2.25rem',
                             }

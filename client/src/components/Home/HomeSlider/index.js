@@ -24,7 +24,7 @@ const HomeSlider = () => {
                     <Grid item lg={5} className={classNames('btnSection')}>
                         <Box className={classNames('btnContainer')}>
                             <GetAppIcon className={classNames(`btnIcon ${ i18n.language === 'ar' ? 'ar' : ''}`)} />
-                            <Typography variant="h5" className={classNames('btnText')}>Download Pre Qualification</Typography>
+                            <Typography variant="h5" className={classNames('btnText')}>Get Pre-Q</Typography>
                         </Box>
                     </Grid>
                 </Grid>

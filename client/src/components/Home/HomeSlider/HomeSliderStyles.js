@@ -9,8 +9,8 @@ export default makeStyles((theme) => (
             position: 'relative',
             background: theme.palette.primary.main,
     
-            [theme.breakpoints.down(412)]: {
-                height: '100vh',
+            [theme.breakpoints.down(429)]: {
+                width: '100vw',
             },
 
             '& .sliderImg': {
@@ -19,12 +19,12 @@ export default makeStyles((theme) => (
                 background: '#142034', 
                 opacity: '0.1',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     height: '100vh',
-                    width: 'auto',
+                    width: '100%',
                 },
             },
-    
+
             '& .container': {
                 position: 'absolute',
                 padding: '0rem',
@@ -36,9 +36,10 @@ export default makeStyles((theme) => (
                 height: '100%',
                 // border: '1px solid red',
 
-                [theme.breakpoints.down(412)]: {
+                [theme.breakpoints.down(429)]: {
                     position: 'absolute',
                     left: '0rem',
+                    bottom: '3rem',
                     padding: '0 2rem',
                     // width: '200px',
                     overflowWrap: 'break-word',
@@ -53,8 +54,9 @@ export default makeStyles((theme) => (
                     flexDirection: 'column',
                     color: 'white',
                     // border: '1px solid red',
+                    // overflow: 'hidden',
 
-                    [theme.breakpoints.down(412)]: {
+                    [theme.breakpoints.down(429)]: {
                         alignItems: 'flex-start',
                         height: '70%',
                     },
@@ -69,7 +71,7 @@ export default makeStyles((theme) => (
                         textTransform: 'uppercase',
                         fontWeight: '500',
 
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             fontSize: '2rem',
                             lineHeight: '2.25rem',
                         },
@@ -80,12 +82,11 @@ export default makeStyles((theme) => (
                         fontSize: '1.25rem',
                         lineHeight: '1.75rem',
                         letterSpacing: '0.1rem',
-                        width: '30rem',
-                        
+                        width: '70%',
 
-                        [theme.breakpoints.down(412)]: {
-                            fontSize: '1.25rem',
-                            width: '100%',
+                        [theme.breakpoints.down(429)]: {
+                            fontSize: '1rem',
+                            // border: '1px solid gold',
                         },
                     },
 

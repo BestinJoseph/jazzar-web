@@ -6,7 +6,7 @@ export default makeStyles((theme)=>({
         padding: '12rem 0',
         color: 'white',
 
-        [theme.breakpoints.down(415)]: {
+        [theme.breakpoints.down(429)]: {
             padding: '5rem 0rem',
         },
 
@@ -23,7 +23,7 @@ export default makeStyles((theme)=>({
                         fontSize: '4rem',
                         lineHeight: '4.5rem',
     
-                        [theme.breakpoints.down(415)]: {
+                        [theme.breakpoints.down(429)]: {
                             fontSize: '3rem',
                             lineHeight: '3.5rem',
                         },
@@ -73,7 +73,7 @@ export default makeStyles((theme)=>({
                         justifyContent: 'flex-end',
                         alignItems: 'center',
     
-                        [theme.breakpoints.down(415)]: {
+                        [theme.breakpoints.down(429)]: {
                             justifyContent: 'center',
                             marginTop: '1rem',
                             height: '8rem',
@@ -101,7 +101,7 @@ export default makeStyles((theme)=>({
                     right: '-10rem', 
                     width: '37rem',
 
-                    [theme.breakpoints.down(415)]: {
+                    [theme.breakpoints.down(429)]: {
                         position: 'relative',
                         right: '0rem',
                         width: '100%',
@@ -113,7 +113,7 @@ export default makeStyles((theme)=>({
                     left: '-10rem', 
                     width: '37rem',
 
-                    [theme.breakpoints.down(415)]: {
+                    [theme.breakpoints.down(429)]: {
                         position: 'relative',
                         right: '0rem',
                         width: '100%',

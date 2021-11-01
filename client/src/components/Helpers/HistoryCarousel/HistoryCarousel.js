@@ -11,19 +11,19 @@ export default makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
 
-        [theme.breakpoints.down(412)]: {
+        [theme.breakpoints.down(429)]: {
             position: 'relative',
             left: '0.35rem',
             padding: '1rem 0rem',
-            height: '350px',
+            // height: '350px',
         },
 
         '& .ImagesSection': {
             // width: '950px',
             // border: '1px solid orange',
 
-            [theme.breakpoints.down(412)]: {
-                width: '400px',
+            [theme.breakpoints.down(429)]: {
+                width: '900px',
             },
             
             '& .imageContainer': {
@@ -34,7 +34,7 @@ export default makeStyles((theme) => ({
                     height: '30rem',
                     marginRight: '2rem',
 
-                    [theme.breakpoints.down(412)]: {
+                    [theme.breakpoints.down(429)]: {
                         width: '15rem',
                         height: '15rem',
                     },
@@ -61,7 +61,7 @@ export default makeStyles((theme) => ({
                     height: '30rem',
                     marginRight: '2rem',
 
-                    [theme.breakpoints.down(412)]: {
+                    [theme.breakpoints.down(429)]: {
                         width: '15rem',
                         height: '15rem',
                     },

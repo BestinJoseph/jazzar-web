@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { Box, Typography } from '@material-ui/core'
 import Slider from 'react-slick'
 import classNames from 'classnames'
@@ -6,12 +6,13 @@ import _ from 'lodash'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 
-import { NextProArrow, PrevProArrow } from '../Helpers/ProArrow'
-import useStyles from '../../styles/ProjectStyles/PopularStyles'
-import ProjectSlide from './ProjectSlide'
-import SingleProject from './SingleProject'
-import ProjectsHeaderList from './ProjectsHeaderList'
-import { getProjects } from '../../actions/projects'
+import { NextProArrow, PrevProArrow } from '../../Helpers/ProArrow'
+
+import useStyles from './ProjectListsStyles'
+import SingleProject from '../SingleProject'
+import ProjectsHeaderList from '../ProjectsHeaderList'
+import { getProjects } from '../../../actions/projects'
+import ProjectSlide from '../ProjectSlide'
 
 const ProjectLists = () => {
     const classes = useStyles()
@@ -19,13 +20,14 @@ const ProjectLists = () => {
     const [item, setItem] = useState({})
     const [type, setType] = useState(0)
     const { projects } = useSelector( state => state.projects )
-    const [numb] = useState(2)
+    const [numb, setNumb] = useState(9)
     const dispatch = useDispatch()
     const { search } = useLocation()
     const searchParams = new URLSearchParams(search)
 
     const id = searchParams.get('id')
-    // console.log(id)
+
+    // console.log(projects.length)
 
     useEffect(() => {
         let isSubscribed = true
@@ -41,6 +43,12 @@ const ProjectLists = () => {
             setItem(projects[projectIndex])
         } else if(projects.length > 0 && isSubscribed && _.isEmpty(item) && id === null) {
             setItem(projects[0])
+        }
+
+        if( projects && projects.length > 9 ) {
+            setNumb(9)
+        } else {
+            setNumb(projects.length - 1)
         }
 
         handler()
@@ -81,10 +89,10 @@ const ProjectLists = () => {
 
             <Box className={classNames('sliderContainer')}>
                 <Slider {...settings}>
-                    { projects && projects.length === 0 ? 
+                    { projects && numb && projects.length === 0 ? 
                         <Typography>No Projects Found / Fetching Projects</Typography> 
                     : 
-                        projects && projects.map( (item, id) => (
+                        projects && numb && projects.map( (item, id) => (
                             <ProjectSlide index={item._id} item={item} key={id}/>
                         ))
                     }

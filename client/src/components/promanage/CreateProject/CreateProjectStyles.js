@@ -12,8 +12,9 @@ export default makeStyles((theme) => ({
         flexDirection: 'column',
 
         '& .createdproject_container': {
+            width: '100%',
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             alignItems: 'center',
             marginBottom: '2rem',
         },

@@ -2,17 +2,17 @@ import React from 'react'
 import { Box, Chip } from '@material-ui/core'
 import classNames from 'classnames'
 
-import useStyles from './ProjectsStyles'
+import useStyles from './ProjectsHeaderListStyles'
 
 const ProjectsHeaderList = ({setType}) => {
     const classes = useStyles()
-    const projectTypes = [ 'Tower', 'Univesity', 'Dam', 'Housing' ]
+    const projectTypes = [ 'Tower', 'Univesity', 'Dam', 'Housing', 'Road', 'Architecture', 'Piling', ]
 
     return (
-    <Box className={classes.projectList}>
+    <Box className={classes.projectsHeaderList}>
         <Chip label="All" variant="outlined" onClick={ () => setType('all') } clickable className={classNames('popType')} />
         { projectTypes.map( (type, index) => (
-            <Chip key={index} label={type} variant="outlined" onClick={ () => setType(type) } disabled clickable className={classNames('popType')} />
+            <Chip key={index} label={type} variant="outlined" onClick={ () => setType(type) } clickable className={classNames('popType')} />
         ))}
     </Box>
 )
