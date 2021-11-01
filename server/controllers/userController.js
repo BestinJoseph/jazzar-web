@@ -4,9 +4,10 @@ import User from '../models/users.js'
 import { COOKIE_OPTIONS, getRefreshToken, getToken } from '../utils/authentication.js'
 
 export const userSignup = (req, res) => {
-    if(!req.body.firstName)  {
-        res.status(500).json({errors: 'First Name is Requires', success: false})
-    } else [
+    // console.log(req.body)
+    if(!req.body.username)  {
+        res.status(500).json({errors: 'username is Requires', success: false})
+    } else {
         User.register(
             new User({ username: req.body.username }),
             req.body.password,
@@ -30,11 +31,11 @@ export const userSignup = (req, res) => {
                 }
             }
         )
-    ]
+    }
 }
 
 export const userLogin = (req, res) => {
-
+    
     const token = getToken({ _id: req.user._id })
     const refreshToken = getRefreshToken({ _id: req.user._id })
     User.findById(req.user._id, (err, user) => {

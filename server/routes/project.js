@@ -1,16 +1,21 @@
 import express from 'express'
+
+import { getAllContacts } from '../../client/src/api/contactApi.js'
 import { getProjects, postProject, putProjectImages, putProject, deleteProjectImages } from '../controllers/project.js'
 import upload from '../middlewares/upload.js'
+import { verifyUser } from '../utils/authentication.js'
 
 const router = express.Router()
 
-router.route('/').get(getProjects).post(upload.array('images'), postProject)
+router.route('/').get(getProjects)
 
-router.route('/:id').put(putProject)
+router.route('/').all(verifyUser).post(upload.array('images'), postProject)
 
-router.route('/:id/images').put(upload.array('images'), putProjectImages).delete(deleteProjectImages)
+router.route('/:id').all(verifyUser).put(putProject)
 
-router.route('/:id/images/delete').put(deleteProjectImages)
+router.route('/:id/images').all(verifyUser).put(upload.array('images'), putProjectImages).delete(deleteProjectImages)
+
+router.route('/:id/images/delete').all(verifyUser).put(deleteProjectImages)
 
 // router.get('/:id', getSingleProjects)
 // router.post('/', uploads.none(), postProject)

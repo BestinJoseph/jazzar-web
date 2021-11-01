@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { Box, Button, Checkbox, Grid, TextField, Typography } from '@material-ui/core'
 import * as Yup from 'yup'
 import classNames from 'classnames'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import useStyles from './AdminLoginStyles'
 import { loginUser } from '../../../actions/authActions'
@@ -11,11 +11,12 @@ import { loginUser } from '../../../actions/authActions'
 const Login = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
+  const { errors } = useSelector( state => state )
 
   const initialValues = { username: '', password: '', remember: false}
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().email().required(),
+    username: Yup.string().required(),
     password: Yup.string().required()
   })
 

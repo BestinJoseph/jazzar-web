@@ -7,13 +7,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import useStyles from './AdminRegisterStyles'
-import { registerUser } from '../../../actions/authActions'
+import { registerUser, clearErrors } from '../../../actions/authActions'
+import CloseIcon from '@material-ui/icons/Close'
+import _ from 'lodash'
 
 const Register = () => {
     const classes = useStyles()
     const dispatch = useDispatch()
     const history = useHistory()
-    const { users } = useSelector( state => state )
+    const { users, errors } = useSelector( state => state )
+
+    console.log( errors )
 
     useEffect(() => {
         if(users.isAuthenticated === true) {
@@ -21,52 +25,62 @@ const Register = () => {
         }
     }, [users, history])
 
-    const initialValues = { firstName: '', lastName: '', username: '', password: '', remember: false}
+    const initialValues = { username: '', email: '', password: '', remember: false}
 
     const validationSchema = Yup.object().shape({
-        firstName: Yup.string().required(),
-        lastName: Yup.string().required(),
-        username: Yup.string().email().required(),
+        username: Yup.string().required(),
+        email: Yup.string().email().required(),
         password: Yup.string().required()
     })
 
     const handleSubmit = (values, action) => {
         dispatch(registerUser(values, history))
-        if(true) {
-            action.resetForm()
-        }
+        if( errors ) {
 
-        // action.setErrors() action.setFieldError()
+        } else {
+            if(true) {
+                action.resetForm()
+            }
+        }
+    }
+
+    const handleClose = () => {
+        dispatch(clearErrors())
     }
 
     return (
-        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-        <Grid container className={classes.register}>
-            <Grid item xs={6}></Grid>
-            <Grid item xs={6} className={classNames('registerformContainer')}>
-            <Typography variant="h6">Register</Typography>
-            <Form className={classNames('registerform')}>
-                <Box className={classNames('formField')}>
-                    <Field as={TextField} name="firstName" label="First Name" fullWidth/>
-                    <ErrorMessage name="firstName" />
+        <Box>
+            { !_.isEmpty(errors) ? 
+                <Box style={{ display: 'flex', justifyContent: 'space-between', background: 'red', color: 'white', }}>
+                    <Typography variant="h6">{errors.errors}</Typography>
+                    <CloseIcon onClick={() => handleClose() } />
                 </Box>
-                <Box className={classNames('formField')}>
-                    <Field as={TextField} name="lastName" label="Last Name" fullWidth/>
-                    <ErrorMessage name="lastName" />
-                </Box>
-                <Box className={classNames('formField')}>
-                    <Field as={TextField} name="username" label="Username" fullWidth/>
-                    <ErrorMessage name="username" />
-                </Box>
-                <Box className={classNames('formField')}>
-                    <Field as={TextField} password name="password" label="Password" fullWidth/>
-                    <ErrorMessage name="password" />
-                </Box>
-                <Button variant="contained" color="primary" type="submit" className={classNames('formButton')}>Register</Button>
-            </Form>
-            </Grid>
-        </Grid>
-        </Formik>
+                : null
+            }
+            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
+                <Grid container className={classes.register}>
+                    <Grid item xs={6}></Grid>
+                    <Grid item xs={6} className={classNames('registerformContainer')}>
+                    <Typography variant="h6">Register</Typography>
+                    <Form className={classNames('registerform')}>
+                        <Box className={classNames('formField')}>
+                            <Field as={TextField} name="username" label="User Name" fullWidth/>
+                            <ErrorMessage name="username" />
+                        </Box>
+                        <Box className={classNames('formField')}>
+                            <Field as={TextField} name="email" label="Email" fullWidth/>
+                            <ErrorMessage name="email" />
+                        </Box>
+                        <Box className={classNames('formField')}>
+                            <Field as={TextField} password="true" name="password" label="Password" fullWidth/>
+                            <ErrorMessage name="password" />
+                        </Box>
+                        <Button variant="contained" color="primary" type="submit" className={classNames('formButton')}>Register</Button>
+                    </Form>
+                    </Grid>
+                </Grid>
+            </Formik>
+        </Box>
     )
 }
 

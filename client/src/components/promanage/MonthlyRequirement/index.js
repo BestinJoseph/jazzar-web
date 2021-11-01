@@ -126,6 +126,7 @@ const MonthlyRequirement = () => {
                         })
                     }
                 </Box>
+                <Typography >well</Typography>
             </Box>
         </Box>
     )

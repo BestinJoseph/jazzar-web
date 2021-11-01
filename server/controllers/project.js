@@ -85,18 +85,19 @@ export const deleteProjectImages = async (req, res) => {
                 if(err) res.status(400).json({errors: err.message}) 
                 if(image) {
                     Project.findByIdAndUpdate(req.params.id, {$pull: { images: { $in: [req.body.imageId] }}}, {multi: true, new: true})
-                    .populate({ path: 'images'})
-                    .exec( (err, proj) => {
-                        if(err) res.status(409).json({ errors: err.message })
-                        if(proj) {
-                            fs.unlinkSync(path.join(__dirname, `public/uploads/${image.name}`))
-                            res.status(200).json({message: 'Project Successfully Updated.', project: proj})
-                        } else {
-                            res.status(400).json({errors: err.message})
-                        }
-                    })
+                        .populate({ path: 'images'})
+                        .exec( (err, proj) => {
+                            if(err) res.status(409).json({ errors: err.message })
+                            if(proj) {
+                                fs.unlinkSync(path.join(__dirname, `public/uploads/${image.name}`))
+                                res.status(200).json({message: 'Project Successfully Updated.', project: proj})
+                            } else {
+                                res.status(400).json({errors: err.message})
+                            }
+                        })
+                    }
                 }
-            })
+            )
     } catch (err) {
         res.status(400).json({errors: err.message})
     }
