@@ -16,13 +16,14 @@ const ProTableRow = ({ pro }) => {
     const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     const [daataa, setDaataa] = useState({})
     const _isMounted = useRef(true)
+    const [year, setYear] = useState(2021)
 
     const handleAdd = (id, pr) => {
         history.push({pathname: `/promanage/${id}/create`, search: pr, state: { dailyId: null }})
     }
 
     const handleView = (id, month) => {
-        history.push({pathname: `/promanage/${id}/monthly`, search: `month=${month}`})
+        history.push({pathname: `/promanage/${id}/monthly`, search: `month=${month}&year=${year}`})
     }
 
     useEffect(() => {

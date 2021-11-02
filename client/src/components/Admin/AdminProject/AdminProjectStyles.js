@@ -9,6 +9,8 @@ export default makeStyles((theme) => ({
         '& .adminprojectheaderContainer': {
             // background: 'gold',
             height: '3rem',
+            display: 'flex',
+            justifyContent: 'space-between',
 
             '& .headercontainerBox': {
 
@@ -23,6 +25,20 @@ export default makeStyles((theme) => ({
                 '& .headercontainerboxTitle': {
                     display: 'flex',
                     alignItems: 'center',
+                }
+            },
+
+            '& .backToProManagerBtn': {
+                background: 'gold',
+                cursor: 'pointer',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '1rem 2rem',
+                fontSize: '.75rem',
+
+                '&:hover': {
+                    color: 'white',
                 }
             }
         },

@@ -7,10 +7,12 @@ import classNames from 'classnames'
 import { CheckboxWithLabel } from 'formik-material-ui'
 import { useDispatch, useSelector } from 'react-redux'
 import _ from 'lodash'
+import AddIcon from '@material-ui/icons/Add'
 
 import useStyles from './CreateProjectStyles'
 import { putProject } from '../../../actions/projects'
 import moment from 'moment'
+
 
 const CreateProject = () => {
     const classes = useStyles()
@@ -51,6 +53,10 @@ const CreateProject = () => {
         history.push('/promanage')
     }
 
+    const handleClickProject = () => {
+        history.push('/admin/projects/create')
+    }
+
     // console.log(moment().format('MM'))
 
     return (
@@ -67,20 +73,27 @@ const CreateProject = () => {
                         ({values}) => {
                             return (
                                 <Form>
-                                    {
-                                        _.isEmpty(project) ?
-                                        <Box style={{ marginBottom: '1.5rem' }}>
-                                            <Field name="projectId" fullWidth as={TextField} select label="Select Project">
-                                                <MenuItem value=''>Select Project</MenuItem>
-                                                {
-                                                    updatedProjects && updatedProjects.map((pro, index) => (
-                                                        <MenuItem value={pro._id} key={index}>{pro.project}</MenuItem>
-                                                    ))
-                                                }
-                                            </Field>
-                                        </Box>
-                                        : null
-                                    }
+                                    <Grid container style={{ display: 'flex', alignItems: 'center', }}>
+                                        <Grid item lg={11}>
+                                            {
+                                                _.isEmpty(project) ?
+                                                <Box style={{ marginBottom: '1.5rem' }}>
+                                                    <Field name="projectId" fullWidth as={TextField} select label="Select Project">
+                                                        <MenuItem value=''>Select Project</MenuItem>
+                                                        {
+                                                            updatedProjects && updatedProjects.map((pro, index) => (
+                                                                <MenuItem value={pro._id} key={index}>{pro.project}</MenuItem>
+                                                            ))
+                                                        }
+                                                    </Field>
+                                                </Box>
+                                                : null
+                                            }
+                                        </Grid>
+                                        <Grid item lg={1}>
+                                            <AddIcon onClick={() => handleClickProject()} className={classNames('addProjectBtn')} />
+                                        </Grid>
+                                    </Grid>
                                     <Box>
                                         <Grid container>
                                         { 

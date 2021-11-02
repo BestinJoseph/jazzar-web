@@ -10,6 +10,21 @@ export default makeStyles((theme)=>({
             // paddingTop: '8rem',
             background: 'white',
 
+            '& .projectAddBtn': {
+                cursor: 'pointer', 
+                display: 'flex', 
+                alignItems: 'center',
+                borderRadius: '50%',
+                width: '2.5rem',
+                height: '2.5rem',
+                background: theme.palette.success.main,
+                color: 'white',
+
+                '&:hover': {
+                    background: theme.palette.info.main
+                },
+            },
+
             '& .tableCellHeaderCss': {
                 width: '10rem', 
                 // border: '1px solid green'

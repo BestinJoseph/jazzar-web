@@ -28,6 +28,10 @@ const AdminProject = () => {
         history.push({ pathname: '/admin/projects/edit', state: {id: id}})
     }
 
+    const handleBackToProManager = () => {
+        history.push({pathname: '/promanage/create'})
+    }
+
     return (
         <Box className={classes.adminproject}>
             <Box className={classNames('adminprojectheaderContainer')}>
@@ -40,6 +44,7 @@ const AdminProject = () => {
                         </Box>
                     </Breadcrumbs>
                 </Box>
+                <Typography  className={classNames('backToProManagerBtn')} onClick={() => handleBackToProManager()}>Back to ProManager</Typography>
             </Box>
             <Box className={classNames('adminprojectcontents')}>
                 <Grid container className={classNames('adminprojectContainer')} spacing={2}>

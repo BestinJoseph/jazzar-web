@@ -30,6 +30,16 @@ export default makeStyles((theme) => ({
                     color: '#CEE5D0',
                     border: '2px solid #5B6D5B',
                 }
+            },
+        },
+
+        '& .innerContainer_MR': {
+            display: 'flex',
+
+            '& .totalIncomeSection': {
+                marginLeft: '1rem',
+                display: 'flex', 
+                flexFlow: 'column'
             }
         },
 
@@ -41,6 +51,7 @@ export default makeStyles((theme) => ({
                 border: '.25px solid #E7E6E1', 
                 padding: '.25rem 1rem',
                 fontSize: '1rem',
+                textAlign: 'center',
             }
         }
     }

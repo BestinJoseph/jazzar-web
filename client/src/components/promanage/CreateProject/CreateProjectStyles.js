@@ -21,7 +21,21 @@ export default makeStyles((theme) => ({
 
         '& .createproject_form': {
             padding: '2rem', 
-            width: '35rem'
+            width: '35rem',
+
+            '& .addProjectBtn': {
+                marginLeft: '1rem',
+                border: '1px solid grey',
+                borderRadius: '50%',
+                width: '2rem',
+                height: '2rem',
+                cursor: 'pointer',
+
+                '&:hover': {
+                    borderColor: 'gold',
+                    color: 'gold',
+                }
+            }
         }
     }
 }))
