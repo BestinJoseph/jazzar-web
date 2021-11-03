@@ -36,6 +36,8 @@ const ProjectForm = ({ project }) => {
         return () => (isSubscribed = false)
     }, [project])
 
+    console.log(project)
+
     const validateSchema = Yup.object().shape({
       project: Yup.string().required('Project Name is required.'),
       client: Yup.string().required('Client is required.'),

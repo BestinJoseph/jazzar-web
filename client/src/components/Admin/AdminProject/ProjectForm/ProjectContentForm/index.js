@@ -7,7 +7,7 @@ import ErrorMessageComponent from '../../../CustomComponents/ErrorMessageCompone
 
 const index = ({services}) => {
     return (
-        <Form>
+        <Form >
             <Box className={classNames('projectFormTextFieldCover')}>
                 <Field as={TextField} type="text" name="project" label="Project Name" fullWidth InputLabelProps={{shrink: true}}/>
                 <ErrorMessage name="project" component={ErrorMessageComponent}/>
@@ -31,11 +31,11 @@ const index = ({services}) => {
                 ))}
             </Box>
             <Box className={classNames('projectFormTextFieldCover')}>
-                <Field as={TextField} type="date" format="DD MM yyyy" name="start_date" label="Project Start Date" fullWidth InputLabelProps={{shrink: true}}/>
+                <Field as={TextField} type="date" format={"DD MM yyyy"} name="start_date" label="Project Start Date" fullWidth InputLabelProps={{shrink: true}}/>
                 <ErrorMessage name="start_date" component={ErrorMessageComponent}/>
             </Box>
             <Box className={classNames('projectFormTextFieldCover')}>
-                <Field as={TextField} type="date" name="end_date" label="Project End Date" fullWidth InputLabelProps={{shrink: true}}/>
+                <Field as={TextField} type="date" format="DD MM yyyy" name="end_date" label="Project End Date" fullWidth InputLabelProps={{shrink: true}}/>
                 <ErrorMessage name="end_date" component={ErrorMessageComponent}/>
             </Box>
             <Box className={classNames('projectFormTextFieldCover')}>

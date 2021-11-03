@@ -31,9 +31,10 @@ export const postService = (req, res) => {
         req.body.service = req.body.name
         req.body.department = req.body.name
         req.body.slug = slug
+        req.body.arname = req.body.name
         Service.create(req.body, (err, service) => {
             if(err) {
-                console.log(err.message)
+                // console.log(err.message)
                 res.status(400).json({errors: err.message})
             } else {
                 if(service) {

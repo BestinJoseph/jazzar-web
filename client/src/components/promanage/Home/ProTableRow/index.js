@@ -42,12 +42,15 @@ const ProTableRow = ({ pro }) => {
                     Object.entries(obj.months).forEach( ([mon, wee]) => {
                         if( month == parseInt(mon)) {
                             Object.entries(obj.roles).forEach( ([role, value]) => {
-                                const objj = {}
-                                objj[value] = obj['months'][mon][0][value]
+                                // const objj = {}
+                                // objj[value] = obj['months'][mon][0][value]
                                 acc[project]['months'][month][value] = acc[project]['months'][month][value] || 0
-                                
+                                if(value) {
+                                    acc[project]['months'][month]['hasValue'] = true
+                                } else {
+                                    acc[project]['months'][month]['hasValue'] = false
+                                }
                                 wee.forEach((we) => {
-                                    // console.log(we)
                                     acc[project]['months'][month][value] += parseInt(we[value])
                                 })
                             })
@@ -62,10 +65,11 @@ const ProTableRow = ({ pro }) => {
             }
             return acc
         }, {})
-        // console.log(daaa)
         setDaataa(daaa)
         return () => { _isMounted.current = false}
     }, [pro])
+
+    console.log(daataa)
 
     const handleMouseHover = () => {
         // console.log(typeof(btnHover.current.classList))
@@ -75,8 +79,6 @@ const ProTableRow = ({ pro }) => {
     const handleLInk = (project) => {
         history.push({ pathname: `/promanage/create`, state: { project: project } })
     }
-
-    // console.log(moment().format('MM'))
 
     return (
         daataa && Object.entries(daataa).map(([pr, {months, roles, _id}], index) => (
@@ -110,7 +112,7 @@ const ProTableRow = ({ pro }) => {
                     Object.entries(months).map(([month, values], index) => (
                         <TableCell key={index} className={classNames('tableRowsCellCss')} onMouseOver={ () => handleMouseHover() }>
                             
-                            { 
+                            {
                                 moment().format('MM') === month
                                 ? 
                                     <Box className={classNames('buttonEffAdd')}>
@@ -120,8 +122,9 @@ const ProTableRow = ({ pro }) => {
                             }
                             {
                                 (() => {
-                                    switch(typeof(values.technicians)) {
-                                        case 'number':
+                                    // console.log(values.hasValue)
+                                    switch(values.hasValue) {
+                                        case true:
                                             return <Box>
                                                 <Box className={classNames('buttonEffView')}>
                                                     <SearchIcon onClick={() => handleView(_id, month)} className={classNames('addButton')}/>
@@ -153,7 +156,7 @@ const ProTableRow = ({ pro }) => {
                                                     })
                                                 }
                                             </Box>
-                                        case 'undefined':
+                                        case undefined:
                                             if( month === moment().format('MM') ) {
                                                 return  <Box style={{ background: '#C9D1D3', height: '100%' }} className={classNames('dataStructure')}>
                                                             <Box>Current Month</Box>
@@ -169,9 +172,7 @@ const ProTableRow = ({ pro }) => {
                                             }
                                         default:
                                             return <Box>
-                                            <Box  className={classNames('dataStructure')}>0</Box>
-                                            <Box  className={classNames('dataStructure')}>0</Box>
-                                            <Box  className={classNames('dataStructure')}>0</Box>
+                                            <Box  className={classNames('dataStructure')}>nothing</Box>
                                         </Box>
                                     }
                                 })()
