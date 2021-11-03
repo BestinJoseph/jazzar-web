@@ -96,7 +96,7 @@ const ProManageHome = () => {
         }, 500)
     }, [dailies, year])
 
-    // console.log(result)
+    // console.log(data)
 
     const handleLInk = () => {
         history.push({ pathname: `/promanage/create` })
@@ -141,7 +141,9 @@ const ProManageHome = () => {
                                         const daa = months && months.reduce((acc, obj) => {
                                             acc[month] = acc[month] || {}
                                             Object.values(data.roles).forEach( role => {
-                                                acc[month][role] = acc[month][role] + parseInt(obj.requirements[role]) || parseInt(obj.requirements[role])
+                                                if( obj.requirements[role] ) {
+                                                    acc[month][role] = parseInt(acc[month][role]) + parseInt(obj.requirements[role]) || parseInt(obj.requirements[role])
+                                                }
                                             })
                                             return acc
                                         },{})

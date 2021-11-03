@@ -43,7 +43,7 @@ const MonthlyRequirement = () => {
                         if(obj + 1 === parseInt(moment(daily.createdAt).format('DD'))) {
                             acc[obj + 1]['_id'] = daily._id
                             acc[obj + 1]['requirements'] = daily.requirements
-                            Object.keys(daily.requirements).map( key => {
+                            Object.keys(daily.requirements).forEach( key => {
                                 acc['total'][key] = acc['total'][key] || 0
                                 acc['total'][key] = acc['total'][key] + parseInt(daily.requirements[key])
                             })
@@ -126,7 +126,6 @@ const MonthlyRequirement = () => {
                                             }
                                             <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3rem'}}>
                                                 <EditIcon onClick={ () => handleEdit(_id) } style={{ padding:'.1rem', cursor: 'pointer' }}/>
-                                                {  }
                                             </Box>
                                         </Box>
                                     default:

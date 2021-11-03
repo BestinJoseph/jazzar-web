@@ -103,9 +103,13 @@ const DailyRequirement = () => {
                                         </Box>
                                     ))
                                 }
-                                <Box style={{ marginTop: '1.25rem' }} label="Date">
-                                    <Field as={TextField} type="date" name={`createdAt`} fullWidth/>
-                                </Box>
+                                {
+                                    dailyId && dailyId ? 
+                                    null
+                                    :   <Box style={{ marginTop: '1.25rem' }} label="Date">
+                                            <Field as={TextField} type="date" name={`createdAt`} fullWidth/>
+                                        </Box>
+                                }
                                 <Box style={{ marginTop: '2rem' }}>
                                     <Button type="submit" variant="contained" color="primary" style={{ marginRight: '1rem'}}>Submit</Button>
                                     <Link to={{pathname:"/promanage"}}>cancel</Link>
