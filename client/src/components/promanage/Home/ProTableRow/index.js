@@ -18,6 +18,8 @@ const ProTableRow = ({ pro }) => {
     const _isMounted = useRef(true)
     const [year, setYear] = useState(2021)
 
+    // console.log(pro)
+
     const handleAdd = (id, pr) => {
         history.push({pathname: `/promanage/${id}/create`, search: pr, state: { dailyId: null }})
     }
@@ -74,7 +76,7 @@ const ProTableRow = ({ pro }) => {
         history.push({ pathname: `/promanage/create`, state: { project: project } })
     }
 
-    // console.log(daataa)
+    // console.log(moment().format('MM'))
 
     return (
         daataa && Object.entries(daataa).map(([pr, {months, roles, _id}], index) => (
@@ -109,7 +111,7 @@ const ProTableRow = ({ pro }) => {
                         <TableCell key={index} className={classNames('tableRowsCellCss')} onMouseOver={ () => handleMouseHover() }>
                             
                             { 
-                                moment().month() + 1 === parseInt(month) 
+                                moment().format('MM') === month
                                 ? 
                                     <Box className={classNames('buttonEffAdd')}>
                                         <AddIcon onClick={() => handleAdd(_id, pr)} className={classNames('addButton')}/>
@@ -152,11 +154,11 @@ const ProTableRow = ({ pro }) => {
                                                 }
                                             </Box>
                                         case 'undefined':
-                                            if( month == moment().month() + 1 ) {
+                                            if( month === moment().format('MM') ) {
                                                 return  <Box style={{ background: '#C9D1D3', height: '100%' }} className={classNames('dataStructure')}>
                                                             <Box>Current Month</Box>
                                                         </Box>
-                                            } else if ( month > moment().month() ) {
+                                            } else if ( parseInt(month) > parseInt(moment().format('MM')) ) {
                                                 return  <Box style={{ textAlign: 'center', background: 'red' }}>
                                                             <Box></Box>
                                                         </Box>

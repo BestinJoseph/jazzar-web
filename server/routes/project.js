@@ -9,9 +9,9 @@ const router = express.Router()
 
 router.route('/').get(getProjects)
 
-router.route('/').all(verifyUser).post(upload.array('images'), postProject)
+router.route('/').post(upload.array('images'), postProject) //.all(verifyUser)
 
-router.route('/:id').all(verifyUser).put(putProject)
+router.route('/:id').put(putProject)
 
 router.route('/:id/images').all(verifyUser).put(upload.array('images'), putProjectImages).delete(deleteProjectImages)
 

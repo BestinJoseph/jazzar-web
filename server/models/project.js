@@ -22,7 +22,7 @@ const projectSchema = mongoose.Schema({
     roles: [
         {
             type: String,
-            enum: ['technicians','helper','rigs','supervisor','engineer','secretary', 'driver', 'survivor', 'geologist']
+            enum: ['technicians','helper','rigs','supervisor','engineer','secretary', 'driver', 'surveyor', 'geologist']
         }
     ],
     services: [

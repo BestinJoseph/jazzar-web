@@ -87,8 +87,6 @@ const ProManageHome = () => {
                     }
                 }
             }
-            
-            
             return tWork
         },{})
 
@@ -98,7 +96,7 @@ const ProManageHome = () => {
         }, 500)
     }, [dailies, year])
 
-    // console.log()
+    // console.log(result)
 
     const handleLInk = () => {
         history.push({ pathname: `/promanage/create` })

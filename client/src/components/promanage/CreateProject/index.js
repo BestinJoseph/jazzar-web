@@ -18,7 +18,7 @@ const CreateProject = () => {
     const classes = useStyles()
     const history = useHistory()
     const [initialValues, setInitialValues] = useState({ roles: [], projectId: '' })
-    const projectList = ['technicians','helper','rigs','supervisor','engineer','secretary', 'driver', 'survivor', 'geologist']
+    const projectList = ['technicians','helper','rigs','supervisor','engineer','secretary', 'driver', 'surveyor', 'geologist']
     const dispatch = useDispatch()
     const { projects } = useSelector( state => state.projects )
     const { project } = history.location.state || {}

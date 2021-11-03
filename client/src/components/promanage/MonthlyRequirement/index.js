@@ -19,7 +19,7 @@ const MonthlyRequirement = () => {
     const [project, setProject] = useState()
     const [roles, setRoles] = useState([])
     const [data, setData] = useState([])
-    const rates = [{technicians: 10000}, {secretary: 11000}, { engineer: 25000}, {supervisor: 18000}, {rigs: 20000}, {geologist: 18000}, {helper: 8000}]
+    const rates = [{technicians: 10000}, {secretary: 11000}, { engineer: 25000}, {supervisor: 18000}, {rigs: 20000}, {geologist: 18000}, {helper: 8000}, {survivor: 10000}, {driver: 8000}]
 
     const query = parseInt((history.location.search).split('=')[1])
     const days = Array.from(Array(moment(`2021-${query}`).daysInMonth()).keys())

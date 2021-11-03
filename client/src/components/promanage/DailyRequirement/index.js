@@ -68,8 +68,6 @@ const DailyRequirement = () => {
         
         values.createdAt = dailyId === null ? moment(values.createdAt, 'YYYY-MM-DD').format() : daily.createdAt
 
-        console.log(values)
-
         if(_.isEmpty(values.project)) {
             setSubmitting(false)
         } else {
