@@ -69,8 +69,6 @@ const ProTableRow = ({ pro }) => {
         return () => { _isMounted.current = false}
     }, [pro])
 
-    console.log(daataa)
-
     const handleMouseHover = () => {
         // console.log(typeof(btnHover.current.classList))
         // btnHover.current.classList.push('some')

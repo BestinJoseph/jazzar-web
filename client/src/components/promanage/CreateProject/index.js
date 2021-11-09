@@ -11,7 +11,7 @@ import AddIcon from '@material-ui/icons/Add'
 
 import useStyles from './CreateProjectStyles'
 import { putProject } from '../../../actions/projects'
-import moment from 'moment'
+// import moment from 'moment'
 
 
 const CreateProject = () => {
@@ -20,13 +20,19 @@ const CreateProject = () => {
     const [initialValues, setInitialValues] = useState({ roles: [], projectId: '' })
     const projectList = ['technicians','helper','rigs','supervisor','engineer','secretary', 'driver', 'surveyor', 'geologist']
     const dispatch = useDispatch()
-    const { projects } = useSelector( state => state.projects )
+    const { projects: { projects }, users } = useSelector( state => state )
     const { project } = history.location.state || {}
     const [updatedProjects, setUpdatedProjects] = useState()
 
     const handleClick = () => {
-        history.push({pathname: '/promanage'})
+        if (users.role === 'admin') {
+            history.push({pathname: '/promanage'})
+        } else {
+            history.push(`/${users.role}/dailyactivities`)
+        }
     }
+
+    // console.log(users)
 
     useEffect(() => {
         let proData = {}
@@ -54,7 +60,11 @@ const CreateProject = () => {
     }
 
     const handleClickProject = () => {
-        history.push('/admin/projects/create')
+        if (users.role === 'admin') {
+            history.push(`/${users.role}/projects/create`)
+        } else {
+            alert('you are not admin!')
+        }
     }
 
     // console.log(moment().format('MM'))

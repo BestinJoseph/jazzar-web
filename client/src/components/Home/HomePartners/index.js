@@ -8,13 +8,13 @@ const HomePartners = () => {
     const classes = useStyles()
 
     const names = [
-        {title: "OJPAD", name: "Archeitect, Green Dome and Pre-Cast"},
-        {title: "Geo", name: "Geotechnical Investigation"}, 
-        {title: "Mat", name: "Material Testing"},
-        {title: "Hydro", name: "Hydrogeology"}, 
-        {title: "calib", name: "Calibration and Maintenance"}, 
-        {title: "Sur", name: "Survery and GIS"}, 
-        {title: "Che", name: "Chemical Analysis"}
+        {title: "Architecture", name: "Archeitect, Green Dome and Pre-Cast"},
+        {title: "Civil Engineering", name: "Structural and Road Design"}, 
+        {title: "Geotechnical Investigating", name: "Geophysical, Hydrogeology, Drilling, Water Drilling"},
+        {title: "Independent Laboratories", name: "Material and Chemical Testing"}, 
+        {title: "calibration and Maintenance", name: "Calibration and Maintenance"}, 
+        {title: "Survey", name: "Survery and GIS"}, 
+        {title: "Contracting Services", name: "Piling, Rehabilitation, Mini Piling"}
     ]
 
     return (

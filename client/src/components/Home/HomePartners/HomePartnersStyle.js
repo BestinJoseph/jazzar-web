@@ -6,18 +6,29 @@ export default makeStyles((theme) => ({
         padding: '3rem 0',
         // margin: '0 auto',
         width: '100%',
+        overflowX: 'scroll',
 
         [theme.breakpoints.down(429)]: {
             overflow: 'scroll',
             padding: '1rem 0',
         },
 
+        [theme.breakpoints.between(429, 1025)]: {
+            overflow: 'scroll',
+            padding: '2rem 0 2.5rem',
+        },
+
         '& .nameLists': {
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'start',
             width: '100%',
 
             [theme.breakpoints.down(429)]: {
+                justifyContent: 'start',
+                paddingRight: '2rem',
+            },
+
+            [theme.breakpoints.between(429, 1025)]: {
                 justifyContent: 'start',
                 paddingRight: '2rem',
             },
@@ -37,7 +48,7 @@ export default makeStyles((theme) => ({
 
                 '& .titleStyle': {
                     color: theme.palette.secondary.main,
-                    fontSize: '2.5rem',
+                    fontSize: '2rem',
                     fontWeight: '800',
                     margin: '0',
                     lineHeight: '2.5rem',

@@ -11,6 +11,11 @@ export default makeStyles((theme) => (
                 width: '100%',
                 paddingBottom: '3rem',
             },
+
+            [theme.breakpoints.between(429, 1025)]: {
+                width: '100%',
+                paddingBottom: '8rem',
+            },
             
             '& .historyContainer': {
                 width: '1280px',
@@ -20,11 +25,19 @@ export default makeStyles((theme) => (
                     width: '100%',
                 },
 
+                [theme.breakpoints.between(429, 1025)]: {
+                    width: '100%',
+                },
+
                 '& .historyLeftPanel': {
                     padding: '7rem 0 11rem',
     
                     [theme.breakpoints.down(429)]: {
                         padding: '4rem 1rem 2rem 1rem',
+                    },
+
+                    [theme.breakpoints.between(429, 1025)]: {
+                        padding: '4rem 3rem 2rem 3rem',
                     },
         
                     '& .leftHistoryContainer': {
@@ -33,6 +46,10 @@ export default makeStyles((theme) => (
                         // border: '1px solid red',
     
                         [theme.breakpoints.down(429)]: {
+                            width: '100%',
+                        },
+
+                        [theme.breakpoints.between(429, 1025)]: {
                             width: '100%',
                         },
     
@@ -113,6 +130,11 @@ export default makeStyles((theme) => (
                     [theme.breakpoints.down(429)]: {
                         position: 'relative',
                         height: '100%',
+                    },
+
+                    [theme.breakpoints.between(429, 1025)]: {
+                        position: 'relative',
+                        // height: '100%',
                     }
                 }
             }

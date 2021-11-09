@@ -96,7 +96,7 @@ const ProManageHome = () => {
         }, 500)
     }, [dailies, year])
 
-    console.log(result)
+    // console.log(result)
 
     const handleLInk = () => {
         history.push({ pathname: `/promanage/create` })

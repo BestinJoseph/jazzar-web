@@ -3,14 +3,30 @@ import { makeStyles } from '@material-ui/core'
 export default makeStyles( (theme) => (
     {
         services: {
-            padding: '8rem 0 10rem',
+            padding: '0rem 0 10rem',
             position: 'relative',
             height: '100%',
             boxSizing: 'border-box',
             // border: '1px solid gold',
+            background: 'linear-gradient(30deg, rgba(0,212,255,0) 90%, rgba(0,212,255,.7) 100%)',
 
             [theme.breakpoints.down(429)]: {
                 padding: '3rem 0rem',
+            },
+
+            [theme.breakpoints.between(429, 1025)]: {
+                padding: '2rem 0 0rem',
+            },
+
+            '& .homeServiceTitle': {
+                fontSize: '3rem',
+                padding: '6rem 0 0 10rem',
+                fontWeight: '800',
+
+                [theme.breakpoints.between(429, 1025)]: {
+                    padding: '3rem 0 0 2rem',
+                    fontSize: '2rem',
+                }
             },
     
             '& .servicesLeft': {
@@ -20,6 +36,10 @@ export default makeStyles( (theme) => (
 
                 [theme.breakpoints.down(429)]: {
                     height: '100%',
+                },
+
+                [theme.breakpoints.between(429, 1025)]: {
+                    width: '100%',
                 },
     
                 '& .servicesListHeader': {
@@ -41,7 +61,7 @@ export default makeStyles( (theme) => (
                         height: '22.5rem',
                         width: '22.5rem',
                         borderRadius: '17.5rem',
-                        display: 'flex',
+                        display: 'none', //flex
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -49,24 +69,34 @@ export default makeStyles( (theme) => (
                         fontWeight: '900',
                         lineHeight: '3.5rem',
                         zIndex: '6',
+
     
                         '& span': {
                             fontSize: '2rem',
 
                             [theme.breakpoints.down(429)]: {
-                                fontSize: '1.25rem',
+                                fontSize: '1rem',
                             },
                         },
 
                         [theme.breakpoints.down(429)]: {
-                            fontSize: '1.5rem',
-                            lineHeight: '1.5rem',
-                            height: '10rem',
-                            width: '10rem',
-                            top: '2rem',
+                            fontSize: '1rem',
+                            lineHeight: '1.25rem',
+                            height: '8rem',
+                            width: '8rem',
+                            top: '-2rem',
                             left: '0rem',
                             
                         },
+
+                        [theme.breakpoints.between(429, 1025)]: {
+                            top: '0rem',
+                            left: '0rem',
+                            fontSize: '2rem',
+                            lineHeight: '2.25rem',
+                            height: '12rem',
+                            width: '12rem',
+                        }
                     },
 
                     '& .arh': {
@@ -77,7 +107,7 @@ export default makeStyles( (theme) => (
                     '& .servicesListVideo': {
                         position: 'absolute',
                         zIndex: '3',
-                        top: '7.5rem',
+                        top: '5rem',
                         width: '50rem',
                         height: '30rem',    
                         // border: '1px solid yellow',
@@ -86,8 +116,13 @@ export default makeStyles( (theme) => (
                             position: 'relative',
                             top: '2rem',
                             width: '100vw',
-                            height: '20rem',
+                            height: 'auto',
                         },
+
+                        [theme.breakpoints.down(1025)]: {
+                            width: '100vw',
+                            top: '3rem',
+                        }
                     },
                 },
 
@@ -107,6 +142,13 @@ export default makeStyles( (theme) => (
                         marginTop: '4rem',
                         padding: '0 1rem',
                     },
+
+                    [theme.breakpoints.between(429, 1025)]: {
+                        marginTop: '40rem',
+                        right: 'auto',
+                        width:'100%',
+                        padding: '0 3rem',
+                    },
                 },
 
                 '& .arb': {
@@ -122,12 +164,23 @@ export default makeStyles( (theme) => (
                 [theme.breakpoints.down(429)]: {
                     display: 'none',
                 },
+
+                [theme.breakpoints.down(1025)]: {
+                    display: 'none',
+                },
     
                 '& .serviceTitles': {
-                    background: theme.palette.quaternary.main,
-                    padding: '7rem 0 7rem 15rem',
+                    // background: theme.palette.quaternary.main,
+                    padding: '5rem 0 0rem 15rem',
                     width: '100%',
-                    height: '45rem',
+                    height: '100%',
+
+                    '& .servicesImage': {
+                        height: '40rem',
+                        position: 'absolute',
+                        top: 0,
+                        zIndex: '-10'
+                    },
     
                     '& .servicesTitlesHeader': {
                         fontWeight: '900',

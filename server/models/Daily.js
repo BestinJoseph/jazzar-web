@@ -5,6 +5,10 @@ const dailySchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'projects'
     },
+    createBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    },
     requirements: {}
 }, {timestamps: true})
 

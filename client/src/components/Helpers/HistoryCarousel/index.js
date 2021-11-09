@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import NextArrow from '../NextArrow'
 import PrevArrow from '../PrevArrow'
-import useStyles from './HistoryCarousel'
+import useStyles from './HistoryCarouselStyles'
 
 import one from '../../../assets/images/carousel/ojce_material.jpg'
 import two from '../../../assets/images/carousel/ojce_geotechnical.jpg'
@@ -38,9 +38,13 @@ const HistoryCarousel = ({width}) => { //
         nextArrow: <NextArrow />,
     }
 
+    const calcPer = () => {
+        return 97;
+    }
+
     return (
         <Box className={ i18n.language === 'en' ? classes.historyRightPanel : `${classes.historyRightPanel} ${classes.arRP}` }>
-            <Box className={ classNames('ImagesSection')} style={{ width: width < 800 ? width * (97 / 100) : `${width - (width/2)}px` }}>
+            <Box className={ classNames('ImagesSection')} style={{ width: width < 1025 ? width * (calcPer() / 100) : `${width - (width/2)}px` }}>
                 <Slider {...setting}>
                     { slides.map( (photo, index) => (
                         <Box className={ classNames('imageContainer')} key={index} >

@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next'
 
 import useStyles from './HomeServicesStyle'
 import classNames from 'classnames'
-import serviceImg from '../../../assets/images/services.JPG'
+import serviceImg from '../../../assets/images/services_image.jpg'
+import geoImage from '../../../assets/images/geotechnical.JPG'
 import IndividualService from './IndividualService'
 import { useSelector } from 'react-redux'
 
@@ -44,8 +45,9 @@ const HomeServices = () => {
 
     return (
         <Box className={classes.services}>
+            <Typography className={classNames('homeServiceTitle')}>We serve 10+ services for more than 4.5 decades</Typography>
             <Grid container>
-                <Grid item lg={4} className={classNames('servicesLeft')} >
+                <Grid item lg={12} className={classNames('servicesLeft')} xl={4}>
                     <Box className={classNames('servicesListHeader')}>
                         <Typography className={classNames( i18n.language === 'en' ? 'servicesListTitle' : 'servicesListTitle arh')}>
                             { i18n.language === 'en' ? '10+' : '١٠+'} <br />
@@ -55,12 +57,14 @@ const HomeServices = () => {
                     </Box>
                     <Box className={classNames( i18n.language === 'en' ? 'servicesContentList' : 'servicesContentList arb')} ref={serRef}>
                         { services && services.map( (service, index) => (
-                            <IndividualService service={service} key={index}/>
+                            <IndividualService service={service} key={index} index={index} />
                         )) }
                     </Box>
                 </Grid>
-                <Grid item lg={8} className={classNames( i18n.language === 'en' ?  `servicesRight` : `servicesRight ar`)}>
+                <Grid item lg={12} xl={8} className={classNames( i18n.language === 'en' ?  `servicesRight` : `servicesRight ar`)}>
+                    
                     <Box className={classNames(i18n.language === 'en' ? 'serviceTitles' : 'serviceTitles ar')}>
+                        
                         <Box className={classNames(i18n.language === 'en' ? `${ offset ?  'static' : ''} ${ onset ?  'staticbase' : ''}` : `${ offset ?  'static ars' : ''} ${ onset ?  'staticbase arsb' : ''}`)}>
                             <Typography variant="h2" className={classNames(i18n.language === 'en' ? 'servicesTitlesHeader' : 'servicesTitlesHeader art')}>{t('services_home')}</Typography>
                             <List className={classNames(i18n.language === 'en' ? 'servicesTitlesContent' : 'servicesTitlesContent art')}>

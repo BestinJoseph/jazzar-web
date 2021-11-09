@@ -14,6 +14,12 @@ export default makeStyles((theme) => (
                 background: '#1C2D47',
                 color: 'white',
             },
+
+            [theme.breakpoints.between(429, 1025)]: {
+                padding: '3rem 1rem 4.2rem 1rem',
+                background: '#1C2D47',
+                color: 'white',
+            },
     
             '& .container': {
                 position: 'relative',
@@ -29,6 +35,10 @@ export default makeStyles((theme) => (
                     color: 'white',
                 
                     [theme.breakpoints.down(429)]: {
+                        display: 'none',
+                    },
+
+                    [theme.breakpoints.between(429, 1025)]: {
                         display: 'none',
                     },
         
@@ -57,6 +67,7 @@ export default makeStyles((theme) => (
 
                 '& .footer__context': {
                     padding: '1.2rem 0',
+                    border: '1px solid white',
         
                     [theme.breakpoints.down(429)]: {
                         padding: '1.5rem 1rem',
@@ -73,6 +84,19 @@ export default makeStyles((theme) => (
                             fontSize: '1.05rem',
                             paddingBottom: '1rem',
                         },
+
+                        [theme.breakpoints.between(429, 1025)]: {
+                            fontWeight: '600',
+                            fontSize: '1.05rem',
+                            padding: '1rem',
+                            color: theme.palette.tertiary.main,
+                        },
+                    },
+
+                    '& .googleMapClass': {
+                        width: '100%',
+                        height: '15rem',
+                        padding: '2rem',
                     },
             
                     '& .ul': {
@@ -94,6 +118,10 @@ export default makeStyles((theme) => (
                                 fontSize: '1rem',
         
                                 [theme.breakpoints.down(429)]: {
+                                    color: 'white',
+                                },
+
+                                [theme.breakpoints.between(429, 1025)]: {
                                     color: 'white',
                                 },
             

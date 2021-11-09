@@ -38,29 +38,32 @@ export const userLogin = (req, res) => {
     
     const token = getToken({ _id: req.user._id })
     const refreshToken = getRefreshToken({ _id: req.user._id })
-    User.findById(req.user._id, (err, user) => {
-        if(err) {
-            res.status(400).json({errors: "Login cerdential not", success: false})
-        } else {
-            if(user) {
-                user.refreshToken.push({refreshToken})
-                user.save((err, user) => {
-                    if(err) {
-                        res.status(400).json({errors: "Login cerdential not", success: false})
-                    } else {
-                        if(user) {
-                            res.cookie('refreshToken', refreshToken, COOKIE_OPTIONS)
-                            res.status(200).json({errors: null, token, success: true})
-                        } else {
-                            res.status(500).json({errors: "User not found.", success: false})
-                        }
-                    }
-                })
+    User.findById(req.user._id)
+        .select({ branch: 1, department: 1, role: 1, divisions: 1, refreshToken: 1})
+        .exec( (err, user) => {
+            if(err) {
+                res.status(400).json({errors: "Login cerdential not", success: false})
             } else {
-                res.status(500).json({errors: "User not found.", success: false})
+                if(user) {
+                    user.refreshToken.push({refreshToken})
+                    user.save((err, user) => {
+                        if(err) {
+                            res.status(400).json({errors: "Login cerdential not", success: false})
+                        } else {
+                            if(user) {
+                                console.log(user)
+                                res.cookie('refreshToken', refreshToken, COOKIE_OPTIONS)
+                                res.status(200).json({errors: null, token, success: true, user})
+                            } else {
+                                res.status(500).json({errors: "User not found.", success: false})
+                            }
+                        }
+                    })
+                } else {
+                    res.status(500).json({errors: "User not found.", success: false})
+                }
             }
-        }
-    })
+        })
 }
 
 export const refreshToken = (req, res) => {
@@ -97,12 +100,13 @@ export const refreshToken = (req, res) => {
                     }
                 })
         } catch (err) {
-            
+            res.status(401).json({errors: 'Not update refresh token in user.', success: false})
         }
     }
 }
 
 export const userProfile = (req, res) => {
+    console.log(req.user)
     res.status(200).json({errors: null, success: true, user: req.user})
 }
 
@@ -130,4 +134,8 @@ export const userLogout = (req, res) => {
                 })
             }
         })
+}
+
+export const updateUser = (req, res) => {
+    // console.log(req.body)
 }

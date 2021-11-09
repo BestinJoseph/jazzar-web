@@ -8,7 +8,11 @@ export default makeStyles((theme) => (
             overflow: 'hidden',
     
             [theme.breakpoints.down(429)]: {
-                padding: '4rem 1rem 2rem',
+                padding: '4rem 1rem 6rem',
+            },
+
+            [theme.breakpoints.down(1025)]: {
+                padding: '7.5rem 4rem 4rem 4rem',
             },
     
             '& .popularTitle': {
@@ -115,6 +119,7 @@ export default makeStyles((theme) => (
             },
 
             '& .abstract_zig_zag_top': {
+                display: 'none',
                 width: '15rem',
                 height: 'auto',
                 position: 'absolute',
@@ -136,6 +141,7 @@ export default makeStyles((theme) => (
             },
 
             '& .abstract_cone_right': {
+                display: 'none',
                 width: '10rem',
                 height: 'auto',
                 position: 'absolute',

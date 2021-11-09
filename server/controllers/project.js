@@ -16,19 +16,23 @@ export const getProjects = async (req, res) => {
 }
 
 export const postProject = async (req, res) => {
+    console.log(req)
     try {
         Project.create(req.body, (err, pro) => {
             if(err) {
+                console.log(err.message)
                 res.status(400).json({errors: err.message})
             } else {
                 if(pro) {
                     res.status(200).json(pro)
                 } else {
+                    console.log('err.message')
                     res.status(400).json({errors: 'Unable to post project'})
                 }
             }
         })
     } catch (err) {
+        console.log(err.message)
         res.status(400).json({errors: err.message})
     }
 }

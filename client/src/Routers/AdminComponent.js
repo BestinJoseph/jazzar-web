@@ -1,16 +1,15 @@
 import React from 'react'
-import { Route, useLocation, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { Route, Redirect } from 'react-router-dom'
 
 
 const AdminComponent = ({component: Component, ...rest}) => {
-    const location = useLocation()
-    const { isAuthenticated } = useSelector( state => state.users )
-    const { from } = location.state || { from: { pathname: '/login' }}
+    const { isAuthenticated, role } = useSelector( state => state.users )
+    const { from } = { from: { pathname: '/login' }}
 
     return (
         <Route {...rest}>
-            { isAuthenticated === true ? <Component /> : <Redirect to={from} /> }
+            { isAuthenticated === true && role === 'admin' ? <Component /> : <Redirect to={from} /> }
         </Route>
     )
 }

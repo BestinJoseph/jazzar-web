@@ -10,7 +10,7 @@ import MonthlyRequirement from './promanage/MonthlyRequirement'
 import CreateProject from './promanage/CreateProject'
 import SingleService from './SingleService'
 import Admin from './Admin'
-import Login from './Admin/Login'
+// import Login from './Admin/Login'
 import Register from './Admin/Register'
 import Dashboard from './Admin/Dashboard'
 import AdminLayout from './Admin/AdminLayout'
@@ -22,6 +22,8 @@ import AdminContact from './Admin/AdminContact'
 import AdminBranch from './Admin/AdminBranch'
 import AdminBranchCreate from './Admin/AdminBranch/AdminBranchCreate'
 import RequestNotFound from './RequestNotFound'
+import UserDashboard from './User/Dashboard'
+import Login from './Auth/Login'
 
 export { 
     RequestNotFound, 
@@ -47,5 +49,6 @@ export {
     Promange,
     DailyRequirement,
     MonthlyRequirement,
-    CreateProject
+    CreateProject,
+    UserDashboard,
 }

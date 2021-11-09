@@ -2,8 +2,8 @@ import { makeStyles } from '@material-ui/core'
 
 export default makeStyles((theme) => ({
     clients: {
-        padding: '0 10%',
-        height: '53rem',
+        // padding: '0 10%',
+        height: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -13,18 +13,37 @@ export default makeStyles((theme) => ({
             height: '40rem',
         },
 
-        '& .video': {
-            position: 'absolute',
-            width: '100%',
-            left: '50%',
-            top: '50%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'translate(-50%, -50%)',
-            zIndex: '-1'
+        // '& .video': {
+        //     position: 'absolute',
+        //     width: '100%',
+        //     left: '50%',
+        //     top: '50%',
+        //     height: '100%',
+        //     objectFit: 'cover',
+        //     transform: 'translate(-50%, -50%)',
+        //     zIndex: '-1',
+        // },
+
+        '& .imageContainer': {
+            height: '50rem',
+            overflow: 'hidden',
+            
+            [theme.breakpoints.down(429)]: {
+                height: 'auto',
+            },
+
+            [theme.breakpoints.between(429, 1025)]: {
+                height: 'auto',
+            },
+
+            '& .imageClass': {
+                width: '100vw',
+                // height: 'auto',
+            },
         },
 
         '& .clientContentContainer': {
+            position: 'absolute',
             display: 'flex',
             alignItems: 'center',
 

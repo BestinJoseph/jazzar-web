@@ -7,13 +7,15 @@ import PhoneIcon from '@material-ui/icons/Phone'
 
 import useStyles from './FooterStyles'
 
+
 const Footer = () => {
     const classes = useStyles()
+    const iFrame = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.849843123702!2d46.723286415373884!3d24.663296359204512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f04412348f5d1%3A0x9c4ff87757a6f199!2sOmar%20Jazzar%20Consulting%20Engineers!5e0!3m2!1sen!2ssa!4v1636453536976!5m2!1sen!2ssa" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'
 
     return (
         <Box className={classes.footer}>
             <Container fixed className={ classNames('container')}>
-                <Paper className={ classNames('top') } elevation={3}>
+                <Paper className={ classNames('top')} elevation={3}>
                     <Grid container className={ classNames('hess')} justify="space-between">
                         <Grid item lg={8}>
                             <Box className={ classNames('footContact')}>
@@ -28,7 +30,7 @@ const Footer = () => {
                                 </Grid>
                             </Box>
                         </Grid>
-                        <Grid item lg={4}>
+                        <Grid item xl={4}>
                             <Grid container>
                                 <Grid item lg={4} display="flex">
                                     <Box textAlign="center">
@@ -54,7 +56,7 @@ const Footer = () => {
                 </Paper>
                 
                 <Grid container className={ classNames('footer__context')}>
-                    <Grid item lg={3} xs={12}>
+                    <Grid item xl={3} md={3}>
                         <Typography className={classNames('footerTitleText')}>Services</Typography>
                         <List className={classNames('ul')}>
                             <ListItem className={classNames('list')}><Link to="/">GeoTechnical</Link></ListItem>
@@ -66,7 +68,7 @@ const Footer = () => {
                             <ListItem className={classNames('list')}><Link to="/">Geophysical</Link></ListItem>
                         </List>
                     </Grid>
-                    <Grid item lg={3} xs={12}>
+                    <Grid item xl={3} md={3}>
                         <Typography className={classNames('footerTitleText')}>Innovative Dept.</Typography>
                         <List className={classNames('ul')}>
                             <ListItem className={classNames('list')}><Link to="/">Green Dome</Link></ListItem>
@@ -76,8 +78,11 @@ const Footer = () => {
                             <ListItem className={classNames('list')}><Link to="/promanage">Project Manager</Link></ListItem>
                         </List>
                     </Grid>
-                    <Grid item lg={6} xs={12}>
+                    <Grid item xl={6} md={6}>
                         <Typography className={classNames('footerTitleText')}>Company</Typography>
+                        <Box className={classNames('googleMapClass')}>
+                            <div dangerouslySetInnerHTML={{ __html: iFrame}} />
+                        </Box>
                     </Grid>
                 </Grid>
 

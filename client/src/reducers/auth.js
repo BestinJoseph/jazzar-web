@@ -6,6 +6,7 @@ const initialState = {
     admin: false,
     user: {},
     loading: false,
+    role: '',
 }
 
 export default (state = initialState, action) => {
@@ -15,7 +16,7 @@ export default (state = initialState, action) => {
         case 'USER_REGISTER':
             return state
         case SET_CURRENT_USER:
-            return {...state, isAuthenticated: !isEmpty(action.payload), user: action.payload}
+            return {...state, isAuthenticated: !isEmpty(action.payload), user: action.payload, role: 'admin'}
         case USER_LOADING:
             return {...state, loading: true}
         default:

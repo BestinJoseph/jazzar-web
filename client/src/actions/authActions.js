@@ -5,7 +5,6 @@ import { CLEAR_ERRORS, GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from './type
 import { registerApi, loginApi } from '../api/authApi'
 
 export const registerUser = (user, history) => async (dispatch) => {
-    console.log(user)
     try {
         const { data } = await registerApi(user)
         if(data) {
@@ -20,7 +19,6 @@ export const loginUser = (user) => async (dispatch) => {
     try {
         const { data } = await loginApi(user)
         const { token } = data
-        console.log(data)
         localStorage.setItem('jwtToken', token)
         setAuthToken(token)
         const decode = jwt_decode(token)

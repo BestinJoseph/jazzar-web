@@ -8,6 +8,10 @@ export default makeStyles((theme) => (
             [theme.breakpoints.down(429)]: {
                 padding: '4rem 1rem 0 1rem',
             },
+
+            [theme.breakpoints.between(429, 1025)]: {
+                padding: '4rem 1rem 0 1rem',
+            },
     
             '& .about': {
                 padding: '0rem',
@@ -89,6 +93,14 @@ export default makeStyles((theme) => (
                                 right: '0rem',
                             },
 
+                            [theme.breakpoints.between(429, 1025)]: {
+                                position: 'relative',
+                                margin: '2rem 0 5rem',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                right: '0rem',
+                            },
+
                             '& .aboutImg': {
                                 width: '30rem', 
                                 height: 'auto',
@@ -116,6 +128,11 @@ export default makeStyles((theme) => (
                                 [theme.breakpoints.down(429)]: {
                                     top: 'auto',
                                     bottom: '-5rem'
+                                },
+
+                                [theme.breakpoints.between(429, 1025)]: {
+                                    left: '11rem',
+                                    bottom: '-10rem'
                                 },
                             },
 
@@ -146,6 +163,11 @@ export default makeStyles((theme) => (
                                 right: '0rem',
                                 zIndex: '1',
                                 background: theme.palette.secondary.main,
+
+                                [theme.breakpoints.between(429, 1025)]: {
+                                    left: 'auto',
+                                    right: '10rem',
+                                },
                             },
 
                             '& .arFL': {
@@ -181,6 +203,10 @@ export default makeStyles((theme) => (
                                     top: 'auto',
                                     background: 'white',
                                 },
+
+                                [theme.breakpoints.between(429, 1025)]: {
+                                    display: 'none',
+                                },
                             },
 
                             '& .arFLL': {
@@ -210,6 +236,10 @@ export default makeStyles((theme) => (
 
                     [theme.breakpoints.down(429)]: {
                         padding: '2rem 1rem',
+                    },
+
+                    [theme.breakpoints.between(429, 1025)]: {
+                        padding: '2rem',
                     },
                     
                     '& .textSec': {

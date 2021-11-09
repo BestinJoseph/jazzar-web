@@ -24,6 +24,7 @@ export const putDailyAction = (dailyId, updatedDaily) => async (dispatch) => {
         const { data } = await putDailyApi(dailyId, updatedDaily)
         dispatch({type: 'PUT_DAILY', payload: data.daily})
     } catch (err) {
+        console.log(err)
         dispatch({type: 'GET_ERRORS', payload: err})
     }
 }

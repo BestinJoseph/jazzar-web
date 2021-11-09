@@ -11,6 +11,7 @@ import { getDailesAction } from './actions/dailyActions';
 import AuthRoutes from './Routers/AuthRoutes';
 import PublicRoutes from './Routers/PublicRoutes';
 import AdminRoutes from './Routers/AdminRoutes';
+import UserRouters from './Routers/UserRouters';
 
 const App = () => {
   const dispatch = useDispatch()
@@ -33,6 +34,9 @@ const App = () => {
       </Route>
       <Route path={['/admin']}>
         <AdminRoutes />
+      </Route>
+      <Route path={['/users']}>
+        <UserRouters />
       </Route>
       <Route path={['/', '/about']}>
         <PublicRoutes />

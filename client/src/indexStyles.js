@@ -4,29 +4,35 @@ export default createMuiTheme({
     language: {
       arb: {
         fontFamily: "'Almarai', sans-serif"
+      },
+      eng: {
+        fontFamily: "'Roboto', sans-serif"
       }
     },
     palette: {
       primary: {
-        main: '#090057',
+        main: '#1C0C5B',
       },
       secondary: {
-        main: '#57007E'
+        main: '#3D2C8D'
       },
       tertiary: {
-        main: 'gray'
+        main: '#916BBF'
       },
       quaternary: {
-        main: '#C400C6'
+        main: '#C996CC'
       },
       ourgold: {
-        main: 'gold',
+        main: '#E6DDC4',
       },
       ajwhite: {
         main: '#fff'
       },
       btncolor: {
-        main: '#C400C6'
+        main: '#852747'
+      },
+      btnHoverColor: {
+        main: '#D8B6A4'
       }
     },
   })

@@ -9,7 +9,7 @@ const router = express.Router()
 
 router.route('/').get(getProjects)
 
-router.route('/').post(upload.array('images'), postProject) //.all(verifyUser)
+router.route('/').all(verifyUser).post(upload.array('images'), postProject) //.all(verifyUser)
 
 router.route('/:id').put(putProject)
 

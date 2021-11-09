@@ -1,7 +1,8 @@
-import axios from "axios"
+// import axios from "axios"
+import axiosInstance from "../helpers/axiosInstance"
 
-export const getAllDailyApi = () => axios.get(`${process.env.REACT_APP_API_URI}/dailies`)
+export const getAllDailyApi = () => axiosInstance.get(`${process.env.REACT_APP_API_URI}/dailies`)
 
-export const postDailyApi = (id, daily) => axios.post(`${process.env.REACT_APP_API_URI}/dailies/${id}/create`, daily)
+export const postDailyApi = (id, daily) => axiosInstance.post(`${process.env.REACT_APP_API_URI}/dailies/${id}/create`, daily)
 
-export const putDailyApi = (id, daily) => axios.put(`${process.env.REACT_APP_API_URI}/dailies/${id}`, daily)
+export const putDailyApi = (id, daily) => axiosInstance.put(`${process.env.REACT_APP_API_URI}/dailies/${id}`, daily)

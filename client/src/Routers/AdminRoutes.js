@@ -15,6 +15,7 @@ import {
 import AdminComponent from './AdminComponent';
 
 const AdminRoutes = () => {
+
   return (
     <Switch>
       <AdminComponent path="/admin" component={Dashboard} exact/>

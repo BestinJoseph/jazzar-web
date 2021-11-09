@@ -23,6 +23,11 @@ export default makeStyles((theme) => (
                     height: '100vh',
                     width: '100%',
                 },
+
+                [theme.breakpoints.between(429, 1025)]: {
+                    height: '100vh',
+                    width: 'auto',
+                },
             },
 
             '& .container': {

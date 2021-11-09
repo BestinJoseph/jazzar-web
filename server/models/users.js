@@ -24,9 +24,15 @@ const userSchema = mongoose.Schema({
     branch: {
         type: String,
     },
+    department: {
+        type: String,
+    },
     role: {
         type: String
     },
+    divisions: [
+        { type: String }
+    ],
     promotions: [
         {
             name: Number,

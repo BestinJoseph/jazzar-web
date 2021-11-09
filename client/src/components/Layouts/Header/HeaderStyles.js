@@ -10,6 +10,10 @@ export default makeStyles((theme) => (
             [theme.breakpoints.down(429)]: {
                 width: '100vw',
             },
+
+            [theme.breakpoints.between(429, 1025)]: {
+                width: '100vw',
+            },
         
             '& .top': {
                 display: 'none',
@@ -18,6 +22,10 @@ export default makeStyles((theme) => (
                 borderBottom: '0.1rem solid #ffffff70',
 
                 [theme.breakpoints.down(429)]: {
+                    display: 'none',
+                },
+
+                [theme.breakpoints.between(429, 1025)]: {
                     display: 'none',
                 },
 
@@ -99,6 +107,10 @@ export default makeStyles((theme) => (
 
                             [theme.breakpoints.down(429)]: {
                                 display: 'none',
+                            },
+
+                            [theme.breakpoints.between(429, 1025)]: {
+                                display: 'none',
                             }
                         },
 
@@ -124,6 +136,16 @@ export default makeStyles((theme) => (
                         right: '0rem',
                         background: '#152035',
                     },
+
+                    [theme.breakpoints.between(429, 1025)]: {
+                        display: 'none',
+                        position: 'absolute',
+                        width: '40vw',
+                        height: '50vh',
+                        top: '0',
+                        right: '0rem',
+                        background: '#152035',
+                    },
                     
                     '& .nav_ul': {
                         margin: '0',
@@ -132,6 +154,14 @@ export default makeStyles((theme) => (
                         display: 'flex',
 
                         [theme.breakpoints.down(429)]: {
+                            flexDirection: 'column',
+                            justifyContent: 'Center',
+                            alignItems: 'center',
+                            width: '100%',
+                            height: '100%',
+                        },
+
+                        [theme.breakpoints.between(429, 1025)]: {
                             flexDirection: 'column',
                             justifyContent: 'Center',
                             alignItems: 'center',
@@ -151,11 +181,21 @@ export default makeStyles((theme) => (
                                 paddingBottom: '0rem',
                                 marginBottom: '1.75rem',
                             },
+
+                            [theme.breakpoints.between(429, 1025)]: {
+                                paddingBottom: '0rem',
+                                marginBottom: '1.75rem',
+                            },
         
                             '& .li': {
                                 color: 'white',
 
                                 [theme.breakpoints.down(429)]: {
+                                    padding: '0',
+                                    marginBottom: '.25rem',
+                                },
+
+                                [theme.breakpoints.between(429, 1025)]: {
                                     padding: '0',
                                     marginBottom: '.25rem',
                                 }
@@ -186,6 +226,15 @@ export default makeStyles((theme) => (
                             right: '1rem',
                             zIndex: '5',
                             color: 'white',
+                        },
+
+                        [theme.breakpoints.between(429, 1025)]: {
+                            display: 'block',
+                            position: 'absolute',
+                            top: '1rem',
+                            right: '1rem',
+                            zIndex: '5',
+                            color: 'white',
                         }
                     }
                 },
@@ -201,6 +250,10 @@ export default makeStyles((theme) => (
 
                         [theme.breakpoints.down(429)]: {
                             display: 'none',
+                        },
+
+                        [theme.breakpoints.between(429, 1025)]: {
+                            display: 'none',
                         }
                     },
     
@@ -209,6 +262,16 @@ export default makeStyles((theme) => (
                         lineHeight: '0',
 
                         [theme.breakpoints.down(429)]: {
+                            display: 'block',
+
+                            '& .hamburgerIcon': {
+                                lineHeight: '0rem',
+                                fontSize: '2rem',
+                                color: 'white',
+                            }
+                        },
+
+                        [theme.breakpoints.between(429, 1025)]: {
                             display: 'block',
 
                             '& .hamburgerIcon': {

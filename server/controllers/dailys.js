@@ -3,6 +3,7 @@ import Project from '../models/project.js'
 import _ from 'lodash'
 
 export const getAllDaily = (req, res) => {
+    console.log(req.user)
     Daily.find().populate({path: 'project', select: { project: 1, roles: 1 }}).exec((err, daily) => {
         if(err) {
             res.status(400).json({errors: err.message, success: false})
@@ -51,6 +52,7 @@ export const postDaily = (req, res) => {
 }
 
 export const putDaily = (req, res) => {
+
     Daily.findOne({_id: req.params.daily}).then( data => {
         if(data) {
             Daily.findByIdAndUpdate(req.params.daily, { $set: { requirements: req.body.requirements } }, {new: true}, (err, da) => {

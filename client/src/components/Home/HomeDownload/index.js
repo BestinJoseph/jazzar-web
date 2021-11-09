@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { useTranslation } from 'react-i18next'
 import { Form, Formik, Field } from 'formik'
 
-import useStyles from './HomeDownload'
+import useStyles from './HomeDownloadStyles'
 import preq from '../../../assets/images/preQBook.png'
 
 const HomeDownload = () => {
@@ -32,7 +32,7 @@ const HomeDownload = () => {
                                     as={TextField}
                                     InputProps={{ classes: { root: classes.inputClass}}}
                                 />
-                                <Button className={classNames('downloadBtn')} type="submit">Send Pre-Qualification</Button>
+                                <Button className={classNames('downloadBtn')} type="submit">Get Pre-Q</Button>
                             </Form>
                         </Formik>
                     </Box>
