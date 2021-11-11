@@ -28,11 +28,17 @@ export default createMuiTheme({
       ajwhite: {
         main: '#fff'
       },
+      ojgray: {
+        main: 'gray'
+      },
       btncolor: {
         main: '#852747'
       },
       btnHoverColor: {
         main: '#D8B6A4'
+      },
+      darkColor: {
+        main: '#191919'
       }
     },
   })

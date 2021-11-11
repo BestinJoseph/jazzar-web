@@ -7,7 +7,7 @@ export default makeStyles((theme) => (
             background: '#483a15',
             overflow: 'hidden',
 
-            [theme.breakpoints.down(412)]: {
+            [theme.breakpoints.down(429)]: {
                 width: '100%',
             },
             
@@ -18,7 +18,11 @@ export default makeStyles((theme) => (
                 '& .historyLeftPanel': {
                     padding: '7rem 0 11rem',
     
-                    [theme.breakpoints.down(412)]: {
+                    [theme.breakpoints.down(429)]: {
+                        padding: '4rem 1rem',
+                    },
+
+                    [theme.breakpoints.between(429, 1025)]: {
                         padding: '4rem 1rem',
                     },
         
@@ -27,7 +31,7 @@ export default makeStyles((theme) => (
                         // marginLeft: '16.5%',
                         // border: '1px solid red',
     
-                        [theme.breakpoints.down(412)]: {
+                        [theme.breakpoints.down(429)]: {
                             width: '100%',
                         },
     

@@ -14,7 +14,7 @@ export default makeStyles((theme) => (
 
             [theme.breakpoints.between(429, 1025)]: {
                 width: '100%',
-                paddingBottom: '8rem',
+                padding: '2rem 0 5rem',
             },
             
             '& .historyContainer': {
@@ -85,7 +85,7 @@ export default makeStyles((theme) => (
                             fontSize: '1.25rem',
                             fontWeight: '500',
                             marginBottom: '1rem',
-                            color: theme.palette.ajwhite.main,
+                            color: theme.palette.secondary.main,
 
                             [theme.breakpoints.down(429)]: {
                                 fontSize: '1rem',
@@ -109,6 +109,16 @@ export default makeStyles((theme) => (
 
                             [theme.breakpoints.down(429)]: {
                                 fontSize: '1rem',
+                                fontWeight: '600',
+                                background: 'transparent',
+                                border: '1px solid',
+                                borderColor: theme.palette.quaternary.main,
+                                borderRadius: '.75rem',
+                                padding: '.75rem 1.25rem',
+                            },
+
+                            [theme.breakpoints.between(429, 1025)]: {
+                                fontSize: '1.15rem',
                                 fontWeight: '600',
                                 background: 'transparent',
                                 border: '1px solid',

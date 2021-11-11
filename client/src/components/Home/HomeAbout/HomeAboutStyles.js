@@ -54,14 +54,15 @@ export default makeStyles((theme) => (
                         },
     
                         '& .aboutBtn': {
-                            background: theme.palette.ourgold.main,
+                            background: theme.palette.btncolor.main,
                             color: theme.palette.primary.main,
                             display: 'inline-block',
                             marginTop: '1.75rem',
-                            padding: '1.5rem',
+                            padding: '1.5rem 2.5rem',
                             fontSize: '1.1rem',
                             fontWeight: '600',  
                             textDecoration: 'none',
+                            borderRadius: '3rem',
     
                             '&:hover': {
                                 color: theme.palette.ourgold.main,
@@ -85,7 +86,7 @@ export default makeStyles((theme) => (
                         '& .absoluteCon': {
                             position: 'absolute',
                             right: '-2rem',
-                            top: '5rem',
+                            top: '6rem',
 
                             [theme.breakpoints.down(429)]: {
                                 position: 'relative',
@@ -104,10 +105,19 @@ export default makeStyles((theme) => (
                             '& .aboutImg': {
                                 width: '30rem', 
                                 height: 'auto',
+                                borderRadius: '2.5rem',
 
                                 [theme.breakpoints.down(429)]: {
                                     width: '100%',
                                 }
+                            },
+
+                            '& .companyImg': {
+                                position: 'absolute',
+                                right: '0rem',
+                                width: '25rem',
+                                bottom: '-20rem',
+                                borderRadius: '2.5rem',
                             },
 
                             [theme.breakpoints.down(429)]: {
@@ -233,6 +243,7 @@ export default makeStyles((theme) => (
                     display: 'flex',
                     justifyContent: 'flex-end',
                     // height: '44.25rem',
+                    borderTopRightRadius: '5rem',
 
                     [theme.breakpoints.down(429)]: {
                         padding: '2rem 1rem',

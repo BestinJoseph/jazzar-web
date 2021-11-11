@@ -1,102 +1,125 @@
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, alpha } from '@material-ui/core'
 
 export default makeStyles((theme) => (
     {
         popular: {
-            padding: '7.5rem 0',
+            padding: '0rem 0',
             position: 'relative',
             overflow: 'hidden',
+            display: 'flex',
+            background: 'linear-gradient(135deg, rgba(255,214,0,0) 72%, rgba(255,214,0,1) 100%)',
+            height: '60rem',
     
             [theme.breakpoints.down(429)]: {
                 padding: '4rem 1rem 6rem',
             },
 
-            [theme.breakpoints.down(1025)]: {
-                padding: '7.5rem 4rem 4rem 4rem',
+            [theme.breakpoints.between(429, 1025)]: {
+                padding: '7.5rem 4rem 8rem 4rem',
             },
-    
+
             '& .popularTitle': {
                 paddingBottom: '1rem',
                 fontWeight: '600',
-                color: theme.palette.primary.main,
+                color: theme.palette.ajwhite.main,
 
                 [theme.breakpoints.down(429)]: {
                     paddingBottom: '1rem',
                 },
             },
-    
-            '& .item': {
-                width: '70%',
-                borderBottom: '1px solid #ddd',
-                padding: '2rem 0',
-                boxSizing: 'border-box',
-
-                [theme.breakpoints.down(429)]: {
+            
+            '& .projectListContainer': {
+                position: 'absolute',
+                bottom: '5rem',
+                left: '10rem',
+                padding:'3rem 3rem',
+                backgroundColor: alpha(theme.palette.darkColor.main, 0.55),
+                borderRadius: '3rem',
+                // transform: 'translateX(-50%)',
+        
+                '& .item': {
+                    display: 'flex',
                     width: '100%',
-                    padding: '1.5rem .75rem 1.5rem 0rem',
-                },
-    
-                '& .index': {
-                    fontWeight: 'bold',
-    
-                    '& .innerText': {
-                        fontWeight: 'bold',
-                        fontSize: '2.5rem',
-                        fontStyle: 'italic',
-                        color: theme.palette.secondary.main,
-                    }
-                },
-    
-                '& .content': {
-    
-                    '& .title': {
-                        fontWeight: 'bold',
-                        fontSize: '1.25rem',
-                        color: theme.palette.secondary.main,
+                    border: '1px solid',
+                    borderColor: theme.palette.ajwhite.main,
+                    padding: '2rem',
+                    boxSizing: 'border-box',
+                    borderRadius: '2rem',
+                    marginBottom: '1rem',
 
-                        [theme.breakpoints.down(429)]: {
-                            fontSize: '1.1rem',
-                            lineHeight: '1.5rem',
-                            paddingBottom: '.5rem',
-                        },
+                    '&:last-child': {
+                        marginRight: '0rem',
                     },
     
-                    '& .innerSubText': {
-                        color: '#869298'
-                    }
-                },
-
-                '&:hover': {
-                    cursor: 'pointer',
+                    [theme.breakpoints.down(429)]: {
+                        width: '100%',
+                        padding: '1.5rem .75rem 1.5rem 0rem',
+                    },
 
                     '& .index': {
+                        fontWeight: 'bold',
+                        display: 'none',
         
                         '& .innerText': {
-                            color: theme.palette.ourgold.main,
+                            fontWeight: 'bold',
+                            fontSize: '2.5rem',
+                            fontStyle: 'italic',
+                            color: theme.palette.ajwhite.main,
                         }
                     },
-
+        
                     '& .content': {
-    
+        
                         '& .title': {
-                            color: 'gold',
+                            fontWeight: 'bold',
+                            fontSize: '1.25rem',
+                            color: theme.palette.ajwhite.main,
+    
+                            [theme.breakpoints.down(429)]: {
+                                fontSize: '1.1rem',
+                                lineHeight: '1.5rem',
+                                paddingBottom: '.5rem',
+                            },
                         },
         
                         '& .innerSubText': {
-                            color: '#dbdbdb'
+                            color: theme.palette.ajwhite.main,
                         }
                     },
-                }
+    
+                    '&:hover': {
+                        cursor: 'pointer',
+                        background: 'white',
+    
+                        '& .index': {
+            
+                            '& .innerText': {
+                                color: theme.palette.ourgold.main,
+                            }
+                        },
+    
+                        '& .content': {
+        
+                            '& .title': {
+                                color: 'gold',
+                            },
+            
+                            '& .innerSubText': {
+                                color: theme.palette.secondary.main,
+                            }
+                        },
+                    },
+                },
             },
 
             '& .linkProject': {
                 marginTop: '2rem',
                 textDecoration: 'none',
-                color: theme.palette.btncolor.main,
+                color: theme.palette.ajwhite.main,
                 display: 'flex',
                 alignItems: 'center',
-                height: '100%',
                 // border: '1px solid gold',
+                // height: '100%',
 
                 '& .linkText': {
                     fontSize: '1.25rem',
@@ -159,6 +182,24 @@ export default makeStyles((theme) => (
             '& .arCR': {
                 right: 'auto',
                 left: '25rem',
+            },
+
+            '& .projectImageContainer': {
+                position: 'absolute',
+                width: '100vw',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden',
+                marginRight: '5rem',
+                zIndex: '-5',
+
+                '& .projectImage': {
+                    width: '100%',
+                    height: 'auto',
+                    overflow: 'hidden',
+                },
             }
         }
     }

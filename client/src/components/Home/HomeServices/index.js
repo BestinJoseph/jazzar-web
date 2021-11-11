@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import {  Grid, Box, Typography, List, ListItem } from '@material-ui/core'
+import {  Box, Typography } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 
 import useStyles from './HomeServicesStyle'
@@ -8,10 +8,12 @@ import serviceImg from '../../../assets/images/services_image.jpg'
 import geoImage from '../../../assets/images/geotechnical.JPG'
 import IndividualService from './IndividualService'
 import { useSelector } from 'react-redux'
+import HomeServiceSlider from './HomeServiceSlider'
+import { Link } from 'react-router-dom'
 
 const HomeServices = () => {
     const classes = useStyles()
-    const {t, i18n} = useTranslation()
+    const { i18n} = useTranslation()
     const serRef = useRef(0)
     const [ offset, setOffset] = useState(false)
     const [ onset, setOnset] = useState(false)
@@ -43,39 +45,27 @@ const HomeServices = () => {
         return () => { _isMounted.current = false}
     },[height])
 
+    // console.log(services)
+
     return (
         <Box className={classes.services}>
-            <Typography className={classNames('homeServiceTitle')}>We serve 10+ services for more than 4.5 decades</Typography>
-            <Grid container>
-                <Grid item lg={12} className={classNames('servicesLeft')} xl={4}>
-                    <Box className={classNames('servicesListHeader')}>
-                        <Typography className={classNames( i18n.language === 'en' ? 'servicesListTitle' : 'servicesListTitle arh')}>
-                            { i18n.language === 'en' ? '10+' : '١٠+'} <br />
-                            <span>{ i18n.language === 'en' ? 'Services' : 'خدمات'}</span>
-                        </Typography>
-                        <img src={serviceImg} alt="services video" className={classNames('servicesListVideo')}/>
+            <Box className={classNames( i18n.language === 'en' ? 'servicesContentList' : 'servicesContentList arb')}>
+                <Box className={classNames('serviceHeaderContainer')}>
+                    <Box>
+                        <Typography variant="h3" className={classNames('serviceHeaderTitle')}>What we do for our clients?</Typography>
+                        <Typography variant="h6" className={classNames('serviceHeaderSubTitle')}>Our expertises are available, contact us</Typography>
                     </Box>
-                    <Box className={classNames( i18n.language === 'en' ? 'servicesContentList' : 'servicesContentList arb')} ref={serRef}>
-                        { services && services.map( (service, index) => (
-                            <IndividualService service={service} key={index} index={index} />
-                        )) }
+                    <Box>
+                        <Link to="/services" className={classNames('servicesHeaderBtn')}>all services</Link>
                     </Box>
-                </Grid>
-                <Grid item lg={12} xl={8} className={classNames( i18n.language === 'en' ?  `servicesRight` : `servicesRight ar`)}>
-                    
-                    <Box className={classNames(i18n.language === 'en' ? 'serviceTitles' : 'serviceTitles ar')}>
-                        
-                        <Box className={classNames(i18n.language === 'en' ? `${ offset ?  'static' : ''} ${ onset ?  'staticbase' : ''}` : `${ offset ?  'static ars' : ''} ${ onset ?  'staticbase arsb' : ''}`)}>
-                            <Typography variant="h2" className={classNames(i18n.language === 'en' ? 'servicesTitlesHeader' : 'servicesTitlesHeader art')}>{t('services_home')}</Typography>
-                            <List className={classNames(i18n.language === 'en' ? 'servicesTitlesContent' : 'servicesTitlesContent art')}>
-                                { i18n.isInitialized === true && t('services_types', { returnObjects: true }).map( (service, index) => (
-                                    <ListItem className={classNames('servicesTitleList')} key={index}>{service}</ListItem>
-                                ))}
-                            </List>
-                        </Box>
-                    </Box>
-                </Grid>
-            </Grid>
+                </Box>
+            </Box>
+            {
+                services && services.map( (service, index) => (
+                    <HomeServiceSlider key={index} service={service} />
+                ))
+            }
+            <Typography>Some services information goes here.</Typography>
         </Box>
     )
 }

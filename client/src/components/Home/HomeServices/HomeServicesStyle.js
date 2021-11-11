@@ -1,14 +1,17 @@
 import { makeStyles } from '@material-ui/core'
+import { template } from 'lodash'
 
 export default makeStyles( (theme) => (
     {
         services: {
-            padding: '0rem 0 10rem',
+            padding: '8rem 7rem',
             position: 'relative',
             height: '100%',
             boxSizing: 'border-box',
             // border: '1px solid gold',
-            background: 'linear-gradient(30deg, rgba(0,212,255,0) 90%, rgba(0,212,255,.7) 100%)',
+            background: '#191919',
+            width: '100%',
+            color: theme.palette.ajwhite.main,
 
             [theme.breakpoints.down(429)]: {
                 padding: '3rem 0rem',
@@ -16,6 +19,37 @@ export default makeStyles( (theme) => (
 
             [theme.breakpoints.between(429, 1025)]: {
                 padding: '2rem 0 0rem',
+            },
+
+            '& .serviceHeaderContainer': {
+                display: 'flex',
+                justifyContent: 'space-between',
+                marginBottom: '8rem',
+
+                '& .serviceHeaderTitle': {
+                    fontWeight: '700',
+                    fontSize: '5rem',
+                },
+
+                '& .serviceHeaderSubTitle': {
+                    fontSize: '2rem',
+                    fontWeight: '700',
+                    color: theme.palette.secondary.main,
+                },
+
+                '& .servicesHeaderBtn': {
+                    textDecoration: 'none',
+                    color: theme.palette.ajwhite.main,
+                    fontSize: '1.25rem',
+                    background: theme.palette.secondary.main,
+                    padding: '1.5rem 3rem',
+                    borderRadius: '3rem',
+
+                    '&:hover': {
+                        background: theme.palette.ourgold.main,
+                        color: theme.palette.secondary.main,
+                    }
+                }
             },
 
             '& .homeServiceTitle': {
@@ -129,10 +163,8 @@ export default makeStyles( (theme) => (
                 '& .servicesContentList': {
                     marginTop: '45rem',
                     position: 'relative',
-                    // top: '40rem',
                     right: '-10rem',
                     width:'30rem',
-                    // border: '1px solid orange',
                     zIndex: '2',
         
                     [theme.breakpoints.down(429)]: {
@@ -148,6 +180,9 @@ export default makeStyles( (theme) => (
                         right: 'auto',
                         width:'100%',
                         padding: '0 3rem',
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(7, 1fr)',
+                        overflow: 'hidden',
                     },
                 },
 

@@ -105,10 +105,10 @@ export default makeStyles((theme) => (
                                 fontSize: '1rem',
                                 marginRight: '1rem',
                                 border: '1px solid white',
-                                borderRadius: '.5rem',
-                                width: '4rem',
-                                height: '4rem',
-                                padding: '.65rem',
+                                borderRadius: '2.5rem',
+                                width: '5rem',
+                                height: '5rem',
+                                padding: '1rem',
                                 cursor: 'pointer',
 
                                 '&:hover': {

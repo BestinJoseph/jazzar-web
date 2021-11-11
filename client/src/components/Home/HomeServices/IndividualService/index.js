@@ -13,7 +13,7 @@ import cheImage from '../../../../assets/images/services/chemical.jpg'
 import strImage from '../../../../assets/images/services/structural.jpg'
 import gepImage from '../../../../assets/images/services/geophysical.JPG'
 
-const IndividualService = ({ service, index }) => {
+const IndividualService = ({ service, index, setPressed }) => {
     const classes = useStyles()
     const inRef = useRef()
 
@@ -25,8 +25,7 @@ const IndividualService = ({ service, index }) => {
         { id: 4, image: gepImage}, 
         { id: 5, image: strImage}
     ]
-    
-    // const { i18n } = useTranslation()
+
 
     return (
         <Box className={classes.individualService} ref={inRef}>

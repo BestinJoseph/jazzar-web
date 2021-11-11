@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 
 import useStyles from './HomeAboutStyles'
 import image from '../../../assets/images/pres.jpg'
+import comapany from '../../../assets/images/company.jpeg'
 import circle from '../../../assets/images/circle-abstract.svg'
 import square from '../../../assets/images/square-abstract.png'
 
@@ -27,6 +28,7 @@ const About = () => {
           <Grid item lg={6} className={classNames('absoluteGrid')}>
             <Box className={classNames( i18n.language === 'en' ? 'absoluteCon' : 'absoluteCon arb')}>
               <img src={image} alt="OJCE President" style={{}} className={classNames('aboutImg')} />
+              <img src={comapany} alt="OJCE Building" style={{}} className={classNames('companyImg')} />
               <img src={circle} alt="circle ojce" className={classNames(i18n.language === 'en' ? 'circleAbstract' : 'circleAbstract arCC')} />
               <img src={square} alt="circle ojce" className={classNames('squareAbstract')} />
               <span className={classNames(i18n.language === 'en' ? 'squareFull' : 'squareFull arFL' )}></span>

@@ -5,6 +5,7 @@ export default makeStyles((theme) => ({
 
         '& .servicesItem': {
             paddingBottom: '6rem',
+            border: '1px solid red',
 
             [theme.breakpoints.down(429)]: {
                 paddingBottom: '10rem',
@@ -23,7 +24,7 @@ export default makeStyles((theme) => ({
                 position: 'relative',
 
                 [theme.breakpoints.between(429, 1025)]: {
-                    width: '100%',
+                    width: '30rem',
                     borderRadius: '.5rem',
                 },
 
@@ -33,7 +34,7 @@ export default makeStyles((theme) => ({
                     transition: 'transform .5s',
 
                     '&:hover': {
-                        transform: 'scale(1.15)'
+                        // transform: 'scale(1.15)'
                     }
                 },
 
@@ -60,6 +61,7 @@ export default makeStyles((theme) => ({
             '& .serviceContentContainer': {
                 width: '100%',
                 paddingLeft: '2rem',
+                display: 'none',
 
                 '& .servicesItemTitle': {
                     fontWeight: '900',
