@@ -1,6 +1,6 @@
-import {createMuiTheme} from '@material-ui/core'
+import { createTheme } from '@material-ui/core/styles'
 
-export default createMuiTheme({
+export default createTheme({
     language: {
       arb: {
         fontFamily: "'Almarai', sans-serif"
@@ -32,7 +32,7 @@ export default createMuiTheme({
         main: 'gray'
       },
       btncolor: {
-        main: '#852747'
+        main: '#078855'
       },
       btnHoverColor: {
         main: '#D8B6A4'

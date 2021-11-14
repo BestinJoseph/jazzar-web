@@ -16,7 +16,7 @@ export const getProjects = async (req, res) => {
 }
 
 export const postProject = async (req, res) => {
-    console.log(req)
+    console.log(req.body)
     try {
         Project.create(req.body, (err, pro) => {
             if(err) {
@@ -38,7 +38,6 @@ export const postProject = async (req, res) => {
 }
 
 export const putProjectImages = async (req, res) => {
-    // console.log(req.files)
     try {
         let savedImages = []
         await req.files.map( fi => {
@@ -69,7 +68,6 @@ export const putProjectImages = async (req, res) => {
 }
 
 export const putProject = async (req, res) => {
-    console.log()
     try {
         Project.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
             .populate({path: 'images'})

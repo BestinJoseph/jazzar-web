@@ -17,7 +17,7 @@ const projectSchema = mongoose.Schema({
     category: {
         type: String,
         require: true,
-        enum: ['tower','university','housing','reservoir','airport','road']
+        enum: ['tower','university','housing','reservoir','airport','road', 'railway']
     },
     roles: [
         {

@@ -53,7 +53,7 @@ const HomeServices = () => {
                 <Box className={classNames('serviceHeaderContainer')}>
                     <Box>
                         <Typography variant="h3" className={classNames('serviceHeaderTitle')}>What we do for our clients?</Typography>
-                        <Typography variant="h6" className={classNames('serviceHeaderSubTitle')}>Our expertises are available, contact us</Typography>
+                        <Typography variant="h6" className={classNames('serviceHeaderSubTitle')}>Our expertises eager to assist you.</Typography>
                     </Box>
                     <Box>
                         <Link to="/services" className={classNames('servicesHeaderBtn')}>all services</Link>

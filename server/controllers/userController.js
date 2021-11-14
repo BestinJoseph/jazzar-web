@@ -4,7 +4,6 @@ import User from '../models/users.js'
 import { COOKIE_OPTIONS, getRefreshToken, getToken } from '../utils/authentication.js'
 
 export const userSignup = (req, res) => {
-    // console.log(req.body)
     if(!req.body.username)  {
         res.status(500).json({errors: 'username is Requires', success: false})
     } else {
@@ -51,7 +50,6 @@ export const userLogin = (req, res) => {
                             res.status(400).json({errors: "Login cerdential not", success: false})
                         } else {
                             if(user) {
-                                console.log(user)
                                 res.cookie('refreshToken', refreshToken, COOKIE_OPTIONS)
                                 res.status(200).json({errors: null, token, success: true, user})
                             } else {
@@ -106,7 +104,6 @@ export const refreshToken = (req, res) => {
 }
 
 export const userProfile = (req, res) => {
-    console.log(req.user)
     res.status(200).json({errors: null, success: true, user: req.user})
 }
 

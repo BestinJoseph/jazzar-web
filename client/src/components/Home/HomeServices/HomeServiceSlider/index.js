@@ -10,11 +10,23 @@ import archImage from '../../../../assets/images/services.JPG'
 const HomeServiceSlider = ({ service }) => {
     const classes = useStyles()
 
+    console.log(service)
+
+    const handleImage = () => {
+        if ( service.images.length > 0 ) {
+            return service.images[0].path
+        } else {
+            return archImage
+        }
+    }
+
     return (
         <Box className={classes.homeserviceslider} style={{height: '38rem',}} >
             <Box className={classNames('homeSerivceLeftPanel')}>
                 <Typography variant="h3">{ service.name }</Typography>
-                <img src={archImage} alt="ojce_architecure" className={classNames('homeServiceImage')}/>
+                <Box className={classNames('homeServiceImageContainer')}>
+                    <img src={ handleImage() } alt="ojce_architecure" className={classNames('homeServiceImage')}/>
+                </Box>
             </Box>
             <Box className={classNames('homeSerivceRightPanel')}>
                 <Box className={classNames('rightPanelContent')}>

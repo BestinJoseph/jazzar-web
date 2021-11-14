@@ -10,8 +10,6 @@ let axiosInstance = axios.create(headerOptions)
 axiosInstance.interceptors.request.use( async (config) => {
     const token = localStorage.getItem('jwtToken')
 
-    console.log(token)
-
     if (token) {
         config.headers.common.Authorization = `Bearer ${token}`
     } else {

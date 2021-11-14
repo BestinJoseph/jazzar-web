@@ -26,6 +26,7 @@ const IndividualService = ({ service, index, setPressed }) => {
         { id: 5, image: strImage}
     ]
 
+    console.log(service)
 
     return (
         <Box className={classes.individualService} ref={inRef}>

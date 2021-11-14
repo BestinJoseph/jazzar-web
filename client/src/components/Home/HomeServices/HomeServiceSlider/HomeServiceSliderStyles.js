@@ -12,12 +12,19 @@ export default makeStyles((theme) => ({
             width: '70%',
             position: 'relative',
 
-            '& .homeServiceImage': {
-                width: '40rem',
+            '& .homeServiceImageContainer': {
                 position: 'absolute',
                 right: '3rem',
                 bottom: '6rem',
                 borderRadius: '2rem',
+                width: '40rem',
+                height: '20rem',
+                overflow: 'hidden',
+
+                '& .homeServiceImage': {
+                    width: '100%',
+                    // height: '100%',
+                }
             }
         },
 

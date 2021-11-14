@@ -23,6 +23,20 @@ export default makeStyles((theme) => ({
                 '& .headercontainerboxTitle': {
                     display: 'flex',
                     alignItems: 'center',
+                    height: '100%',
+
+                    '& .servicesCreateBtn': {
+                        border:'1px solid',
+                        borderColor: theme.palette.grey,
+                        fontSize: '3rem',
+                        borderRadius: '2rem',
+                        cursor: 'pointer',
+
+                        '&:hover': {
+                            borderColor: theme.palette.ourgold.main,
+                            color: theme.palette.ourgold.main
+                        }
+                    }
                 }
             }
         },
@@ -36,7 +50,6 @@ export default makeStyles((theme) => ({
                     // border: '1px solid orange',
 
                     '& .itemContainer': {
-                        // background: 'gold',
                         height: '15rem',
                         padding: '1rem',
                         display: 'flex',
@@ -44,9 +57,27 @@ export default makeStyles((theme) => ({
                         justifyContent: 'space-between',
 
                         '& .itemFooter': {
-                            borderTop: '1px solid gold',
-                            margin: '.5rem 0',
-                            // background: 'lightgrey',
+                            height: '2rem',
+                            display: 'inline',
+                            textAlign: 'right',
+                            // border: '1px solid gold',
+
+                            '& .itemFooterEditBtn': {
+                                cursor: 'pointer',
+                                border: '1px solid',
+                                borderColor: theme.palette.btncolor.main,
+                                fontSize: '1rem',
+                                // padding: '.3rem',
+                                borderRadius: '2rem',
+                                width: '2rem',
+                                height: '2rem',
+                                color: theme.palette.btncolor.main,
+
+                                '&:hover': {
+                                    borderColor: theme.palette.btncolor.main,
+                                    color: theme.palette.btncolor.main,
+                                }
+                            }
                         }
                     }
                 }

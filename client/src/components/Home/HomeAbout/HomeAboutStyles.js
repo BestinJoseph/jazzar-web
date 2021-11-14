@@ -55,7 +55,7 @@ export default makeStyles((theme) => (
     
                         '& .aboutBtn': {
                             background: theme.palette.btncolor.main,
-                            color: theme.palette.primary.main,
+                            color: theme.palette.ajwhite.main,
                             display: 'inline-block',
                             marginTop: '1.75rem',
                             padding: '1.5rem 2.5rem',

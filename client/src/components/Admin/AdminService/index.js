@@ -22,6 +22,12 @@ const AdminService = () => {
         history.push({ pathname: '/admin/services/edit', state: {id:id}})
     }
 
+    const handleServiceCreate = () => {
+        history.push({ pathname: '/admin/services/create' })
+    }
+
+    // console.log(services)
+
     return (
         <Box className={classes.adminservice}>
             <Box className={classNames('adminserviceheaderContainer')}>
@@ -30,7 +36,7 @@ const AdminService = () => {
                         <HomeIcon onClick={() => history.push({ pathname: '/admin'})} className={classNames('headercontainerboxHomeLink')}/>
                         <Box className={classNames('headercontainerboxTitle')}>
                             <Typography variant="h6" style={{marginRight: '1rem'}}>Services Dashboard</Typography>
-                            <Link to='/admin/services/create'><AddIcon /></Link>
+                            <AddIcon className={classNames('servicesCreateBtn')} onClick={() => handleServiceCreate()}/>
                         </Box>
                     </Breadcrumbs>
                 </Box>
@@ -39,14 +45,14 @@ const AdminService = () => {
                 <Grid container className={classNames('adminserviceContainer')} spacing={2}>
                     { 
                         services && services.map( (service, index) => (
-                            <Grid item xs={3} className={classNames('adminserviceItem')} key={index}>
+                            <Grid item xs={2} className={classNames('adminserviceItem')} key={index}>
                                 <Paper className={classNames('itemContainer')}>
                                     <Box>
                                         <Typography variant="h6">{ service.name }</Typography>
                                         <Typography variant="body2">{ moment(service.updatedAt).format('DD MMM, yyyy') }</Typography>
                                     </Box>
                                     <Box className={classNames('itemFooter')}>
-                                        <EditIcon onClick={() => handleClick(service._id)} style={{ cursor: 'pointer', }}/>
+                                        <EditIcon onClick={() => handleClick(service._id)} className={classNames('itemFooterEditBtn')} />
                                     </Box>
                                 </Paper>
                             </Grid>

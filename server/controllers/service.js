@@ -16,7 +16,7 @@ export const getAllServices = async (req, res) => {
 }
 
 export const getOneService = async (req, res) => {
-    console.log(req.params.slug)
+    // console.log(req.params.slug)
     try {
         res.status(200).json({service: 'get One the service here...'})
     } catch (err) {

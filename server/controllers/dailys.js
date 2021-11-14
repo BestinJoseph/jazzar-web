@@ -3,7 +3,7 @@ import Project from '../models/project.js'
 import _ from 'lodash'
 
 export const getAllDaily = (req, res) => {
-    console.log(req.user)
+    
     Daily.find().populate({path: 'project', select: { project: 1, roles: 1 }}).exec((err, daily) => {
         if(err) {
             res.status(400).json({errors: err.message, success: false})

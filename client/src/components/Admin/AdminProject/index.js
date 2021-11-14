@@ -32,6 +32,10 @@ const AdminProject = () => {
         history.push({pathname: '/promanage/create'})
     }
 
+    const handleProjectCreate = () => {
+        history.push({ pathname: '/admin/projects/create'} )
+    }
+
     return (
         <Box className={classes.adminproject}>
             <Box className={classNames('adminprojectheaderContainer')}>
@@ -39,9 +43,9 @@ const AdminProject = () => {
                     <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
                         <HomeIcon onClick={() => history.push({ pathname: '/admin'})} className={classNames('headercontainerboxHomeLink')}/>
                         <Box className={classNames('headercontainerboxTitle')}>
-                            <Typography variant="h6" style={{marginRight: '1rem'}}>Project Dashboard</Typography>
-                            <Link to='/admin/projects/create'><AddIcon /></Link>
+                            <Typography variant="h6">Project Dashboard</Typography>
                         </Box>
+                        <AddIcon onClick={() => handleProjectCreate()} className={classNames('projectCreateBtn')} />
                     </Breadcrumbs>
                 </Box>
                 <Typography  className={classNames('backToProManagerBtn')} onClick={() => handleBackToProManager()}>Back to ProManager</Typography>
@@ -50,14 +54,14 @@ const AdminProject = () => {
                 <Grid container className={classNames('adminprojectContainer')} spacing={2}>
                     {
                         allProjects.map( (project, index) => (
-                            <Grid item xs={3} className={classNames('adminprojectItem')} key={index}>
+                            <Grid item xs={2} className={classNames('adminprojectItem')} key={index}>
                                 <Paper className={classNames('itemContainer')}>
                                     <Box>
                                         <Typography variant="h6">{ project && project.project }</Typography>
                                         <Typography variant="body2">{project &&  moment(project.updatedAt).format('DD MMM, YYYY') }</Typography>
                                     </Box>
                                     <Box className={classNames('itemFooter')}>
-                                        <EditIcon onClick={() => handleClick(project._id)} style={{ cursor: 'pointer', }}/>
+                                        <EditIcon onClick={() => handleClick(project._id)} className={classNames('projectEditBtn')} />
                                     </Box>
                                 </Paper>
                             </Grid>

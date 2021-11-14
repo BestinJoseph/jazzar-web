@@ -13,6 +13,8 @@ export default makeStyles((theme) => ({
             justifyContent: 'space-between',
 
             '& .headercontainerBox': {
+                display: 'flex',
+                alignItems: 'center',
 
                 '& .headercontainerboxHomeLink': {
                     cursor: 'pointer',
@@ -25,7 +27,22 @@ export default makeStyles((theme) => ({
                 '& .headercontainerboxTitle': {
                     display: 'flex',
                     alignItems: 'center',
-                }
+                },
+
+                '& .projectCreateBtn': {
+                    border: '1px solid',
+                    borderColor: theme.palette.ourgold.main,
+                    height: '3rem',
+                    width: '3rem',
+                    marginBottom: '-.5rem',
+                    borderRadius: '3rem',
+                    cursor: 'pointer',
+
+                    '&:hover': {
+                        borderColor: theme.palette.primary.main,
+                        color: theme.palette.primary.main,
+                    }
+                },  
             },
 
             '& .backToProManagerBtn': {
@@ -60,9 +77,18 @@ export default makeStyles((theme) => ({
                         justifyContent: 'space-between',
 
                         '& .itemFooter': {
-                            borderTop: '1px solid gold',
-                            margin: '.5rem 0',
+                            marginBottom: '-0.25rem',
+                            textAlign: 'right',
+                            cursor: 'pointer',
                             // background: 'lightgrey',
+
+                            '& .projectEditBtn': {
+                                border: '1px solid',
+                                borderColor: theme.palette.btncolor.main,
+                                height: '2rem',
+                                width: '2rem',
+                                borderRadius: ''
+                            }
                         }
                     }
                 }
